@@ -1,0 +1,7 @@
+{
+  "name": "VSense-Mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "VSense-Mobile",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
