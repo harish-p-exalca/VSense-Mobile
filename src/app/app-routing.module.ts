@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'device-list',
     loadChildren: () => import('./device-list/device-list.module').then( m => m.DeviceListPageModule)
   },
+  {
+    path: 'exceptions',
+    loadChildren: () => import('./exceptions/exceptions.module').then( m => m.ExceptionsPageModule)
+  },
+  {
+    path: 'livefeed',
+    loadChildren: () => import('./livefeed/livefeed.module').then( m => m.LivefeedPageModule)
+  },
 
 
 ];

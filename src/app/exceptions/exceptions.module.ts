@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DeviceListPageRoutingModule } from './device-list-routing.module';
+import { ExceptionsPageRoutingModule } from './exceptions-routing.module';
 
-import { DeviceListPage } from './device-list.page';
+import { ExceptionsPage } from './exceptions.page';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
@@ -18,13 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     IonicModule,
-    DeviceListPageRoutingModule,
+    ExceptionsPageRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
     MatTableModule,
     MatMenuModule,
     MatIconModule
   ],
-  declarations: [DeviceListPage]
+  declarations: [ExceptionsPage]
 })
-export class DeviceListPageModule {}
+export class ExceptionsPageModule {}
