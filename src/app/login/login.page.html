@@ -1,0 +1,110 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="maindiv" fxLayout="row">
+    <div fxFlex="6" class="div1"></div>
+    <div fxFlex="88" class="centerdiv" fxLayout="column">
+      <!-- <div fxFlexOffset="25"></div> -->
+      <div fxFlex="10"></div>
+      <div fxLayout="column" fxFlex="5" class="title">
+        <span>Welcome To</span>
+        <span>VSense</span>
+      </div>
+      <!-- <div fxFlexOffset="15"></div> -->
+      <div fxFlex="8"></div>
+      <!-- <div fxFlex="50"> -->
+      <mat-card  fxLayout="row" class="card"  fxFlex="67" >
+       <div fxFlex="6" style="height: 5px;"></div>
+       <div fxFlex="88" fxLayout="column">
+         <div fxFlex="6" style="height: 5px;color: white;"></div>
+         <div fxFlex="88" fxLayout="column" fxLayoutGap="20px" >
+           <div fxFlex="20" fxLayout="row"  fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxLayoutGap="10px" >
+              <span class="signin">Sign In</span>
+              <span class="signinto">Sign In to Continue</span>
+            </div>
+            <img class="vsense" src="./assets/Group 8221.svg">
+        
+          
+          
+          </div>
+           <div fxFlex="65"  >
+            <span class="user">User Name</span>
+            <form [formGroup]="loginFormGroup">
+              <mat-form-field class="input" appearance="outline">
+                <input placeholder="Enter User Name" matInput type="text" formControlName="UserName"  autocomplete="off" />
+              </mat-form-field>
+            </form>
+            <span class="user">Password</span>
+            <form [formGroup]="loginFormGroup">
+              <mat-form-field class="input" appearance="outline">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <input placeholder="Enter Password" matInput [type]="hide ? 'password' : 'text'"
+                    formControlName="Password"  autocomplete="off" />
+                    <img class="show"(click)="hide = !hide" [src]="hide  ?  './assets/38488.svg' : './assets/38488.svg'" />
+                    <!-- <mat-icon class="show" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                </div>
+              </mat-form-field>
+            </form>
+            <span class="forgot" fxLayoutAlign="end center">Forgot Password?</span>
+          
+          
+          
+          
+          
+          </div>
+           <div fxFlex="15" fxLayoutAlign="center center">
+          
+          
+            <button class="btn" fxLayoutAlign="center center" type="button" mat-raised-button>
+              Log in
+            </button></div>
+
+
+
+
+
+
+         </div>
+         <div fxFlex="6" style="height: 5px;color: white;">.</div>
+
+        </div>
+       <div fxFlex="6" style="height: 5px"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </mat-card>
+    <!-- </div> -->
+      <!-- <div fxFlexOffset="20"></div> -->
+      <div fxFlex="8"></div>
+
+      <div fxLayout="column" fxFlex="5">
+        <span class="footer">Powered By</span>
+        <img src="./assets/Group 7927.svg">
+
+       
+      </div>
+      <!-- <div fxFlexOffset="12"></div> -->
+      <div fxFlex="7"></div>
+
+    </div>
+    <div fxFlex="6" class="div1"></div>
+  </div>
+
+</ion-content>
