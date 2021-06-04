@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DeviceListPageRoutingModule } from './device-list-routing.module';
+import { LivefeedPageRoutingModule } from './livefeed-routing.module';
 
-import { DeviceListPage } from './device-list.page';
+import { LivefeedPage } from './livefeed.page';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
@@ -18,13 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     IonicModule,
-    DeviceListPageRoutingModule,
+    LivefeedPageRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
     MatTableModule,
     MatMenuModule,
     MatIconModule
   ],
-  declarations: [DeviceListPage]
+  declarations: [LivefeedPage]
 })
-export class DeviceListPageModule {}
+export class LivefeedPageModule {}

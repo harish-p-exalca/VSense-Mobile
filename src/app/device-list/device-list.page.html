@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <!-- <ion-title>device_list</ion-title> -->
     <div fxLayout="row" fxLayoutGap="25px">
       <div fxFlex="3"></div>
       <img src="./assets/Group 20.svg">
@@ -12,70 +11,102 @@
     </div>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div fxLayout="row" fxFlex="100" class="maindiv">
+  <div fxFlex="row" class="maindiv">
     <div fxFlex="3"></div>
-    <div fxFlex="94" fxLayout="column" >
-      <div fxflex="3"></div>
-      <!-- <div fxFlex="1" style="background-color: red;"></div> -->
-      <!-- <div fxFlex="99" fxLayout="column"  > -->
-        <div fxLayout="row" fxFlex="3" fxLayoutAlign="space-evenly center" >
-          <div fxLayoutGap="5px">
-            <img src="./assets/Ellipse 102.svg">
-            <span>All</span>
-          </div>
-          <span>Active</span>
-          <span>Inactive</span>
+    <div fxFlex="94" fxLayout="column">
+      <div fxFlex="1"></div>
+      <div fxFlex="5" fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div fxLayoutGap="5px">
+          <img src="./assets/Ellipse 102.svg">
+          <span style="color: #3131ff;">All</span>
         </div>
-        <div fxFlex="94" class="tabledivision" >
-
-          <table mat-table [dataSource]="dataSource" matSort>
-
-            <ng-container matColumnDef="LogID">
-              <th mat-header-cell *matHeaderCellDef>LogID</th>
-              <td mat-cell *matCellDef="let element" class="rowfix" (click)="ViewDetails(element)">
-                {{element.LogID}}
-              </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Site">
-              <th mat-header-cell *matHeaderCellDef> Site </th>
-              <td mat-cell *matCellDef="let element" class="rowfix">
-                {{element.Site}}
-              </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Space">
-              <th mat-header-cell *matHeaderCellDef> Space</th>
-              <td mat-cell *matCellDef="let element" class="rowfix">
-                {{element.Space}}
-              </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Asset">
-              <th mat-header-cell *matHeaderCellDef> Asset </th>
-              <td mat-cell *matCellDef="let element" class="rowfix">
-                {{element.Asset}}
-              </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
-            <tr mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
-            </tr>
-          </table>
-        </div>
-
-
-
-
-
-      <!-- </div> -->
-
-
-
-
+        <span style="color: #00DE34;">Active</span>
+        <span style="color:#FF4646">Inactive</span>
+      </div>
+      <div fxFlex="1"></div>
+      <div fxFlex="93" class="tabledivision ">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="Site">
+            <th mat-header-cell *matHeaderCellDef> Site </th>
+            <td mat-cell *matCellDef="let element" class="rowfix">
+              {{element.Site}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Space">
+            <th mat-header-cell *matHeaderCellDef> Space</th>
+            <td mat-cell *matCellDef="let element">
+              {{element.Space}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Asset">
+            <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Asset </th>
+            <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
+              {{element.Asset}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Edge">
+            <th mat-header-cell *matHeaderCellDef>Edge</th>
+            <td mat-cell *matCellDef="let element" class="rowfix">
+              {{element.Edge}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Lastfeed">
+            <th style="margin-left: 1px" *matHeaderCellDef>Last feed</th>
+            <td mat-cell *matCellDef="let element" class="rowfix">
+              {{element.Lastfeed}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element" class="rowfix">
+              {{element.Status}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Action" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef>
+              <!-- <mat-icon style="text-align: center;">more_horiz</mat-icon> -->
+              <img [matMenuTriggerFor]="menu" src="./assets/moreaction.svg">
+              <!-- <ion-icon   [matMenuTriggerFor]="menu" class="icon" name="ellipsis-horizontal-outline"></ion-icon> -->
+              <mat-menu class="menubtn" #menu="matMenu">
+                <button class="menu1 menubtn" mat-menu-item routerLink="/livefeed">View Details </button>
+                <button class="menu1 menubtn" mat-menu-item>Enable</button>
+                <button class="menu1 menubtn" mat-menu-item>Disable</button>
+              </mat-menu>
+            </td>
+          </ng-container>
+          <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+          <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
+          </tr>
+        </table>
+      </div>
     </div>
-    <div fxFlex="1"></div>
-
+    <div fxFlex="3"></div>
   </div>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {{element.Action}} -->
+<!-- <mat-icon>more_horiz</mat-icon> -->
+<!-- <mat-icon>more_vert</mat-icon> -->
+<!-- <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> -->

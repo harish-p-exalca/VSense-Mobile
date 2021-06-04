@@ -46,13 +46,10 @@
       font-family: 'poppins-semi';
       src:url('assets/Poppins-SemiBold.ttf');
       }
-
-
-  .mat-form-field-appearance-outline .mat-form-field-flex {
+.mat-form-field-appearance-outline .mat-form-field-flex {
   background-color: #f4f4fb;
 
 }
-
 .mat-form-field-infix {
   display: block;
   position: relative;
@@ -60,4 +57,19 @@
   min-width: 0;
   width: 180px;
   height: 50px;
+}
+.mat-menu-panel {
+  box-shadow: none;
+  background-color: 
+  #f4f4fb;
+  width: 20px;
+}
+.cdk-overlay-connected-position-bounding-box {
+  position: absolute;
+  top: -15px !important;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 1px;
+  min-height: 1px;
 }

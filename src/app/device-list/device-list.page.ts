@@ -1,53 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 export interface List {
-  // photos: string;
-  LogID: string;
   Site: string;
   Space: string;
   Asset: string;
- 
+  Edge:string;
+  Lastfeed:string;
+  Status:string;
 }
 const LIST_DATA: List[] = [
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',},
- 
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
+ { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
 ];
 @Component({
   selector: 'app-device-list',
@@ -56,16 +46,17 @@ const LIST_DATA: List[] = [
 })
 export class DeviceListPage implements OnInit {
   displayedColumns: string[] = [
-    'LogID',
     'Site',
 		'Space',
 		'Asset',
+    'Edge',
+    'Lastfeed',
+    'Status',
+    'Action'
   ];
-  // dataSource = LIST_DATA;
   data = Object.assign(LIST_DATA);
 dataSource = new MatTableDataSource<List>(this.data);
   constructor() { }
-
   ngOnInit() {
   }
 
