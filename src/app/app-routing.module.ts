@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'device-list',
     loadChildren: () => import('./device-list/device-list.module').then( m => m.DeviceListPageModule)
   },
@@ -25,6 +26,14 @@ const routes: Routes = [
   {
     path: 'livefeed',
     loadChildren: () => import('./livefeed/livefeed.module').then( m => m.LivefeedPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'masters',
+    loadChildren: () => import('./masters/masters.module').then( m => m.MastersPageModule)
   },
 
 
