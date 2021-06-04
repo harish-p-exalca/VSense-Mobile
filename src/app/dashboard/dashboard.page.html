@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+      <div fxFlex=33.3 fxLayoutAlign="start center">
+        <img src="assets/images/menu.svg">
+      </div>
+      <div fxFlex=33.3 fxLayoutAlign="center center">
+        <img src="assets/images/vsense-logo.svg">
+      </div>
+      <div fxFlex></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="title-container" fxLayout="column" fxLayoutGap="4px">
+    <span class="title">Dashboard</span>
+    <span class="sub-title">Overview of Vsense Performance Indicators</span>
+  </div>
+  <div class="device-list-container" fxLayout="row" fxLayoutAlign="space-between">
+    <img fxFlex=60 src="assets/images/devices.png" class="img-devices">
+    <div fxLayout="column" fxLayoutAlign="center center" class="status-container">
+      <div fxLayout="column" fxLayoutGap="4px">
+        <span class="active-inactive">Active</span>
+        <span class="active-inactive">InActive</span>
+      </div>
+    </div>
+    <div class="view-container" fxLayoutAlign="end end">
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+        <span class="view-txt">View</span>
+        <img src="assets/images/single-next.svg">
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutGap="8px" class="count-container">
+    <span class="count-header">Devices</span>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div class="countbox total-bg" fxLayout="column" fxLayoutAlign="start center">
+        <span class="dotnot-container">
+          <div class="dotnot total-dn"></div>
+        </span>
+        <span class="count total-c">5</span>
+        <span class="titletxt">Total</span>
+        <span class="titletxt">Devices</span>
+      </div>
+      <div class="countbox active-bg" fxLayout="column" fxLayoutAlign="start center">
+        <span class="dotnot-container">
+          <div class="dotnot active-dn"></div>
+        </span>
+        <span class="count active-c">3</span>
+        <span class="titletxt">Active</span>
+        <span class="titletxt">Devices</span>
+      </div>
+      <div class="countbox inactive-bg" fxLayout="column" fxLayoutAlign="start center">
+        <span class="dotnot-container">
+          <div class="dotnot inactive-dn"></div>
+        </span>
+        <span class="count inactive-c">2</span>
+        <span class="titletxt">Inactive</span>
+        <span class="titletxt">Devices</span>
+      </div>
+    </div>
+  </div>
+  <div class="chart-header-container" fxLayoutAlign="space-between">
+    <span class="chart-header">Device Status</span>
+    <div fxLayoutGap="8px" fxLayoutAlign="end center">
+      <span class="chart-filter">Last 6 Months</span>
+      <img src="assets/images/down-arrow.svg" width="10px">
+    </div>
+  </div>
+  <div id="splinechart" class="chart-wrapper">
+    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [dataLabels]="chartOptions.dataLabels"
+      [fill]="chartOptions.fill" [grid]="chartOptions.grid"></apx-chart>
+  </div>
+  <div class="menu-header-container">
+    <span class="menu-header">Other Menu’s</span>
+  </div>
+  <div class="hdivider"></div>
+  <div class="menu-container" fxLayoutAlign="start center">
+    <img class="menu-item-img" src="assets/images/livefeeds.png">
+    <div fxFlex=15></div>
+    <span class="menu-item-title">Live Feeds</span>
+    <div fxFlex></div>
+    <img src="assets/images/double-next.svg">
+  </div>
+  <div class="hdivider"></div>
+  <div class="menu-container" fxLayoutAlign="start center">
+    <img class="menu-item-img" src="assets/images/exceptions.png">
+    <div fxFlex=15></div>
+    <span class="menu-item-title">Exceptions</span>
+    <div fxFlex></div>
+    <img src="assets/images/double-next.svg">
+  </div>
+  <div class="hdivider"></div>
+  <div class="menu-container" fxLayoutAlign="start center">
+    <img class="menu-item-img" src="assets/images/masters.png">
+    <div fxFlex=15></div>
+    <span class="menu-item-title">Masters</span>
+    <div fxFlex></div>
+    <img src="assets/images/double-next.svg">
+  </div>
+  <div class="master-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <span class="master-item">Site</span>
+    <span class="master-item">Space</span>
+    <span class="master-item">Edge Group</span>
+    <span class="master-item">Gateway</span>
+    <span class="master-item">Edge Device</span>
+    <span class="master-item">Asset</span>
+    <span class="master-item">Rule</span>
+  </div>
+  <div class="hdivider" style="margin-bottom: 16px;"></div>
+</ion-content>
