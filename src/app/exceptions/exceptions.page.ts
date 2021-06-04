@@ -43,6 +43,11 @@ const LIST_DATA: List[] = [
   styleUrls: ['./exceptions.page.scss'],
 })
 export class ExceptionsPage implements OnInit {
+  a:any=1;
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   displayedColumns:string[]=["Excep I’D","Site","Space","Asset","Class","PramID","Value","Date/Time",
   "Assigned To","Threshold","SLA Start","Status","Resolve"];
   dataSource:MatTableDataSource<any>=new MatTableDataSource(LIST_DATA);
@@ -52,5 +57,10 @@ export class ExceptionsPage implements OnInit {
 
   ngOnInit() {
   }
-
+  search(){
+    this.a=2;
+  }
+  close(){
+    this.a=1;
+  }
 }

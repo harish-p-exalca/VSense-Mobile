@@ -62,6 +62,11 @@ const LIST_DATA: List[] = [
   styleUrls: ['./livefeed.page.scss'],
 })
 export class LivefeedPage implements OnInit {
+  a:any=1;
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   displayedColumns: string[] = [
   
     'LogID',
@@ -86,5 +91,10 @@ dataSource = new MatTableDataSource<List>(this.data);
 
   ngOnInit() {
   }
-
+  search(){
+    this.a=2;
+  }
+  close(){
+    this.a=1;
+  }
 }

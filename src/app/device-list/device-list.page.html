@@ -1,13 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <div fxLayout="row" fxLayoutGap="25px">
+    <div *ngIf="a==1" fxLayout="row" fxLayoutGap="25px">
       <div fxFlex="3"></div>
       <img src="./assets/Group 20.svg">
       <span class="device">Device List</span>
       <span class="flex"></span>
-      <img src="./assets/Group 8233.svg">
+      <img (click)="search()" src="./assets/Group 8233.svg">
       <img src="./assets/iconfinder_Filter_4737438 (4).svg">
       <div fxFlex="3"></div>
+    </div>
+
+
+    <div *ngIf="a==2" class="search-container" fxLayout="row">
+      <input class="search" placeholder="Search to - do" (keyup)="applyFilter($event)" #input autocomplete="off"
+        fxFlex=100>
+      <div mat-ripple class="searchbtn pointer" fxLayoutAlign="center">
+        <img class="close" (click)="close()" src="./assets/Close.svg">
+      </div>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -16,16 +25,203 @@
     <div fxFlex="3"></div>
     <div fxFlex="94" fxLayout="column">
       <div fxFlex="1"></div>
-      <div fxFlex="5" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <div fxLayoutGap="5px">
-          <img src="./assets/Ellipse 102.svg">
-          <span style="color: #3131ff;">All</span>
-        </div>
-        <span style="color: #00DE34;">Active</span>
-        <span style="color:#FF4646">Inactive</span>
-      </div>
-      <div fxFlex="1"></div>
-      <div fxFlex="93" class="tabledivision ">
+      <mat-tab-group fxFlex="99">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span fxLayoutGap="5px" [ngClass]="(valu) == '1' ? 'all' : 'all1'" (click)="all()"> <img *ngIf="valu==1"
+                src="./assets/Ellipse 102.svg">
+              <span>All</span></span>
+          </ng-template>
+
+
+          <div class="tabledivision tableFixHead">
+            <!-- fxFlex="93" -->
+            <table mat-table [dataSource]="dataSource" class="tableFixHead" matSort>
+              <ng-container matColumnDef="Site">
+                <th mat-header-cell *matHeaderCellDef> Site </th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Site}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Space">
+                <th mat-header-cell *matHeaderCellDef> Space</th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.Space}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Asset">
+                <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Asset </th>
+                <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Asset}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Edge">
+                <th mat-header-cell *matHeaderCellDef>Edge</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Edge}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Lastfeed">
+                <th style="margin-left: 1px" *matHeaderCellDef>Last feed</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Lastfeed}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Status}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Action" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef>
+                  <img [matMenuTriggerFor]="menu" src="./assets/moreaction.svg">
+
+                  <mat-menu class="menubtn" #menu="matMenu">
+                    <button class="menu1 menubtn" mat-menu-item routerLink="/livefeed">View Details </button>
+                    <button class="menu1 menubtn" mat-menu-item>Enable</button>
+                    <button class="menu1 menubtn" mat-menu-item>Disable</button>
+                  </mat-menu>
+                </td>
+              </ng-container>
+              <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+              <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
+              </tr>
+            </table>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span fxLayoutGap="5px" [ngClass]="(value) == '1' ? 'active' : 'active1'" (click)="active()">
+              <img *ngIf="value==1" class="green_img" src="./assets/Ellipse 102.svg">
+              <span>Active</span></span>
+          </ng-template>
+          <div class="tabledivision ">
+            <!-- fxFlex="93" -->
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="Site">
+                <th mat-header-cell *matHeaderCellDef> Site </th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Site}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Space">
+                <th mat-header-cell *matHeaderCellDef> Space</th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.Space}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Asset">
+                <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Asset </th>
+                <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Asset}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Edge">
+                <th mat-header-cell *matHeaderCellDef>Edge</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Edge}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Lastfeed">
+                <th style="margin-left: 1px" *matHeaderCellDef>Last feed</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Lastfeed}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Status}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Action" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef>
+                  <img [matMenuTriggerFor]="menu" src="./assets/moreaction.svg">
+
+                  <mat-menu class="menubtn" #menu="matMenu">
+                    <button class="menu1 menubtn" mat-menu-item routerLink="/livefeed">View Details </button>
+                    <button class="menu1 menubtn" mat-menu-item>Enable</button>
+                    <button class="menu1 menubtn" mat-menu-item>Disable</button>
+                  </mat-menu>
+                </td>
+              </ng-container>
+              <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+              <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
+              </tr>
+            </table>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span fxLayoutGap="5px" [ngClass]="(valuee) == '1' ? 'inactive' : 'inactive1'" (click)="inactive()">
+              <img *ngIf="valuee==1" class="red_img" src="./assets/Ellipse 102.svg">
+              <span>Inactive</span></span>
+          </ng-template>
+          <div class="tabledivision ">
+            <!-- fxFlex="93" -->
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="Site">
+                <th mat-header-cell *matHeaderCellDef> Site </th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Site}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Space">
+                <th mat-header-cell *matHeaderCellDef> Space</th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.Space}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Asset">
+                <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Asset </th>
+                <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Asset}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Edge">
+                <th mat-header-cell *matHeaderCellDef>Edge</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Edge}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Lastfeed">
+                <th style="margin-left: 1px" *matHeaderCellDef>Last feed</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Lastfeed}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element" class="rowfix">
+                  {{element.Status}}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Action" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef>
+                  <img [matMenuTriggerFor]="menu" src="./assets/moreaction.svg">
+
+                  <mat-menu class="menubtn" #menu="matMenu">
+                    <button class="menu1 menubtn" mat-menu-item routerLink="/livefeed">View Details </button>
+                    <button class="menu1 menubtn" mat-menu-item>Enable</button>
+                    <button class="menu1 menubtn" mat-menu-item>Disable</button>
+                  </mat-menu>
+                </td>
+              </ng-container>
+              <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+              <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
+              </tr>
+            </table>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+      <!-- <div fxFlex="1"></div> -->
+      <!-- <div fxFlex="93" class="tabledivision ">
         <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="Site">
             <th mat-header-cell *matHeaderCellDef> Site </th>
@@ -66,9 +262,8 @@
           <ng-container matColumnDef="Action" stickyEnd>
             <th mat-header-cell *matHeaderCellDef>Action</th>
             <td mat-cell *matCellDef>
-              <!-- <mat-icon style="text-align: center;">more_horiz</mat-icon> -->
               <img [matMenuTriggerFor]="menu" src="./assets/moreaction.svg">
-              <!-- <ion-icon   [matMenuTriggerFor]="menu" class="icon" name="ellipsis-horizontal-outline"></ion-icon> -->
+             
               <mat-menu class="menubtn" #menu="matMenu">
                 <button class="menu1 menubtn" mat-menu-item routerLink="/livefeed">View Details </button>
                 <button class="menu1 menubtn" mat-menu-item>Enable</button>
@@ -80,7 +275,7 @@
           <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
           </tr>
         </table>
-      </div>
+      </div> -->
     </div>
     <div fxFlex="3"></div>
   </div>
@@ -97,6 +292,14 @@
 
 
 
+<!-- <div fxLayoutGap="5px" fxLayout="row">
+          <img src="./assets/Ellipse 102.svg">
+          <span style="color: #3131ff;">All</span>
+        </div>
+        <span style="color: #00DE34;">Active</span>
+        <span style="color:#FF4646">Inactive</span> -->
+
+
 
 
 
@@ -110,3 +313,6 @@
 <!-- <mat-icon>more_horiz</mat-icon> -->
 <!-- <mat-icon>more_vert</mat-icon> -->
 <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> -->
+
+
+<!-- <ion-icon   [matMenuTriggerFor]="menu" class="icon" name="ellipsis-horizontal-outline"></ion-icon> -->

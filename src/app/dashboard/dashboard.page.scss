@@ -48,7 +48,7 @@ $common-padding:16px 20px;
     margin: $common-padding;
     border-radius: 4px;
     padding: 16px 20px;
-    box-shadow: 0 8px 6px 0 rgb(95 44 255 / 8%);
+    box-shadow: 0 8px 6px 0 rgba(95,44,255,0.8);
     .count-header{
         @extend .poppins;
         font-size: 12px;
@@ -97,13 +97,13 @@ $common-padding:16px 20px;
       background-color: #ff4646;
     }
     .total-bg{
-      background-color: rgb(49 49 255 / 10%);
+      background-color: rgba(49,49,255,0.1);
     }
     .active-bg{
-      background-color: rgb(0 222 52 / 10%);
+      background-color: rgba(0,222,52,0.1);
     }
     .inactive-bg{
-      background-color: rgb(255 70 70 / 10%);
+      background-color: rgba(255,70,70,0.1);
     }
 }
 .chart-header-container{
