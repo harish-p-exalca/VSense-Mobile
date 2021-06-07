@@ -14,8 +14,8 @@
 }
 .tabledivision{
 
-    overflow: scroll;
-    height: 27rem;
+    // overflow: scroll;
+    height: 44rem;
     width: 1450px;
     max-width: 100%;
     border-radius: 4px;
@@ -57,6 +57,7 @@
     th.mat-header-cell {
          text-align:center
     }
+ 
     
     th.mat-header-cell:first-child {
         border-top-left-radius: 4px !important;
@@ -89,4 +90,87 @@
     position: relative;
     top: 100%;
 left: 70%;
+}
+::ng-deep .mat-menu-panel {
+    box-shadow: none;
+    background-color: 
+    #f4f4fb;
+    width: 20px;
+  }
+.all{
+color:#3131ff;
+}
+.all1{
+    color: black;
+    }
+    .active{
+        color: #00DE34;
+        }
+        .active1{
+            color: #394256;
+            }
+            .inactive{
+                color: #FF4646;
+                }
+                .inactive1{
+                    color: #394256;
+                    }
+
+.green_img{
+    filter: invert(58%) sepia(34%) saturate(4605%) hue-rotate(94deg) brightness(108%) contrast(103%);
+}
+.red_img{
+    filter: invert(65%) sepia(84%) saturate(6039%) hue-rotate(335deg) brightness(98%) contrast(106%);
+}
+.mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 0px solid rgba(0,0,0,.12);
+}
+.tableFixHead { overflow: scroll; height: 100%; }
+.tableFixHead th { position: sticky; top: 0; }
+.tableFixHead{
+    overflow: auto;
+ 
+}
+::ng-deep input.mat-input-element {
+    margin-top: 20px;
+    width: 80%;
+    height: 32px;
+  }
+
+.search-container{
+    border-radius: 4px;
+    border: solid 1px #3131ff;
+    // height: 36px;
+    height: 30%;
+    // width: 30%;
+    width: 95%;
+    background-color: #ffffff;
+    margin-left:10px;
+}
+.search{
+    font-family: Poppins;
+    font-size: 12px;
+    color: #3131ff;
+    border: none;
+    margin-left: 1rem;
+}
+.search::-webkit-input-placeholder {
+    color: #3131ff;
+    font-size: 10px;
+}
+.search:focus{
+    outline: none;
+}
+.searchbtn{
+   height: 34px;
+    width: 60px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: #3131ff;
+}
+.pointer{
+    cursor: pointer;
+}
+.close{
+    width:24px;
 }

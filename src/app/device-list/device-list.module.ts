@@ -12,7 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatTableModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [DeviceListPage]
 })
