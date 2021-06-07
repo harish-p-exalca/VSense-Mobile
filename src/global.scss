@@ -87,3 +87,106 @@
   padding-left: 52px;
 }
 
+
+//For Angular Gauge
+mwl-gauge.style-1 {
+  margin-top: 22px;
+  width: 110px;
+  height: 110px;
+  display: block;
+}
+mwl-gauge.style-1 > .gauge > .dial {
+  stroke: #eee;
+  stroke-width: 5;
+}
+mwl-gauge.style-1 > .gauge > .value {
+  stroke: #3131ff;
+  stroke-width: 5;
+}
+mwl-gauge.style-1 > .gauge > .value-text {
+  fill: #485865;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  opacity: 0.99;
+}
+mwl-gauge.style-2 {
+  width: 140px;
+  height: 140px;
+  display: block;
+}
+mwl-gauge.style-2 > .gauge > .dial {
+  stroke: #eee;
+  stroke-width: 5;
+}
+mwl-gauge.style-2 > .gauge > .value {
+  stroke: #3131ff;
+  stroke-width: 5;
+}
+mwl-gauge.style-2 > .gauge > .value-text {
+  fill: #485865;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  opacity: 0.99;
+}
+mwl-gauge.style-3 {
+  width: 140px;
+  height: 140px;
+  display: block;
+}
+mwl-gauge.style-3 > .gauge > .dial {
+  stroke: #eee;
+  stroke-dasharray: 1.2px;
+  stroke-width: 5;
+}
+mwl-gauge.style-3 > .gauge > .value {
+  stroke: #3131ff;
+  stroke-dasharray: 1.2px;
+  stroke-width: 5;
+}
+mwl-gauge.style-3 > .gauge > .value-text {
+  fill: #485865;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  opacity: 0.99;
+}
+
+
+
+mwl-gauge.temp {
+  width: 400px;
+  height: 400px;
+  display: block;
+}
+mwl-gauge.temp > .gauge > .dial {
+  stroke: #c72838;
+  stroke-width: 5;
+}
+mwl-gauge.temp > .gauge > .value {
+  stroke: #3131ff;
+  stroke-width: 5;
+}
+mwl-gauge.temp > .gauge > .value-text {
+  fill: transparent;
+}
+mwl-gauge.axis {
+  margin-top: 22px;
+  width: 350px;
+  height: 350px;
+  display: block;
+}
+mwl-gauge.axis > .gauge > .dial {
+  stroke: #e4e4e4;
+  stroke-dasharray: 0.6px;
+  stroke-width: 2;
+}
+mwl-gauge.axis > .gauge > .value {
+  stroke: #3131ff;
+  stroke-dasharray: 0.6px;
+  stroke-width: 2;
+}
+mwl-gauge.axis > .gauge > .value-text {
+  fill: transparent;
+}
