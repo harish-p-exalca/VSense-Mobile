@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
+      <div fxLayoutAlign="start center">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center">
+        <span class="title">Control Center</span>
+      </div>
+      <div fxFlex></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header-container" fxLayoutAlign="space-between">
+    <div fxLayout="column" fxLayoutGap="8px">
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+        <img src="assets\images\Component 37 – 1.svg">
+        <span class="header-txt">CBE002</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+        <img src="assets\images\Component 38 – 1.svg">
+        <span class="header-txt">Coimbatore</span>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="8px">
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+        <img src="assets\images\Component 39 – 1.svg">
+        <span class="header-txt">Server-CBE</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+        <img src="assets\images\Component 40 – 1.svg">
+        <span class="header-txt">Exalca server cbe</span>
+      </div>
+    </div>
+  </div>
+  <div class="gauge-container" fxLayout="row" fxLayoutGap="16px">
+    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <div class="title-container1" fxLayoutAlign="center center">
+        <span class="title">Current</span>
+        <img src="assets/images/Group 8239.svg" class="design-pos">
+      </div>
+      <div class="gauge-wrapper">
+        <div class="gauge">
+          <mwl-gauge class="style-1" [dialStartAngle]="-90" [min]="0" [max]="60" [dialEndAngle]="-90.001" [value]="32"
+            [showValue]="false" [animated]="true" [animationDuration]="1">
+          </mwl-gauge>
+        </div>
+        <div class="border_circle" fxLayout="column" fxLayoutAlign="center center">
+          <span class="gaugevalue">32</span>
+          <span class="unittxt">&#8451;</span>
+        </div>
+        <div class="dash_border"></div>
+      </div>
+      <div fxLayout="column" class="gauge-params">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="minavgmax">Min</span>
+          <span class="minavgmax">Avg</span>
+          <span class="minavgmax">Max</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="min">0</span>
+          <span class="avg">30</span>
+          <span class="max">60</span>
+        </div>
+      </div>
+    </div>
+    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <div class="title-container2" fxLayoutAlign="center center">
+        <span class="title">Current</span>
+        <img src="assets/images/Group 8239.svg" class="design-pos">
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+        <mwl-gauge class="style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
+          [max]="30">
+        </mwl-gauge>
+        <div class="border_circle_2">
+          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+            <span class="gaugevalue">10</span>
+            <span class="unittxt">mA</span>
+          </div>
+          <div class="smalltxt">0</div>
+          <div class="smalltxt" style="top: -2px;">40</div>
+          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+          <div class="smalltxt" style="right: -2px;">100</div>
+        </div>
+      </div>
+      <div fxLayout="column" class="gauge-params">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="minavgmax">Min</span>
+          <span class="minavgmax">Avg</span>
+          <span class="minavgmax">Max</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="min">0</span>
+          <span class="avg">30</span>
+          <span class="max">60</span>
+        </div>
+      </div>
+    </div>
+    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <div class="title-container1" fxLayoutAlign="center center">
+        <span class="title">Current</span>
+        <img src="assets/images/Group 8239.svg" class="design-pos">
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+        <mwl-gauge class="style-3" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
+          [max]="30">
+        </mwl-gauge>
+        <div class="border_circle_2">
+          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+            <span class="gaugevalue">10</span>
+            <span class="unittxt">mA</span>
+          </div>
+          <div class="smalltxt">0</div>
+          <div class="smalltxt" style="top: -2px;">40</div>
+          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+          <div class="smalltxt" style="right: -2px;">100</div>
+        </div>
+      </div>
+      <div fxLayout="column" class="gauge-params">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="minavgmax">Min</span>
+          <span class="minavgmax">Avg</span>
+          <span class="minavgmax">Max</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="min">0</span>
+          <span class="avg">30</span>
+          <span class="max">60</span>
+        </div>
+      </div>
+    </div>
+    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+      <div class="title-container2" fxLayoutAlign="center center">
+        <span class="title">Current</span>
+        <img src="assets/images/Group 8239.svg" class="design-pos">
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+        <mwl-gauge class="style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
+          [max]="30">
+        </mwl-gauge>
+        <div class="border_circle_2">
+          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+            <span class="gaugevalue">10</span>
+            <span class="unittxt">mA</span>
+          </div>
+          <div class="smalltxt">0</div>
+          <div class="smalltxt" style="top: -2px;">40</div>
+          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+          <div class="smalltxt" style="right: -2px;">100</div>
+        </div>
+      </div>
+      <div fxLayout="column" class="gauge-params">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="minavgmax">Min</span>
+          <span class="minavgmax">Avg</span>
+          <span class="minavgmax">Max</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <span class="min">0</span>
+          <span class="avg">30</span>
+          <span class="max">60</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="live-feed-container" fxLayoutAlign="start center">
+    <img src="assets/images/Group 8239.svg" class="img-pos">
+    <img src="assets/images/live-feed-icon.svg">
+    <span class="live-feed-txt">Live Feeds</span>
+    <div fxFlex></div>
+    <span class="feed-count">48</span>
+    <img src="assets/images/black-next.svg">
+  </div>
+</ion-content>
