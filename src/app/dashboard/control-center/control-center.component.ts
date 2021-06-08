@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-control-center',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlCenterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router:Router
+  ) { }
 
   ngOnInit() {}
+
+  BackClicked(){
+    this._router.navigate(['dashboard']);
+  }
 
 }

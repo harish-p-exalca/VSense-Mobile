@@ -48,7 +48,7 @@ $common-padding:16px 20px;
     margin: $common-padding;
     border-radius: 4px;
     padding: 16px 20px;
-    box-shadow: 0 8px 6px 0 rgba(95,44,255,0.8);
+    box-shadow: 0 8px 6px 0 rgba(95,44,255,0.08);
     .count-header{
         @extend .poppins;
         font-size: 12px;

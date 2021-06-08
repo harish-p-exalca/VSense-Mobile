@@ -21,6 +21,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 // import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SpaceComponent } from './space/space.component';
+import {MatListModule} from '@angular/material/list';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatTabScrollToCenterDirective } from '../shared/scrolling.directive';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -34,9 +38,12 @@ import { SpaceComponent } from './space/space.component';
     MatDatepickerModule,
     // MatMomentDateModule,
     MatNativeDateModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatListModule,
+    Ng2SearchPipeModule
     
   ],
-  declarations: [MastersPage,SiteComponent,SpaceComponent]
+  declarations: [MastersPage,SiteComponent,SpaceComponent,MatTabScrollToCenterDirective]
 })
 export class MastersPageModule {}
