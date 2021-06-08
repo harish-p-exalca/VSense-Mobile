@@ -18,22 +18,12 @@
 // ::-webkit-input-placeholder { /* Edge */
 //     color: red;
 //   }
-// ::placeholder{
-//     color: red;
-// }
-::placeholder{
-    color: #cc0829;
-    opacity: 40%;
-    font-size: 12px;
-    font-weight: 600;
-    font-family: 'poppins-semi' !important;
-}
-// @media only screen and (min-width: 320px) {
-//     .man_img {
-//        width: 200px;
+// @media only screen and (max-width: 400px) {
+//     .man{
+//        width: 50% !important;
 //     }
 // }
-.man_img{
+.man{
     width: 200px;
 }
 .copy{
@@ -65,7 +55,3 @@
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
     background-color: #f6f6f6;
 }
-::-moz-placeholder {
-    opacity: 1;
-    color: green;
-  }

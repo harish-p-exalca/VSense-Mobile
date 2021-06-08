@@ -82,12 +82,18 @@
 }
 .mat-tab-labels {
   display: flex;
-  /* padding: 0px; */
-  // padding-left: -32px;
   padding-left: 52px;
 }
-
-
+.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-datepicker-toggle-default-icon, .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
+  width: 1.5em !important;
+}
+::placeholder{
+  color: #cc0829;
+  opacity: 40%;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'poppins-semi' !important;
+}
 //For Angular Gauge
 mwl-gauge.style-1 {
   margin-top: 22px;

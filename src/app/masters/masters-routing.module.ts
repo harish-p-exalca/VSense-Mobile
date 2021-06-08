@@ -4,6 +4,7 @@ import { CreateSiteComponent } from './create-site/create-site.component';
 
 import { MastersPage } from './masters.page';
 import { SiteComponent } from './site/site.component';
+import { SpaceComponent } from './space/space.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'site',
     component: SiteComponent
+  },
+  {
+    path: 'space',
+    component: SpaceComponent
   }
 ];
 

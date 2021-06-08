@@ -17,7 +17,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { SharedModule } from '../shared/shared/shared.module';
 import { SiteComponent } from './site/site.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SpaceComponent } from './space/space.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,8 +29,14 @@ import { SiteComponent } from './site/site.component';
     MastersPageRoutingModule,
     SharedModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    // MatMomentDateModule,
+    MatNativeDateModule,
+    MatIconModule
+    
   ],
-  declarations: [MastersPage,SiteComponent]
+  declarations: [MastersPage,SiteComponent,SpaceComponent]
 })
 export class MastersPageModule {}

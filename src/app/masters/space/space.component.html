@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div fxFlex="3"></div>
+      <img src="./assets/Group 20.svg">
+      <span class="title">Masters :</span>
+      <span class="title">Create Space</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div fxLayout="column" class="maindiv">
+    <div fxFlex="2"></div>
+    <div [formGroup]="spaceFormGroup" fxFlex="55" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Title</span>
+        <div fxFlex="5"></div>
+        <mat-form-field class="input" class="inputfield" fxFlex="51">
+          <input placeholder="Enter Purpose" matInput type="text" formControlName="Title" autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="5"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Work Center</span>
+        <div fxFlex="5"></div>
+        <mat-form-field class="input" class="inputfield" fxFlex="51">
+          <input placeholder="Enter Purpose" matInput type="text" formControlName="Workcenter" autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="5"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Parent Space I'D</span>
+        <div fxFlex="5"></div>
+        <mat-form-field class="input" class="inputfield" fxFlex="51">
+          <input placeholder="Enter Plant Name" matInput type="text" formControlName="ParentspaceID"
+            autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="5"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Site I'D</span>
+        <div fxFlex="5"></div>
+        <mat-form-field class="input" class="inputfield" fxFlex="51">
+          <input placeholder="Enter Plant Name" matInput type="text" formControlName="SiteID" autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="5"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Date</span>
+        <div fxFlex="5"></div>
+        <mat-form-field class="input" class="inputfield" fxFlex="51">
+          <input matInput type="text" formControlName="Date" placeholder="Enter Date" [matDatepicker]="datepicker"
+            autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="datepicker">
+            <img src="../../../assets/iconfinder_Calendar_728916.svg">
+          </mat-datepicker-toggle>
+          <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+      </div>
+    </div>
+    <div fxFlex="1"></div>
+    <div fxFlex="33" fxLayoutAlign="center center">
+      <img class="man" src="./assets/Man.svg">
+    </div>
+    <div fxFlex="2"></div>
+    <div fxFlex="7" fxLayout="row" class="footer" fxLayoutAlign="center center">
+      <div fxFlex="7"></div>
+      <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
+        <img src="./assets/copy.svg">
+        <span class="copy">Copy</span>
+      </div>
+      <div fxFlex="23"></div>
+      <div class="delete" fxFlex="15">Delete</div>
+      <div fxFlex="5"></div>
+      <div class="update" fxFlex="15">Update</div>
+      <div fxFlex="5"></div>
+    </div>
+  </div>
+</ion-content>
