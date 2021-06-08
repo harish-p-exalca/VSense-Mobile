@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexTooltip, ApexDataLabels, ApexFill, ApexGrid, ChartComponent } from 'ng-apexcharts';
 
 export type ChartOptions = {
@@ -22,7 +23,9 @@ export class DashboardPage implements OnInit {
   @ViewChild("splinechart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor() { 
+  constructor(
+    private _router:Router
+  ) { 
     this.chartOptions = {
       series: [
         {
@@ -80,6 +83,10 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  MastersClicked(){
+    this._router.navigate(['masters'])
   }
 
 }

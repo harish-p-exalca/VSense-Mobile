@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="toolbar">
-    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
-      <div fxLayoutAlign="start center">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="BackClicked()">
         <img class="backbtn" src="assets/Group 20.svg">
       </div>
       <div fxLayoutAlign="center center">
@@ -43,8 +43,8 @@
       </div>
       <div class="gauge-wrapper">
         <div class="gauge">
-          <mwl-gauge class="style-1" [dialStartAngle]="-90" [min]="0" [max]="60" [dialEndAngle]="-90.001" [value]="32"
-            [showValue]="false" [animated]="true" [animationDuration]="1">
+          <mwl-gauge class="gauge-style-1" [dialStartAngle]="-90" [min]="0" [max]="60" [dialEndAngle]="-90.001"
+            [value]="32" [showValue]="false" [animated]="true" [animationDuration]="1">
           </mwl-gauge>
         </div>
         <div class="border_circle" fxLayout="column" fxLayoutAlign="center center">
@@ -72,8 +72,8 @@
         <img src="assets/images/Group 8239.svg" class="design-pos">
       </div>
       <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
-          [max]="30">
+        <mwl-gauge class="gauge-style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
+          [min]="0" [max]="30">
         </mwl-gauge>
         <div class="border_circle_2">
           <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
@@ -105,8 +105,8 @@
         <img src="assets/images/Group 8239.svg" class="design-pos">
       </div>
       <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="style-3" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
-          [max]="30">
+        <mwl-gauge class="gauge-style-3" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
+          [min]="0" [max]="30">
         </mwl-gauge>
         <div class="border_circle_2">
           <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
@@ -138,8 +138,8 @@
         <img src="assets/images/Group 8239.svg" class="design-pos">
       </div>
       <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1" [min]="0"
-          [max]="30">
+        <mwl-gauge class="gauge-style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
+          [min]="0" [max]="30">
         </mwl-gauge>
         <div class="border_circle_2">
           <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
@@ -173,5 +173,81 @@
     <div fxFlex></div>
     <span class="feed-count">48</span>
     <img src="assets/images/black-next.svg">
+  </div>
+  <div class="signal-container" fxLayout="row">
+    <div fxFlex="55" fxLayoutAlign="center center">
+      <img src="assets/images/signal.png">
+    </div>
+    <div fxFlex=5></div>
+    <div fxFlex=30 fxLayout="column" fxLayoutAlign="center end">
+      <span class="signal-txt">Signals</span>
+      <span class="signal-count">07</span>
+    </div>
+    <div fxFlex=10 fxLayout="column" fxLayoutAlign="end end">
+      <img src="assets/images/signal-icon.svg" width="26px">
+    </div>
+  </div>
+  <div class="device-status-container">
+    <div fxLayoutAlign="space-between center">
+      <span class="header-txt">Device Status</span>
+      <img src="assets/images/device-status.svg" width="56px">
+    </div>
+    <div fxLayoutAlign="space-between">
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <span class="sub-header">Software Version</span>
+        <div class="value-container style-1">
+          <span>V1.0</span>
+        </div>
+        <span class="sub-header">VCC</span>
+        <div class="value-container style-1">
+          <span>5V</span>
+        </div>
+        <span class="sub-header">Battery Status</span>
+        <div class="value-container style-2">
+          <span>Good</span>
+        </div>
+        <span class="sub-header">Device Health</span>
+        <div class="value-container style-2">
+          <span>Good</span>
+        </div>
+        <span class="sub-header">EYL</span>
+        <div class="value-container style-1">
+          <span>Lorem Ipsum</span>
+        </div>
+        <span class="sub-header">Remaining Days</span>
+        <span class="value-rd">365 Days</span>
+      </div>
+      <div class="divice-chart" fxLayoutAlign="center">
+        <div class="outer_container">
+          <mwl-gauge class="gauge-style-4" [max]="120" [value]="90" [animated]="true" [animationDuration]="1"
+            [dialStartAngle]="-120" [dialEndAngle]="120">
+          </mwl-gauge>
+        </div>
+        <div class="scale_container">
+          <mwl-gauge class="gauge-style-5" [max]="100" [value]="100" [animated]="true" [animationDuration]="1"
+            [dialStartAngle]="-120" [dialEndAngle]="120">
+          </mwl-gauge>
+        </div>
+        <div class="btry-status">
+          <div fxLayout="column" fxLayoutGap="12px">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4px">
+              <span class="status-value">100</span>
+              <span class="status-txt">%</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="8px">
+              <img src="assets/images/noun_Battery_1881019.svg" width="16px">
+              <span class="status-txt">Battery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayoutAlign="center center" fxLayoutGap="16px" style="margin: 16px;">
+    <div class="lastpull-img" fxLayoutAlign="center center">
+      <img src="assets/images/last-pull.svg">
+    </div>
+    <span class="lastpull-time">12:10:09</span>
+    <span class="lastpull-txt">Last Pull</span>
   </div>
 </ion-content>

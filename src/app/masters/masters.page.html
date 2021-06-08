@@ -1,9 +1,177 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>masters</ion-title>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="BackClicked()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center">
+        <span class="title">Masters</span>
+      </div>
+      <div fxFlex></div>
+      <img src="assets/Group 8233.svg">
+      <img src="assets/iconfinder_Filter_4737438 (4).svg">
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <mat-tab-group scrollToCenter [(selectedIndex)]="selectedIndex" class="tab-group">
+    <mat-tab label="Site">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Site Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">Title</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <img class="img" src="assets/images/dotnot.svg" width="6px">
+                <span class="titletxt">Plant</span>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Space">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Space Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">Title</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <img class="img" src="assets/images/dotnot.svg" width="6px">
+                <span class="titletxt">Workcenter</span>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Edge Group">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Edge Group Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" style="height: 55px;" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 55px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">Title</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Gateway"></mat-tab>
+    <mat-tab label="Edge Device">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Edge Device Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">DeviceID</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <img class="img" src="assets/images/dotnot.svg" width="6px">
+                <span class="titletxt">Device Name</span>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Asset">
+      <div class="tab-masters" fxLayout="column" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="8px">
+          <span class="count-label">Assets :</span>
+          <span class="count">20</span>
+          <div fxFlex></div>
+          <div class="category">
+            <img src="assets\images\Ellipse 837.svg" width="6px">
+            &nbsp; Working
+          </div>
+          <div class="category">
+            <img src="assets\images\Ellipse 836.svg" width="6px">
+            &nbsp; Not Working
+          </div>
+          <div class="category">
+            <img src="assets\images\Ellipse 838.svg" width="6px">
+            &nbsp; Other
+          </div>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;index as i;"
+          [ngClass]="{'left-border-color1':i%3==0,'left-border-color2':i%3==1,'left-border-color3':i%3==2}">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">Asset</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <img class="img" src="assets/images/dotnot.svg" width="6px">
+                <span class="titletxt">Asset ID</span>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Rule"></mat-tab>
+  </mat-tab-group>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-btn">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
