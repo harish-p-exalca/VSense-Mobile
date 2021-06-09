@@ -46,10 +46,7 @@
       font-family: 'poppins-semi';
       src:url('assets/Poppins-SemiBold.ttf');
       }
-.mat-form-field-appearance-outline .mat-form-field-flex {
-  background-color: #f4f4fb;
 
-}
 .mat-form-field-infix {
   display: block;
   position: relative;
@@ -83,6 +80,10 @@
 .mat-form-field-appearance-legacy .mat-form-field-prefix .mat-datepicker-toggle-default-icon, .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
   width: 1.5em !important;
 }
+.mat-form-field-prefix .mat-icon-button, .mat-form-field-suffix .mat-icon-button {
+  height: 1.5em;
+  width: 4em !important;
+}
 ::placeholder{
   color: #cc0829;
   opacity: 40%;
@@ -90,6 +91,13 @@
   font-weight: 600;
   font-family: 'poppins-semi' !important;
 }
+.mat-input-element {
+  width: 71% !important;
+}
+.mat-dialog-container{
+  box-shadow: 0px 0px 10px 0px #a6aeaf !important;
+}
+
 //For Angular Gauge
 mwl-gauge.gauge-style-1 {
   margin-top: 22px;

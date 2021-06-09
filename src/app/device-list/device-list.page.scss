@@ -1,15 +1,20 @@
 
-*{
-    font-family: 'poppins-semi' !important;
+.flex{
+    flex: 1 1 auto;
 }
 .device{
     color: #394256;
+    font-family: 'poppins-semi' !important;
 }
 .maindiv{
     width: 100%;
     height: 100%;
 
 }
+.mat-table{
+    font-family: 'poppins-semi' !important;
+}
+
 .tabledivision{
 
     // overflow: scroll;
@@ -37,9 +42,10 @@
     }
     td {
        
-      font-size: 11px;
+      font-size: 12px;
       width: 40px;
-      color: #3e485a; 
+      color: #a6aeaf; 
+       
       padding-left: 30px;
       text-align:center
     }
@@ -97,21 +103,33 @@ left: 70%;
   }
 .all{
 color:#3131ff;
+font-family: 'poppins-semi' !important;
+
 }
 .all1{
     color: black;
+    font-family: 'poppins-semi' !important;
+
     }
     .active{
         color: #00DE34;
+    font-family: 'poppins-semi' !important;
+
         }
         .active1{
             color: #394256;
+    font-family: 'poppins-semi' !important;
+
             }
             .inactive{
                 color: #FF4646;
+    font-family: 'poppins-semi' !important;
+
                 }
                 .inactive1{
                     color: #394256;
+    font-family: 'poppins-semi' !important;
+
                     }
 
 .green_img{
@@ -133,6 +151,7 @@ color:#3131ff;
     margin-top: 20px;
     width: 80%;
     height: 32px;
+    font-family: 'poppins-semi' !important;
   }
 
 .search-container{
@@ -146,7 +165,6 @@ color:#3131ff;
     margin-left:10px;
 }
 .search{
-    font-family: Poppins;
     font-size: 12px;
     color: #3131ff;
     border: none;
@@ -154,7 +172,9 @@ color:#3131ff;
 }
 .search::-webkit-input-placeholder {
     color: #3131ff;
-    font-size: 10px;
+    font-size: 12px;
+    font-family: 'poppins-bold' !important;
+
 }
 .search:focus{
     outline: none;
