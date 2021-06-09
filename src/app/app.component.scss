@@ -1,0 +1,39 @@
+.toolbar{
+    --background:#ffffff;
+    --min-height:56px;
+    --border-width:0 !important;
+    --padding-start:24px;
+    --padding-end:24px;
+    --padding-top:20px;
+}
+.poppins{
+    font-family: poppins-semi;
+    font-weight: 600;
+}
+.user-container{
+    font-size: 12px;
+    padding: 0 16px;
+    max-width: 200px;
+    .usertxt{
+        @extend .poppins;
+        color: #394256;
+    }
+    .roletxt{
+        font-family: poppins;
+        color: #394256;
+    }
+}
+.logout{
+    height: 8%;
+    .logouttxt{
+        color: #394256;
+        @extend .poppins;
+        font-size: 12px;
+    }
+}
+.menu-items-content{
+    height: 88%;
+    margin: 2% 0;
+    overflow-y: scroll;
+    padding: 0 40px 0 20px;
+}

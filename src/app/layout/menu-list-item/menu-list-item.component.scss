@@ -1,0 +1,64 @@
+// @import "/src/app/theme";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  align-items: center;
+  padding: 8px 8px 0px 8px;
+
+  .mat-list-item.active {
+    color: white;
+    background-color: #3131ff;
+    box-shadow: 0 2px 6px 0 rgba(31, 0, 158, 0.16);
+    .routeIcon {
+      color: white;
+    }
+    .routeSvgIcon{
+      filter: brightness(3);
+    }
+  }
+  .mat-list-item.expanded {
+    color: #3131ff;
+    background-color: transparent;
+    box-shadow:none;
+  }
+  .mat-list-item:hover {
+    opacity: 1;
+  }
+  &:hover,
+  &:focus {
+    > .mat-list-item:not(.expanded) {
+      opacity: 1;
+    }
+  }
+}
+.poppins{
+  font-family: poppins-semi;
+  font-weight: 600;
+}
+.mat-list-item {
+  color: #394256;
+  font-size: 12px;
+  @extend .poppins;
+  border-radius: 4px;
+  .routeIcon {
+    color: #3131ff;
+    margin-right: 20px;
+    height: 24px;
+    width: 24px;
+  }
+  .routeSvgIcon{
+    filter: none;
+    width: 20px;
+    margin-right: 20px;
+  }
+  .displaytext{
+    font-weight: 600;
+    margin-left: 0;
+  }
+  .displaytext1{
+    font-weight: 500;
+    margin-left: 24px;
+  }
+}

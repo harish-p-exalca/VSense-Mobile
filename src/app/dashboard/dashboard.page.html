@@ -2,7 +2,9 @@
   <ion-toolbar class="toolbar">
     <div fxFlex fxLayout="row" fxLayoutAlign="start center">
       <div fxFlex=33.3 fxLayoutAlign="start center">
-        <img src="assets/images/menu.svg">
+        <ion-menu-toggle fxLayoutAlign="start center">
+          <img src="assets/images/menu.svg">
+        </ion-menu-toggle>
       </div>
       <div fxFlex=33.3 fxLayoutAlign="center center">
         <img src="assets/images/vsense-logo.svg">
@@ -26,7 +28,7 @@
       </div>
     </div>
     <div class="view-container" fxLayoutAlign="end end">
-      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center" (click)="DeviceListClicked()">
         <span class="view-txt">View</span>
         <img src="assets/images/single-next.svg">
       </div>
@@ -77,7 +79,7 @@
     <span class="menu-header">Other Menu’s</span>
   </div>
   <div class="hdivider"></div>
-  <div class="menu-container" fxLayoutAlign="start center">
+  <div class="menu-container" fxLayoutAlign="start center" (click)="LiveFeedsClicked()">
     <img class="menu-item-img" src="assets/images/livefeeds.png">
     <div fxFlex=15></div>
     <span class="menu-item-title">Live Feeds</span>
@@ -85,7 +87,7 @@
     <img src="assets/images/double-next.svg">
   </div>
   <div class="hdivider"></div>
-  <div class="menu-container" fxLayoutAlign="start center">
+  <div class="menu-container" fxLayoutAlign="start center" (click)="ExceptionsClicked()">
     <img class="menu-item-img" src="assets/images/exceptions.png">
     <div fxFlex=15></div>
     <span class="menu-item-title">Exceptions</span>
@@ -100,7 +102,7 @@
     <div fxFlex></div>
     <img src="assets/images/double-next.svg">
   </div>
-  <div class="master-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <div class="master-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="32px">
     <span class="master-item">Site</span>
     <span class="master-item">Space</span>
     <span class="master-item">Edge Group</span>

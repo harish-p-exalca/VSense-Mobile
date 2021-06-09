@@ -86,7 +86,15 @@ export class DashboardPage implements OnInit {
   }
 
   MastersClicked(){
-    this._router.navigate(['masters'])
+    this._router.navigate(['masters']);
   }
-
+  LiveFeedsClicked(){
+    this._router.navigate(['livefeed']);
+  }
+  ExceptionsClicked(){
+    this._router.navigate(['exceptions']);
+  }
+  DeviceListClicked(){
+    this._router.navigate(['device-list']);
+  }
 }
