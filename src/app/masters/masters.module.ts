@@ -13,10 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { SharedModule } from '../shared/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { SiteComponent } from './site/site.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SpaceComponent } from './space/space.component';
 import {MatListModule} from '@angular/material/list';
@@ -26,6 +25,8 @@ import { EdgeDeviceComponent } from './edge-device/edge-device.component';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
+import { EdgeGroupComponent } from './edge-group/edge-group.component';
+import { AssetComponent } from './asset/asset.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,6 @@ import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    // MatMomentDateModule,
     MatNativeDateModule,
     MatIconModule,
     MatTabsModule,
@@ -48,7 +48,16 @@ import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
     MatDialogModule
     
   ],
-  declarations: [MastersPage,SiteComponent,SpaceComponent,MatTabScrollToCenterDirective,
-    EdgeDeviceComponent,DialogComponent,AssetEdgeComponent]
+  declarations: [
+    MastersPage,
+    SiteComponent,
+    SpaceComponent,
+    MatTabScrollToCenterDirective,
+    EdgeGroupComponent,
+    AssetComponent,
+    EdgeDeviceComponent,
+    DialogComponent,
+    AssetEdgeComponent
+  ]
 })
 export class MastersPageModule {}

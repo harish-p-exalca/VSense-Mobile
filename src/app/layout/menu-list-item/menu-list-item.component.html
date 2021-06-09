@@ -1,0 +1,21 @@
+<a mat-list-item [ngStyle]="{'height':depth>0?'34px':'42px'}" (click)="onItemSelected(item)"
+  [ngClass]="{'active': IsActive(), 'expanded': depth>0 && IsActive()}" class="menu-list-item" style="width: 100%;">
+  <ion-menu-toggle auto-hide="false">
+    <div fxFlex fxLayoutAlign="start center" style="padding: 0px 8px 0px 8px;width: 100%;">
+      <mat-icon *ngIf="!item.isSvgIcon && item.iconName" class="routeIcon">{{item.iconName}}</mat-icon>
+      <mat-icon *ngIf="item.isSvgIcon && item.iconName" class="routeSvgIcon" [svgIcon]="item.iconName"></mat-icon>
+      <span style="padding: 5px;" [ngClass]="{'displaytext1':depth>0}" class="displaytext">{{item.displayName}}</span>
+      <span fxFlex *ngIf="item.children && item.children.length">
+        <span fxFlex></span>
+        <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+          arrow_drop_down
+        </mat-icon>
+      </span>
+    </div>
+  </ion-menu-toggle>
+</a>
+
+<div *ngIf="expanded" style="width: 100%;">
+  <app-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+  </app-menu-list-item>
+</div>

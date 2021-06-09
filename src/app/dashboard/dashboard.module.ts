@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
-import { SharedModule } from '../shared/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ControlCenterComponent } from './control-center/control-center.component';
 import { GaugeModule } from 'angular-gauge';

@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { EdgeDeviceComponent } from './edge-device/edge-device.component';
+import { AssetComponent } from './asset/asset.component';
+import { EdgeGroupComponent } from './edge-group/edge-group.component';
 
 import { MastersPage } from './masters.page';
 import { SiteComponent } from './site/site.component';
@@ -32,6 +34,14 @@ const routes: Routes = [
   {
     path: 'asset-edge',
     component: AssetEdgeComponent
+  },
+  {
+    path: 'edge-group',
+    component: EdgeGroupComponent
+  },
+  {
+    path: 'asset',
+    component: AssetComponent
   }
 ];
 
