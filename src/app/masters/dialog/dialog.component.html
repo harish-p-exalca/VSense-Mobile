@@ -1,0 +1,13 @@
+<div class="main" fxLayout="column" fxLayoutGap="20px">
+  <span class="alert">Are you sure you want to delete?</span>
+  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+    <button class="yes" (click)="yes()" [mat-dialog-close]="true" fxLayoutAlign="center center" type="button" mat-raised-button>
+      Yes
+    </button>
+    <button class="no" (click)="no()" [mat-dialog-close]="true" fxLayoutAlign="center center" type="button" mat-raised-button>
+      No
+    </button>
+
+  </div>
+ 
+</div>

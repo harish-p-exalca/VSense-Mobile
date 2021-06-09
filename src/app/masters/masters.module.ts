@@ -7,10 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MastersPageRoutingModule } from './masters-routing.module';
 
 import { MastersPage } from './masters.page';
-import { FlexLayoutModule, FlexModule } from "@angular/flex-layout";
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
-import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -24,6 +22,10 @@ import { SpaceComponent } from './space/space.component';
 import {MatListModule} from '@angular/material/list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTabScrollToCenterDirective } from '../shared/scrolling.directive';
+import { EdgeDeviceComponent } from './edge-device/edge-device.component';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
 
 @NgModule({
   imports: [
@@ -41,9 +43,12 @@ import { MatTabScrollToCenterDirective } from '../shared/scrolling.directive';
     MatIconModule,
     MatTabsModule,
     MatListModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatDialogModule
     
   ],
-  declarations: [MastersPage,SiteComponent,SpaceComponent,MatTabScrollToCenterDirective]
+  declarations: [MastersPage,SiteComponent,SpaceComponent,MatTabScrollToCenterDirective,
+    EdgeDeviceComponent,DialogComponent,AssetEdgeComponent]
 })
 export class MastersPageModule {}

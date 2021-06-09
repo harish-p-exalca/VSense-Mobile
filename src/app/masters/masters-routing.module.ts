@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateSiteComponent } from './create-site/create-site.component';
+import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { EdgeDeviceComponent } from './edge-device/edge-device.component';
 
 import { MastersPage } from './masters.page';
 import { SiteComponent } from './site/site.component';
@@ -18,6 +20,18 @@ const routes: Routes = [
   {
     path: 'space',
     component: SpaceComponent
+  },
+  {
+    path: 'edge-device',
+    component: EdgeDeviceComponent
+  },
+  {
+    path: 'dialog',
+    component: DialogComponent
+  },
+  {
+    path: 'asset-edge',
+    component: AssetEdgeComponent
   }
 ];
 

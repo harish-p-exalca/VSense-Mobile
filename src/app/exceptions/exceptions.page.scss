@@ -1,66 +1,20 @@
 .flex{
     flex: 1 1 auto;
 }
-*{
-    font-family: 'poppins-semi' !important;
+.mat-table{
+  font-family: 'poppins-semi' !important;
+
 }
 .title{
     color: #394256;
+    font-family: 'poppins-semi' !important;
+
 }
 .maindiv{
     width: 100%;
     height: 100%;
 }
-// .tabledivision{
-//     height: 75vh !important;
-//     width: 1450px;
-//     max-width: 100%;
-//     overflow: auto;
-//     border-radius: 4px;
-//   }
-//   .tabledivision::-webkit-scrollbar{
-//       width: 0; 
-//       background: transparent;
-//   }
-//   table {
-//     width: 100%;
-//     border: solid 2px #f4f4f4;
-//     height: 300px !important; 
-//     th {
-//       color: #ffffff;
-//       background-color: #3131ff;
-//       font-family: Poppins;
-//       z-index: 1;
-//       padding-left: 25px;
-//     }
-//     tr:first-child {
-//         position: sticky;
-//     }
-//     td {
-//         font-family: 'poopins';
-//       font-size: 11px;
-//       width: 40px;
-//       color: #3e485a; 
-//       padding-left: 30px;
-//       min-width: max-content !important; 
-//     }
-//     td.mat-cell{
-//         border-bottom-color: transparent;
-//     }
-//     tr {
-//       height: 42px;
-//     }
-//     th.mat-header-cell {
-//         text-align:center
-//    }
-    
-//     th.mat-header-cell:first-child {
-//       border-top-left-radius: 4px !important;
-//     }
-//     th.mat-header-cell:last-child {
-//         border-top-right-radius: 4px !important;
-//     }
-// }
+
 .tabledivision{
 
     overflow: scroll;
@@ -88,9 +42,10 @@
     }
     td {
        
-      font-size: 11px;
+      font-size: 12px;
       width: 40px;
-      color: #3e485a; 
+      color: #a6aeaf; 
+
       padding-left: 30px;
       text-align:center
     }
@@ -117,23 +72,7 @@
         border-top-right-radius: 4px !important;
         border-bottom-right-radius: 4px !important;
     }
-    
-
-
-
-
-
-    //   td.mat-cell:first-child {
-    //     border-left: 2px solid #ffa600;
-    //     border-bottom-left-radius: 10px;
-    //     border-top-left-radius: 10px;
-    //   }
-      
-    //   td.mat-cell:last-child {
-    //     border-right: 2px solid #ffa600;
-    //     border-bottom-right-radius: 10px;
-    //     border-top-right-radius: 10px;
-    //   }
+  
 }
 .icon{
     width: 30%;
@@ -184,7 +123,7 @@ left: 65%;
   margin-left:10px;
 }
 .search{
-  font-family: Poppins;
+  font-family: 'poppins-semi' !important;
   font-size: 12px;
   color: #3131ff;
   border: none;
@@ -192,7 +131,9 @@ left: 65%;
 }
 .search::-webkit-input-placeholder {
   color: #3131ff;
-  font-size: 10px;
+  font-size: 12px;
+  font-family: 'poppins-bold' !important;
+
 }
 .search:focus{
   outline: none;
