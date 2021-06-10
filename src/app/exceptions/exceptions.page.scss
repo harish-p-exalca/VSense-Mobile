@@ -110,22 +110,48 @@
 .close{
   width:24px;
 }
-.mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
-  background:transparent;
-  color: #3131ff;
-}
-.mat-menu-content:not(:empty) {
-  padding-top: 0px;
-  padding-bottom: 10px;
-}
-::ng-deep .cdk-overlay-pane{
-  position: relative;
-  top: 100%;
-left: 61%;
-}
-::ng-deep .mat-menu-panel {
+::ng-deep .mennu.mat-menu-panel {
   box-shadow: none;
   background-color: 
   #f4f4fb;
   width: 150px;
+  position: absolute;
+  right: 30% !important;
+  top: 2% !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+//   background:transparent;
+//   color: #3131ff;
+// }
+// .mat-menu-content:not(:empty) {
+//   padding-top: 0px;
+//   padding-bottom: 10px;
+// }
+// ::ng-deep .cdk-overlay-pane{
+//   position: relative;
+//   top: 100%;
+// left: 61%;
+// }

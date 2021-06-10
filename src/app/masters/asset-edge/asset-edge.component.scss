@@ -1,8 +1,8 @@
-.header{
-    color: #394256;
-    font-size: 12px;
-    font-family: 'poppins-semi' !important;
-}
+// .header{
+//     color: #394256;
+//     font-size: 12px;
+//     font-family: 'poppins-semi' !important;
+// }
 .title{
     color: #394256;
     font-size: 12px;
@@ -12,6 +12,45 @@
     width: 100%;
     height: 100%;
 }
+.toolbar{
+    --background:#ffffff;
+    --min-height:56px;
+    box-shadow: 0 2px 3px 0 rgba(31, 0, 158, 0.08);
+    --border-width:0 !important;
+    --padding-start:24px;
+    --padding-end:10px;
+    .title{
+        font-size: 12px;
+        font-family: 'poppins-semi' !important;
+        color: #394256;
+       
+    }
+    .backbtn{
+        width: 16px;
+        height: 16px;
+    }
+}
+.footer-toolbar{
+    --background:#f4f4fb;
+    --min-height:56px;
+    --border-width:0 !important;
+    --padding-start:24px;
+    --padding-end:20px;
+    font-size: 12px;
+    .deletetxt{
+        color: #ff0707;
+        font-size: 12px;
+    font-family: 'poppins-med' !important;
+
+    }
+    .savetxt{
+        color: #24e02b;
+        font-size: 12px;
+        font-family: 'poppins-med' !important;
+    
+    }
+}
+
 .mat-table{
     font-family: 'poppins-semi' !important;
 }

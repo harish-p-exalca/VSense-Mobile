@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <div fxLayout="row" fxLayoutGap="10px">
       <div fxFlex="6"></div>
@@ -7,6 +7,21 @@
       <span class="header">Masters :</span>
       <span class="header">Asset :</span>
       <span class="header">Edge I'D</span>
+    </div>
+  </ion-toolbar>
+</ion-header> -->
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="back()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Masters :</span>
+        <span class="title">Asset :</span>
+        <span class="title">Edge I'D</span>
+      </div>
+      <div fxFlex></div>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +37,7 @@
       <div fxFlex="9"></div>
       <span class="title">Edge Title</span>
     </div>
-    <div fxFlex="85" fxLayout="row" class="tabledivision tableFixHead" >
+    <div fxFlex="93" fxLayout="row" class="tabledivision tableFixHead" >
       <table mat-table [dataSource]="dataSource" class="tableFixHead"  matSort>
         <ng-container matColumnDef="ParamID">
           <th mat-header-cell *matHeaderCellDef> ParamID </th>
@@ -92,9 +107,17 @@
         </tr>
       </table>
     </div>
-    <div fxFlex="8" class="footer" fxLayoutAlign="space-around center">
+    <!-- <div fxFlex="8" class="footer" fxLayoutAlign="space-around center">
       <div fxFlex="80"></div>
 <span fxFlex="20" class="done">Done</span>
-    </div>
+    </div> -->
   </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayoutAlign="end center" fxLayoutGap="24px">
+      <!-- <span class="deletetxt">Delete</span> -->
+      <span class="done">Done</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
