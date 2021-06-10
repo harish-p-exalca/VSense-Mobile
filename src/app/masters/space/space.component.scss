@@ -1,11 +1,7 @@
-*{
-    font-family: 'poppins-semi' !important;
-}
 .header{
     color: #394256;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-
 }
 .title{
     color: #394256;
@@ -17,29 +13,13 @@ margin-bottom: 10px;
     width: 100%;
     height: 100%;
 }
-// .inputfield{
-//     width: 60%;
-// }
-// .inputtitle{
-//     font-size: 12px;
-//    text-align: left;
-// }
-// ::-webkit-input-placeholder { /* Edge */
-//     color: red;
-//   }
-// @media only screen and (max-width: 400px) {
-//     .man{
-//        width: 50% !important;
-//     }
-// }
 .man{
-    width: 200px;
+    width: 65%;
 }
 .copy{
     font-family: 'poppins-med' !important;
     font-size: 12px;
     color: #0d0c22;
-
 }
 .delete{
     color: #ff0707;
@@ -55,12 +35,38 @@ margin-bottom: 10px;
 .footer{
     background-color: #f4f4fb;
 }
+::ng-deep .mat-input-element {
+    width: 71% !important;
+  }
 ::ng-deep input.mat-input-element {
     margin-top: -0.0625em;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-    
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
     background-color: #f6f6f6;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0.5em !important;
+}
+::ng-deep .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    height: 50px;
+  }
+  ::ng-deep .mat-datepicker-content .mat-calendar {
+    width: 222px !important;
+    height: 354px !important;
+}
+::ng-deep .mat-datepicker-content-container {
+    width: 232px !important;
+    height: 285px !important;
+}
+.name{
+    color: #394256;
+    font-size: 12px;
+    font-family: 'poppins-med' !important;
 }

@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <div fxLayout="row" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="6"></div>
+      <img (click)="back()" src="./assets/Group 20.svg">
       <div fxFlex="3"></div>
-      <img src="./assets/Group 20.svg">
       <span class="header">Masters :</span>
       <span class="header">Create Space</span>
     </div>
@@ -11,13 +12,14 @@
 <ion-content>
   <div fxLayout="column" class="maindiv">
     <div fxFlex="2"></div>
-    <div [formGroup]="spaceFormGroup" fxFlex="55" fxLayout="column">
+    <div [formGroup]="spaceFormGroup" fxFlex="50" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Title</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input placeholder="Enter Title" matInput type="text" formControlName="Title" autocomplete="off" />
+        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Title</mat-label>
+          <input  matInput type="text" formControlName="Title" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -25,8 +27,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Work Center</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input placeholder="Enter Work center" matInput type="text" formControlName="Workcenter" autocomplete="off" />
+        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Work center</mat-label>
+          <input  matInput type="text" formControlName="Workcenter" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -34,8 +37,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Parent Space I'D</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input placeholder="Enter Parent Space I'D" matInput type="text" formControlName="ParentspaceID"
+        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Parent Space I'D</mat-label>
+          <input  matInput type="text" formControlName="ParentspaceID"
             autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
@@ -44,8 +48,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Site I'D</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input placeholder="Enter Site I'D" matInput type="text" formControlName="SiteID" autocomplete="off" />
+        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Site I'D</mat-label>
+          <input  matInput type="text" formControlName="SiteID" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -53,8 +58,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Date</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input matInput type="text" formControlName="Date" placeholder="Enter Date" [matDatepicker]="datepicker"
+        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Date</mat-label>
+          <input matInput type="text" formControlName="Date" [matDatepicker]="datepicker"
             autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="datepicker">
             <img src="../../../assets/iconfinder_Calendar_728916.svg">
@@ -65,20 +71,20 @@
       </div>
     </div>
     <div fxFlex="1"></div>
-    <div fxFlex="33" fxLayoutAlign="center center">
+    <div fxFlex="38" fxLayoutAlign="center center">
       <img class="man" src="./assets/Man.svg">
     </div>
     <div fxFlex="2"></div>
     <div fxFlex="7" fxLayout="row" class="footer" fxLayoutAlign="center center">
-      <div fxFlex="37"></div>
+      <div fxFlex="58"></div>
       <!-- <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
         <img src="./assets/copy.svg">
         <span class="copy">Copy</span>
       </div> -->
-      <div fxFlex="23"></div>
+      <!-- <div fxFlex="23"></div> -->
       <div class="delete" fxFlex="15">Delete</div>
       <div fxFlex="5"></div>
-      <div class="update" fxFlex="15">Update</div>
+      <div class="update" fxFlex="17">Update</div>
       <div fxFlex="5"></div>
     </div>
   </div>

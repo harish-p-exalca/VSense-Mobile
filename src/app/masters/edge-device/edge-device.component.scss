@@ -1,12 +1,8 @@
-*{
-    font-family: 'poppins-semi' !important;
 
-}
 .header{
     color: #394256;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-
 }
 .title{
     color: #394256;
@@ -18,28 +14,11 @@ margin-bottom: 10px;
     width: 100%;
     height: 100%;
 }
-// #plus{
-//     position: absolute;
-//     top: -10px;
-//     right: 10px;
-//     }
 .copy{
     font-family: 'poppins-med' !important;
     font-size: 12px;
     color: #0d0c22;
-
 }
-ion-toolbar {
-    --ion-toolbar-background: transparent;
-    background-image: url('/assets/plus.svg')  center center / 10%;
-    background-repeat: no-repeat;
-// position: absolute;
-// float: right;
-
-  }
-  
-//   ion-content {
-//   }
 .delete{
     font-family: 'poppins-semi' !important;
     color: #ff0707;
@@ -56,28 +35,28 @@ ion-toolbar {
 .footer{
     background-color: #f4f4fb;
 }
-::ng-deep input.mat-input-element {
-    margin-top: -0.0625em;
-    font-size: 12px;
-    font-family: 'poppins-semi' !important;
-    
-}
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: #f6f6f6;
-}
-.placeholder::-webkit-input-placeholder {
-    color: red;
-    font-size: 12px;
-    font-family: 'poppins-bold' !important;
-
-}
 @media only screen and (max-width: 400px) {
     .years {
         font-size: 10px !important;
-        width: 39%
+        width: 34%;
     }
 }
-
+@media only screen and (max-width: 281px) {
+    .years {
+        font-size: 7px !important;
+        width: 25%;
+        margin-top: 4px;
+        margin-left: 6px;
+    }
+    .fab{
+        width: 30px;
+         height: 30px;
+         margin-top: 15px;
+    }
+}
+.fab{
+    margin-right: 10px;
+}
 .years{
     font-size: 11px;
     font-family: 'poppins-med' !important;
@@ -85,10 +64,7 @@ ion-toolbar {
 .mat-table{
     font-family: 'poppins-semi' !important;
 }
-
 .tabledivision{
-
-    // overflow: scroll;
     height: 44rem;
     width: 1450px;
     max-width: 100%;
@@ -102,7 +78,6 @@ ion-toolbar {
   .trrr{
       width: 10%;
   }
-
   table {
     width: 80%;
     th {
@@ -112,33 +87,26 @@ ion-toolbar {
       border-bottom:10px solid white;
     }
     td {
-       
       font-size: 12px;
       width: 40px;
       color: #a6aeaf; 
       padding-left: 30px;
       text-align:center;
-
     }
-
     td.mat-cell{
         border-bottom-color: transparent;
         text-align:center
     }
-
     tr {
       height: 52px;
     }
     th.mat-header-cell {
          text-align:center
     }
- 
-    
     th.mat-header-cell:first-child {
         border-top-left-radius: 4px !important;
         border-bottom-left-radius: 4px !important;
       }
-  
       th.mat-header-cell:last-child {
           border-top-right-radius: 4px !important;
           border-bottom-right-radius: 4px !important;
@@ -148,8 +116,80 @@ ion-toolbar {
 .tableFixHead th { position: sticky; top: 0; }
 .tableFixHead{
     overflow: auto;
- 
+}
+::ng-deep .mat-input-element {
+    width: 71% !important;
+  }
+::ng-deep input.mat-input-element {
+    margin-top: -0.0625em;
+    font-size: 12px;
+    font-family: 'poppins-semi' !important;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: #f6f6f6;
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
     padding-bottom: 0.5em !important;
 }
+::ng-deep .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    height: 50px;
+  }
+::ng-deep .mat-snack-bar-container {
+    background-color: #aae2b7;
+    color: #0d0c22;
+    text-align: center;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    position: absolute;
+    top: 85%;
+    width: 40% !important;
+    height: 1% !important;
+    font-family: 'poppins-bold' !important;
+  }
+  ::ng-deep .mat-datepicker-content .mat-calendar {
+    width: 222px !important;
+    height: 354px !important;
+}
+::ng-deep .mat-datepicker-content-container {
+    width: 232px !important;
+    height: 285px !important;
+}
+.name{
+    color: #394256;
+    font-size: 12px;
+    font-family: 'poppins-med' !important;
+}
+  // ion-toolbar {
+//     --ion-toolbar-background: transparent;
+//     background-image: url('/assets/plus.svg')  center center / 10%;
+//     background-repeat: no-repeat;
+//   }
+
+// // ::placeholder{
+// //     color: red;
+// //     opacity: 40%;
+// //     font-size: 20px;
+// //     font-weight: 600;
+// //     font-family: 'poppins-semi' !important;
+// // }
+// // .placeholder::-webkit-input-placeholder {
+// //     color: #3131ff;
+// //     font-size: 12px !important;
+// //     font-family: 'poppins-bold' !important;
+// //     opacity: 20%;
+
+// // }
+// // input::-webkit-input-placeholder{
+// //     color:red;
+// // }
+// // input:-moz-placeholder {
+// //     color:red;
+// // }
+// ::-ms-placeholder {
+//     color:red;
+// }

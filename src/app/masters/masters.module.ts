@@ -27,7 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
 import { EdgeGroupComponent } from './edge-group/edge-group.component';
 import { AssetComponent } from './asset/asset.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   imports: [
     CommonModule,
@@ -45,7 +45,8 @@ import { AssetComponent } from './asset/asset.component';
     MatListModule,
     Ng2SearchPipeModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
     
   ],
   declarations: [

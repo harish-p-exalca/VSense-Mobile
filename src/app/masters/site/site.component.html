@@ -1,115 +1,85 @@
 <ion-header>
   <ion-toolbar>
-
-    <div fxLayout="row" fxLayoutGap="15px" >
+    <div fxLayout="row" fxLayoutGap="10px" >
+      <div fxFlex="6"></div>
+      <img (click)="back()" src="./assets/Group 20.svg">
       <div fxFlex="3"></div>
-      <img  src="./assets/Group 20.svg">
       <span  class="header">Masters :</span>
       <span class="header">Create Site</span>
-
     </div>
-
-
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <div fxLayout="column" class="maindiv">
     <div fxFlex="3"></div>
-    <!-- <div fxFlex="35" fxLayout="row" [formGroup]="siteFormGroup">
-    <div fxFlex="5"></div>
-    <div fxFlex="35">Geo Location</div>
-    <div fxFlex="5"></div>
-    <div fxFlex="50">
-      <mat-form-field class="input" class="inputfield" >
-        <input placeholder="Enter Purpose" matInput type="text" formControlName="Geolocation"  autocomplete="off" />
-      </mat-form-field>
-    </div>
-    <div fxFlex="5"></div>
-  </div> -->
     <div [formGroup]="siteFormGroup" fxFlex="35" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
-
         <span fxFlex="30" class="title">Title</span>
-        <div fxFlex="5"></div>
-
-        <mat-form-field class="input" class="inputfield" fxFlex="51">
-          <input placeholder="Enter Title"  matInput type="text" formControlName="Title" autocomplete="off" />
-        </mat-form-field>
-        <div fxFlex="5"></div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-
-        <span fxFlex="30" class="title">Geo Location</span>
-        <div fxFlex="5"></div>
-
-        <mat-form-field class="input" class="inputfield" fxFlex="51">
-          <input placeholder="Enter Purpose" matInput type="text" formControlName="Geolocation" autocomplete="off" />
-        </mat-form-field>
-        <div fxFlex="5"></div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-
-        <span fxFlex="30" class="title">Plant</span>
-        <div fxFlex="5"></div>
-
-        <mat-form-field class="input" class="inputfield" fxFlex="51">
-          <input placeholder="Enter Plant Name" matInput type="text" formControlName="Plant" autocomplete="off" />
-        </mat-form-field>
-        <div fxFlex="5"></div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-
-        <span fxFlex="30" class="title">Date</span>
-        <div fxFlex="5"></div>
-
-        <!-- <mat-form-field class="input" class="inputfield" fxFlex="55">
-          <input matInput type="text" formControlName="Date" placeholder="Enter Date" [matDatepicker]="datepicker"
-            autocomplete="off" />
-          <mat-datepicker-toggle matSuffix [for]="datepicker">
-            <mat-icon>Home</mat-icon>
-          </mat-datepicker-toggle>
-          <mat-datepicker #datepicker>
-          </mat-datepicker>
+        <div fxFlex="4"></div>
+        <!-- <mat-form-field floatLabel="never"class="input" class="inputfield" fxFlex="48">
+          <input matInput placeholder="Enter Title" type="text" formControlName="Title" autocomplete="off" />
         </mat-form-field> -->
-        <mat-form-field class="input" class="inputfield" fxFlex="51" >
-          <input matInput type="text" formControlName="Date" placeholder="Enter Date" [matDatepicker]="picker"
+        <mat-form-field floatLabel="never" fxFlex="48" >
+          <mat-label class="name">Enter Title</mat-label>
+          <input matInput type="text" formControlName="Title" autocomplete="off"/>
+         
+        </mat-form-field>
+        <div fxFlex="9"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Geo Location</span>
+        <div fxFlex="4"></div>
+        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Purpose</mat-label>
+          <input matInput  type="text" formControlName="Geolocation" autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="9"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Plant</span>
+        <div fxFlex="4"></div>
+        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48">
+          <mat-label class="name">Enter Plant Name</mat-label>
+          <input  matInput type="text" formControlName="Plant" autocomplete="off" />
+        </mat-form-field>
+        <div fxFlex="9"></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="9"></div>
+        <span fxFlex="30" class="title">Date</span>
+        <div fxFlex="4"></div>
+        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48" >
+          <mat-label class="name">Enter Date</mat-label>
+          <input matInput type="text" formControlName="Date"  [matDatepicker]="picker"
           autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <img src="../../../assets/iconfinder_Calendar_728916.svg">
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <div fxFlex="5"></div>
+        <div fxFlex="9"></div>
       </div>
-
     </div>
     <div fxFlex="10"></div>
     <div fxFlex="42" fxLayoutAlign="center center">
       <img class="man_img" src="./assets/Man.svg">
-
     </div>
     <div fxFlex="2"></div>
     <div fxFlex="8" fxLayout="row" class="footer" fxLayoutAlign="center center">
-      <div fxFlex="37"></div>
+      <div fxFlex="58"></div>
       <!-- <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
         <img src="./assets/copy.svg">
         <span class="copy">Copy</span>
       </div> -->
-      <div fxFlex="23">
-
-      </div>
+      <!-- <div fxFlex="23">
+      </div> -->
       <div class="delete" fxFlex="15">Delete</div>
       <div fxFlex="5"></div>
-      <div class="update" fxFlex="15">Update</div>
+      <div class="update" fxFlex="17">Update</div>
       <div fxFlex="5"></div>
-
-
     </div>
-
-
   </div>
 </ion-content>
