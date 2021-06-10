@@ -1,13 +1,17 @@
-<div class="main" fxLayout="column" fxLayoutGap="20px">
-  <span class="alert">Are you sure you want to delete?</span>
-  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
-    <button class="yes" (click)="yes()" [mat-dialog-close]="true" fxLayoutAlign="center center" type="button" mat-raised-button>
-      Yes
-    </button>
+<div class="main" fxLayout="column" >
+  <div fxFlex="10"></div>
+  <span fxFlex="30" class="alert">Are you sure you want to delete?</span>
+ <div fxFlex="25"></div>
+
+  <div fxFlex="25" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+   
     <button class="no" (click)="no()" [mat-dialog-close]="true" fxLayoutAlign="center center" type="button" mat-raised-button>
       No
     </button>
+    <button class="yes" (click)="yes()" [mat-dialog-close]="true" fxLayoutAlign="center center" type="button" mat-raised-button>
+      Yes
+    </button>
 
   </div>
- 
+ <div fxFlex="10"></div>
 </div>

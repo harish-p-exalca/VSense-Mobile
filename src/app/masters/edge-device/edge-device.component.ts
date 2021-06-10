@@ -3,6 +3,14 @@ import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { MatTableDataSource } from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+  MatSnackBarConfig,
+} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 export interface List {
   ParamID: string;
   Title: string;
@@ -50,6 +58,11 @@ const LIST_DATA: List[] = [
   styleUrls: ['./edge-device.component.scss'],
 })
 export class EdgeDeviceComponent implements OnInit {
+  configSuccess: MatSnackBarConfig = {
+    panelClass: ['style-success'],
+  };
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   a:number=1;
   yes_value:any;
   no_value:any;
@@ -74,15 +87,23 @@ export class EdgeDeviceComponent implements OnInit {
   data = Object.assign(LIST_DATA);
 dataSource = new MatTableDataSource<List>(this.data);
   edgedeviceFormGroup: FormGroup;
-  constructor(private fb: FormBuilder,public dialog: MatDialog) {}
+  constructor(private fb: FormBuilder,public dialog: MatDialog,public snackBar: MatSnackBar,private _router:Router) {}
+  async openSnackBar1(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 500,
+      panelClass: ['custom-style1'],
+    });
+  }
   opendialog(index: number) {
     localStorage.removeItem("NoValue")
     localStorage.removeItem("YesValue")
     
       const dialogRef = this.dialog.open(DialogComponent, {
   
-        position: { top: '100%', left: '10%' },
-        height: '15%',
+        position: { top: '107%', left: '10%' },
+        height: '120px',
         width: '300px',
         hasBackdrop: false,
       });
@@ -113,6 +134,7 @@ console.log(this.no_value);
       Put: [""],
       Lifespan: [""],
     });
+    
     // localStorage.clear();
   
    
@@ -130,6 +152,12 @@ console.log(this.no_value);
     //   }
      
     // }
+  }
+  back(){
+    this._router.navigate(['masters']);
+  }
+  copyclick(){
+    this.openSnackBar1('Copied!', '');
   }
  
 }

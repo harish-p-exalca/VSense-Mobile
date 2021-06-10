@@ -1,156 +1,149 @@
 <ion-header>
   <ion-toolbar>
-    <div fxLayout="row" fxLayoutGap="15px">
+    <div fxLayout="row wrap" fxLayoutGap="10px">
+      <div fxFlex="6"></div>
+      <img (click)="back()" src="./assets/Group 20.svg">
       <div fxFlex="3"></div>
-      <img src="./assets/Group 20.svg">
-      <span class="header">Masters      :</span>
+      <span class="header">Masters :</span>
       <span class="header">Create Edge Device</span>
-    
     </div>
   </ion-toolbar>
-<!-- <div id="plus"> <img src="./assets/plus.svg"></div> -->
-  
-
 </ion-header>
 
-<!-- <div fxLayoutAlign="end center">
-  <img src="./assets/plus.svg">
-</div> -->
 <ion-content>
-      
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button class="fab" >
+      <img  src="./assets/plus.svg">
+    </ion-fab-button>
+  </ion-fab>
   <div fxLayout="column" class="maindiv">
     <div fxFlex="3"></div>
-
     <div [formGroup]="edgedeviceFormGroup" style="height: 266px;" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
-
         <span fxFlex="30" class="title">Name</span>
         <div fxFlex="4"></div>
-
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input class="placeholder" placeholder="Enter Name"  matInput type="text" formControlName="Name" autocomplete="off" />
+        <mat-form-field floatLabel="never"fxFlex="48">
+          <mat-label class="name">Enter Name</mat-label>
+          <input class="placeholder" matInput type="text" formControlName="Name"
+            autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
-
         <span fxFlex="30" class="title">Purpose</span>
         <div fxFlex="4"></div>
-
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <input placeholder="Enter Purpose" matInput type="text" formControlName="Purpose" autocomplete="off" />
+        <mat-form-field floatLabel="never"  fxFlex="48">
+          <mat-label class="name">Enter Purpose</mat-label>
+          <input  matInput type="text" formControlName="Purpose" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
-
         <span fxFlex="30" class="title">Put To Use</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48" >
-          <input matInput type="text" formControlName="Put" placeholder="Enter Date" [matDatepicker]="picker"
-          autocomplete="off">
+        <mat-form-field floatLabel="never"  fxFlex="48">
+          <mat-label class="name">Enter Date</mat-label>
+          <input matInput type="text" formControlName="Put" [matDatepicker]="picker"
+            autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <img src="../../../assets/iconfinder_Calendar_728916.svg">
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-       
         <div fxFlex="9"></div>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
-
         <span fxFlex="30" class="title">LifeSpan</span>
         <div fxFlex="4"></div>
-        <mat-form-field class="input" class="inputfield" fxFlex="48">
-          <div fxLayout="row" fxlayoutGap="20px" >
-          <input placeholder="Enter Lifespan " matInput type="text" formControlName="Lifespan" autocomplete="off" />
-<span class="years">(In yeras)</span>
-        </div>
+        <mat-form-field floatLabel="never"  fxFlex="50">
+          <mat-label class="name">Enter Lifespan</mat-label>
+          <div fxLayout="row" fxlayoutGap="20px">
+            <input matInput type="text" formControlName="Lifespan" autocomplete="off" />
+            <span class="years">(In yeras)</span>
+          </div>
         </mat-form-field>
-        <div fxFlex="9"></div>
+        <div fxFlex="7"></div>
       </div>
-
     </div>
-    <div fxFlex="49" fxLayout="row" class="tabledivision tableFixHead"  >
-      
-        <table mat-table [dataSource]="dataSource" class="tableFixHead"  matSort>
-          <ng-container matColumnDef="ParamID">
-            <th mat-header-cell *matHeaderCellDef> ParamID </th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.ParamID}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Title">
-            <th mat-header-cell *matHeaderCellDef> Title</th>
-            <td mat-cell *matCellDef="let element">
-              {{element.Title}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Unit">
-            <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Unit </th>
-            <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Unit}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Longtext">
-            <th mat-header-cell *matHeaderCellDef>Longtext</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Longtext}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Max">
-            <th style="margin-left: 1px" *matHeaderCellDef>Max</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Max}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Min">
-            <th mat-header-cell *matHeaderCellDef>Min</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Min}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Icon">
-            <th mat-header-cell *matHeaderCellDef>Icon</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Icon}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="isPercentage">
-            <th mat-header-cell *matHeaderCellDef>isPercentage</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.isPercentage}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Color">
-            <th mat-header-cell *matHeaderCellDef>Color</th>
-            <td mat-cell *matCellDef="let element" class="rowfix">
-              {{element.Color}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="Action" stickyEnd>
-            <th mat-header-cell *matHeaderCellDef>
-              <span style="color: #3131ff;">Act</span> </th>
-            <td mat-cell  *matCellDef="let element">
-              {{element.Action}}
-              <!-- <img (click)="delete(i)" src="./assets/delete.svg"> -->
-              <img (click)="opendialog(i)" src="./assets/delete.svg">
-
-            </td>
-          </ng-container>
-          <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
-          <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
-          </tr>
-        </table>
+    <div fxFlex="49" fxLayout="row" class="tabledivision tableFixHead">
+      <table mat-table [dataSource]="dataSource" class="tableFixHead" matSort>
+        <ng-container matColumnDef="ParamID">
+          <th mat-header-cell *matHeaderCellDef> ParamID </th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.ParamID}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Title">
+          <th mat-header-cell *matHeaderCellDef> Title</th>
+          <td mat-cell *matCellDef="let element">
+            {{element.Title}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Unit">
+          <th style="text-align: left;" mat-header-cell *matHeaderCellDef> Unit </th>
+          <td style="text-align: left;" mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Unit}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Longtext">
+          <th mat-header-cell *matHeaderCellDef>Longtext</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Longtext}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Max">
+          <th style="margin-left: 1px" *matHeaderCellDef>Max</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Max}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Min">
+          <th mat-header-cell *matHeaderCellDef>Min</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Min}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Icon">
+          <th mat-header-cell *matHeaderCellDef>Icon</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Icon}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="isPercentage">
+          <th mat-header-cell *matHeaderCellDef>isPercentage</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.isPercentage}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Color">
+          <th mat-header-cell *matHeaderCellDef>Color</th>
+          <td mat-cell *matCellDef="let element" class="rowfix">
+            {{element.Color}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Action" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef>
+            <span style="color: #3131ff;">Act</span>
+          </th>
+          <td mat-cell *matCellDef="let element;index as i">
+            {{element.Action}}
+            <!-- <img (click)="delete(i)" src="./assets/delete.svg"> -->
+            <img (click)="opendialog(i)" src="./assets/delete.svg">
+          </td>
+        </ng-container>
+        <tr class="trrr" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+        <tr style="width: 100%;" mat-row *matRowDef="let row,index as i;columns: displayedColumns;">
+        </tr>
+      </table>
     </div>
     <div fxFlex="5"></div>
     <div fxFlex="8" fxLayout="row" class="footer" fxLayoutAlign="center center">
       <div fxFlex="7"></div>
-      <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
+      <div fxFlex="30" (click)="copyclick()" fxLayout="row" fxLayoutGap="5px">
         <img src="./assets/copy.svg">
         <span class="copy">Copy</span>
       </div>
@@ -159,8 +152,6 @@
       <div fxFlex="5"></div>
       <div class="update" fxFlex="17">Update</div>
       <div fxFlex="3"></div>
-
-
     </div>
-    </div>
+  </div>
 </ion-content>

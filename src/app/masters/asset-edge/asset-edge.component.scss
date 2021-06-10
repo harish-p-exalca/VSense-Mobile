@@ -2,13 +2,11 @@
     color: #394256;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-
 }
 .title{
     color: #394256;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-margin-bottom: 10px;
 }
 .maindiv{
     width: 100%;
@@ -17,10 +15,7 @@ margin-bottom: 10px;
 .mat-table{
     font-family: 'poppins-semi' !important;
 }
-
 .tabledivision{
-
-    // overflow: scroll;
     height: 44rem;
     width: 1450px;
     max-width: 100%;
@@ -34,7 +29,6 @@ margin-bottom: 10px;
   .trrr{
       width: 10%;
   }
-
   table {
     width: 80%;
     th {
@@ -44,33 +38,26 @@ margin-bottom: 10px;
       border-bottom:10px solid white;
     }
     td {
-       
       font-size: 12px;
       width: 40px;
       color: #a6aeaf; 
       padding-left: 30px;
       text-align:center;
-
     }
-
     td.mat-cell{
         border-bottom-color: transparent;
         text-align:center
     }
-
     tr {
       height: 52px;
     }
     th.mat-header-cell {
          text-align:center
     }
- 
-    
     th.mat-header-cell:first-child {
         border-top-left-radius: 4px !important;
         border-bottom-left-radius: 4px !important;
       }
-  
       th.mat-header-cell:last-child {
           border-top-right-radius: 4px !important;
           border-bottom-right-radius: 4px !important;
@@ -80,5 +67,22 @@ margin-bottom: 10px;
 .tableFixHead th { position: sticky; top: 0; }
 .tableFixHead{
     overflow: auto;
- 
+}
+@media only screen and (max-width: 281px) {
+    .fab{
+        width: 30px;
+         height: 30px;
+         margin-top: 15px;
+    }
+}
+.fab{
+    margin-right: 10px;
+}
+.footer{
+    background-color: #f4f4fb;
+}
+.done{
+    color: #0d0c22;
+    font-size: 12px;
+    font-family: 'poppins-semi' !important;
 }
