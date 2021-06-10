@@ -12,3 +12,93 @@
     </div>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <form [formGroup]="AssetFormGroup" autocomplete="off">
+    <div fxLayout="column" class="form-wrapper">
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Space</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex placeholder="Choose Space" class="matselect" formControlName="Space">
+            <mat-option class="matoption" [value]="1">Space1</mat-option>
+            <mat-option class="matoption" [value]="2">Space2</mat-option>
+            <mat-option class="matoption" [value]="3">Space3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Asset Title</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Title" matInput autocomplete="off" placeholder="Enter Asset Title">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Gateway</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Gateway" matInput autocomplete="off"
+            placeholder="Enter Gateway  (Parent in Edge)">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Asset Class</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="Class" placeholder="Choose Class" class="matselect">
+            <mat-option class="matoption" *ngFor="let class of AssetClasses" [value]="class.value">{{class.display}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Status</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Status" matInput autocomplete="off" placeholder="Select Status"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of Options" [value]="option" class="matautocomplete">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <div fxLayoutAlign="start center" fxLayoutGap="8px" class="add-edge">
+    <span class="add-edge-txt">Edge</span>
+    <ion-button size="small" class="add-btn">Add</ion-button>
+  </div>
+  <div class="device-list-wrapper">
+    <mat-selection-list [multiple]="false" class="device-list">
+      <mat-list-option class="Rectangle-7734-2" *ngFor="let device of Devices">
+        <div fxLayout="column" fxLayoutGap="8px" class="m-device">
+          <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+            <span class="rectanglespan1scroll">
+              CBE001
+            </span>
+            <img src="assets\images\Ellipse 837.svg">
+          </div>
+          <span class="rectanglespan1scroll">
+            Edge Name
+          </span>
+        </div>
+        <div class="delete-device">
+          <img src="assets\images\Line 309.svg">
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayoutAlign="end center" fxLayoutGap="24px">
+      <span class="deletetxt">Delete</span>
+      <span class="savetxt">Update</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button class="fab-btn" (click)="AddParamClicked()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

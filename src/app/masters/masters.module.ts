@@ -28,6 +28,9 @@ import { AssetEdgeComponent } from './asset-edge/asset-edge.component';
 import { EdgeGroupComponent } from './edge-group/edge-group.component';
 import { AssetComponent } from './asset/asset.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -46,8 +49,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     Ng2SearchPipeModule,
     MatTableModule,
     MatDialogModule,
-    MatSnackBarModule
-    
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   declarations: [
     MastersPage,
