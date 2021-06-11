@@ -54,6 +54,9 @@
         height: 32px;
         min-width: fit-content;
     }
+    .mat-ink-bar {
+        visibility: hidden !important;
+    }
     .tab-masters{
         padding: 8px 0;
         font-size: 12px;

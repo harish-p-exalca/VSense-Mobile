@@ -95,7 +95,7 @@
     <img src="assets/images/double-next.svg">
   </div>
   <div class="hdivider"></div>
-  <div class="menu-container" fxLayoutAlign="start center" (click)="MastersClicked()">
+  <div class="menu-container" fxLayoutAlign="start center" (click)="MastersClicked(0)">
     <img class="menu-item-img" src="assets/images/masters.png">
     <div fxFlex=15></div>
     <span class="menu-item-title">Masters</span>
@@ -103,13 +103,13 @@
     <img src="assets/images/double-next.svg">
   </div>
   <div class="master-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="32px">
-    <span class="master-item">Site</span>
-    <span class="master-item">Space</span>
-    <span class="master-item">Edge Group</span>
-    <span class="master-item">Gateway</span>
-    <span class="master-item">Edge Device</span>
-    <span class="master-item">Asset</span>
-    <span class="master-item">Rule</span>
+    <span class="master-item" (click)="MastersClicked(0)">Site</span>
+    <span class="master-item" (click)="MastersClicked(1)">Space</span>
+    <span class="master-item" (click)="MastersClicked(2)">Edge Group</span>
+    <span class="master-item" (click)="MastersClicked(3)">Gateway</span>
+    <span class="master-item" (click)="MastersClicked(4)">Edge Device</span>
+    <span class="master-item" (click)="MastersClicked(5)">Asset</span>
+    <span class="master-item" (click)="MastersClicked(6)">Rule</span>
   </div>
   <div class="hdivider" style="margin-bottom: 16px;"></div>
 </ion-content>

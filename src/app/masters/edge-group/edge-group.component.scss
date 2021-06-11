@@ -48,6 +48,7 @@
 .form-wrapper{
     padding: 16px;
     padding-left: 32px;
+    padding-top: 0;
     .subtitle{
         margin-top: 6px;
         @extend .poppins;
@@ -115,5 +116,5 @@
     background-color: #0000001a !important;
 }
 input::placeholder{
-    color: #394256;
+    color: #bcbfc6;
 }
