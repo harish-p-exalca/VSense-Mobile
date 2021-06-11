@@ -85,8 +85,10 @@ export class DashboardPage implements OnInit {
   ngOnInit() {
   }
 
-  MastersClicked(){
-    this._router.navigate(['masters']);
+  MastersClicked(index:number){
+    this._router.navigate(['masters'],{
+      queryParams: { id: index },
+    });
   }
   LiveFeedsClicked(){
     this._router.navigate(['livefeed']);

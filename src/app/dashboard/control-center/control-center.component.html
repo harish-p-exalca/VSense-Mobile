@@ -166,7 +166,7 @@
       </div>
     </div>
   </div>
-  <div class="live-feed-container" fxLayoutAlign="start center">
+  <div class="live-feed-container" fxLayoutAlign="start center" (click)="LiveFeedClicked()">
     <img src="assets/images/Group 8239.svg" class="img-pos">
     <img src="assets/images/live-feed-icon.svg">
     <span class="live-feed-txt">Live Feeds</span>
@@ -174,17 +174,28 @@
     <span class="feed-count">48</span>
     <img src="assets/images/black-next.svg">
   </div>
-  <div class="signal-container" fxLayout="row">
-    <div fxFlex="55" fxLayoutAlign="center center">
-      <img src="assets/images/signal.png">
+  <div class="signal-wrapper" fxLayout="row">
+    <div class="signal-container" fxLayout="row" [ngClass]="{'signal-container1':SignalIsOpen}"
+      (click)="ToggleSignal()">
+      <img src="assets/images/signal.png" class="signal-img">
+      <div class="signal-spacer"></div>
+      <div class="signal-counter">
+        <span class="signal-txt">Signals</span>
+        <span class="signal-count">07</span>
+      </div>
+      <div class="signal-icon">
+        <img src="assets/images/signal-icon.svg" width="26px">
+      </div>
     </div>
-    <div fxFlex=5></div>
-    <div fxFlex=30 fxLayout="column" fxLayoutAlign="center end">
-      <span class="signal-txt">Signals</span>
-      <span class="signal-count">07</span>
-    </div>
-    <div fxFlex=10 fxLayout="column" fxLayoutAlign="end end">
-      <img src="assets/images/signal-icon.svg" width="26px">
+    <div [@openClose]="SignalIsOpen ? 'open' : 'closed'" class="signal-table" fxLayoutGap="8px" fxLayout="column">
+      <div fxLayoutAlign="space-between center" class="signal-row">
+        <span class="signal-txt">PramID</span>
+        <span class="signal-txt">Signal Time</span>
+      </div>
+      <div fxLayoutAlign="space-between center" class="signal-row">
+        <span class="value-txt">TEMP</span>
+        <span class="value-txt">Just now</span>
+      </div>
     </div>
   </div>
   <div class="device-status-container">
