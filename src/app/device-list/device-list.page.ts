@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 export interface List {
   Site: string;
@@ -42,7 +42,8 @@ const LIST_DATA: List[] = [
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.page.html',
-  styleUrls: ['./device-list.page.scss'],
+  styleUrls: ['./device-list.page.scss']
+
 })
 export class DeviceListPage implements OnInit {
   applyFilter(event: Event) {

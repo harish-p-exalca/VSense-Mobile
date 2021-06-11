@@ -1,13 +1,13 @@
-.header{
-    color: #394256;
-    font-size: 12px;
-    font-family: 'poppins-semi' !important;
-}
+// .header{
+//     color: #394256;
+//     font-size: 12px;
+//     font-family: 'poppins-semi' !important;
+// }
 .title{
     color: #394256;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
 }
 .maindiv{
     width: 100%;
@@ -16,47 +16,100 @@
 .man_img{
     width: 70%;
 }
-.copy{
+// @media only screen and (max-width: 320px) {
+//     .man_img{
+//         width: 65%;
+//     }
+// }
+// .copy{
+//     font-family: 'poppins-med' !important;
+//     font-size: 12px;
+//     color: #0d0c22;
+// }
+// .delete{
+//     color: #ff0707;
+//     font-size: 12px;
+// }
+// .update{
+//     font-size: 12px;
+//     color: #24e02b;
+// }
+// .flex{
+//     flex: 1 1 auto;
+// }
+// .footer{
+//     background-color: #f4f4fb;
+// }
+.name{
+    color: #394256;
+    font-size: 12px;
     font-family: 'poppins-med' !important;
+}
+
+.toolbar{
+    --background:#ffffff;
+    --min-height:56px;
+    box-shadow: 0 2px 3px 0 rgba(31, 0, 158, 0.08);
+    --border-width:0 !important;
+    --padding-start:24px;
+    --padding-end:10px;
+    .title{
+        font-size: 12px;
+        font-family: 'poppins-semi' !important;
+        color: #394256;
+       
+    }
+    .backbtn{
+        width: 16px;
+        height: 16px;
+    }
+}
+.footer-toolbar{
+    --background:#f4f4fb;
+    --min-height:56px;
+    --border-width:0 !important;
+    --padding-start:24px;
+    --padding-end:20px;
     font-size: 12px;
-    color: #0d0c22;
+    .deletetxt{
+        color: #ff0707;
+        font-size: 12px;
+    font-family: 'poppins-med' !important;
+
+    }
+    .savetxt{
+        color: #24e02b;
+        font-size: 12px;
+        font-family: 'poppins-med' !important;
+    
+    }
 }
-.delete{
-    color: #ff0707;
-    font-size: 12px;
-}
-.update{
-    font-size: 12px;
-    color: #24e02b;
-}
-.flex{
-    flex: 1 1 auto;
-}
-.footer{
-    background-color: #f4f4fb;
-}
+
+//matformfield
 ::ng-deep input.mat-input-element {
     margin-top: -0.0625em;
     font-size: 12px;
     font-family: 'poppins-semi' !important;
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: #f6f6f6;
+    background-color: #f6f6f6 !important;
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
     padding-bottom: 0.5em !important;
 }
 ::ng-deep .mat-input-element {
-    width: 71% !important;
+    width: 100% !important;
   }
 ::ng-deep .mat-form-field-infix {
     display: block;
     position: relative;
     flex: auto;
     min-width: 0;
-    width: 180px;
-    height: 50px;
+    width: 180px !important;
+    height: 50px !important;
   }
+
+  //datepicker
 ::ng-deep .mat-datepicker-content .mat-calendar {
     width: 222px !important;
     height: 354px !important;
@@ -64,9 +117,4 @@
 ::ng-deep .mat-datepicker-content-container {
     width: 232px !important;
     height: 285px !important;
-}
-.name{
-    color: #394256;
-    font-size: 12px;
-    font-family: 'poppins-med' !important;
 }

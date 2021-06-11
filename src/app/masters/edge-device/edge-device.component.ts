@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { MatTableDataSource } from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
@@ -56,6 +56,8 @@ const LIST_DATA: List[] = [
   selector: 'app-edge-device',
   templateUrl: './edge-device.component.html',
   styleUrls: ['./edge-device.component.scss'],
+  // encapsulation:ViewEncapsulation.None
+
 })
 export class EdgeDeviceComponent implements OnInit {
   configSuccess: MatSnackBarConfig = {

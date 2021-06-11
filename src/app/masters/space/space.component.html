@@ -1,18 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <div fxLayout="row" fxLayoutGap="10px">
-      <div fxFlex="6"></div>
-      <img (click)="back()" src="./assets/Group 20.svg">
-      <div fxFlex="3"></div>
-      <span class="header">Masters :</span>
-      <span class="header">Create Space</span>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="back()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Masters :</span>
+        <span class="title">Create Space</span>
+      </div>
+      <div fxFlex></div>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <div fxLayout="column" class="maindiv">
-    <div fxFlex="2"></div>
-    <div [formGroup]="spaceFormGroup" fxFlex="50" fxLayout="column">
+    <div fxFlex="3"></div>
+    <div [formGroup]="spaceFormGroup" fxFlex="40" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Title</span>
@@ -70,22 +73,36 @@
         <div fxFlex="9"></div>
       </div>
     </div>
-    <div fxFlex="1"></div>
-    <div fxFlex="38" fxLayoutAlign="center center">
+    <div fxFlex="15"></div>
+    <div fxFlex="34" fxLayoutAlign="center center">
       <img class="man" src="./assets/Man.svg">
     </div>
-    <div fxFlex="2"></div>
-    <div fxFlex="7" fxLayout="row" class="footer" fxLayoutAlign="center center">
-      <div fxFlex="58"></div>
-      <!-- <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
-        <img src="./assets/copy.svg">
-        <span class="copy">Copy</span>
-      </div> -->
-      <!-- <div fxFlex="23"></div> -->
-      <div class="delete" fxFlex="15">Delete</div>
-      <div fxFlex="5"></div>
-      <div class="update" fxFlex="17">Update</div>
-      <div fxFlex="5"></div>
-    </div>
+    <!-- <div fxFlex="2"></div> -->
+   
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayoutAlign="end center" fxLayoutGap="24px">
+      <span class="deletetxt">Delete</span>
+      <span class="savetxt">Update</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+<!-- <div fxFlex="7" fxLayout="row" class="footer" fxLayoutAlign="center center">
+  <div fxFlex="58"></div>
+  
+  <div class="delete" fxFlex="15">Delete</div>
+  <div fxFlex="5"></div>
+  <div class="update" fxFlex="17">Update</div>
+  <div fxFlex="5"></div>
+</div> -->
+<!-- <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
+    <img src="./assets/copy.svg">
+    <span class="copy">Copy</span>
+  </div> -->
+  <!-- <div fxFlex="23"></div> -->

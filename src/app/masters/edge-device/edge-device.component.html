@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <div fxLayout="row wrap" fxLayoutGap="10px">
       <div fxFlex="6"></div>
@@ -8,14 +8,27 @@
       <span class="header">Create Edge Device</span>
     </div>
   </ion-toolbar>
+</ion-header> -->
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="back()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Masters :</span>
+        <span class="title">Create Edge Device</span>
+      </div>
+      <div fxFlex></div>
+    </div>
+  </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+  <!-- <ion-fab vertical="top" horizontal="end" edge slot="fixed">
     <ion-fab-button class="fab" >
       <img  src="./assets/plus.svg">
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
   <div fxLayout="column" class="maindiv">
     <div fxFlex="3"></div>
     <div [formGroup]="edgedeviceFormGroup" style="height: 266px;" fxLayout="column">
@@ -23,9 +36,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Name</span>
         <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"fxFlex="48">
+        <mat-form-field class="formfield"  floatLabel="never"fxFlex="48">
           <mat-label class="name">Enter Name</mat-label>
-          <input class="placeholder" matInput type="text" formControlName="Name"
+          <input class="inp_name" matInput type="text" formControlName="Name"
             autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
@@ -34,9 +47,9 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Purpose</span>
         <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"  fxFlex="48">
+        <mat-form-field class="formfield" floatLabel="never"  fxFlex="48">
           <mat-label class="name">Enter Purpose</mat-label>
-          <input  matInput type="text" formControlName="Purpose" autocomplete="off" />
+          <input class="inp_name" matInput type="text" formControlName="Purpose" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -44,14 +57,17 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">Put To Use</span>
         <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"  fxFlex="48">
-          <mat-label class="name">Enter Date</mat-label>
-          <input matInput type="text" formControlName="Put" [matDatepicker]="picker"
+        <mat-form-field class="formfield" floatLabel="never"  fxFlex="48">
+          
+          <mat-label class="name" >Enter Date</mat-label>
+    
+          <input   matInput type="text" formControlName="Put" [matDatepicker]="picker"
             autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <img src="../../../assets/iconfinder_Calendar_728916.svg">
           </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker class="second"  #picker></mat-datepicker>
+        
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -59,11 +75,11 @@
         <div fxFlex="9"></div>
         <span fxFlex="30" class="title">LifeSpan</span>
         <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"  fxFlex="50">
+        <mat-form-field class="formfield" floatLabel="never"  fxFlex="50">
           <mat-label class="name">Enter Lifespan</mat-label>
-          <div fxLayout="row" fxlayoutGap="20px">
-            <input matInput type="text" formControlName="Lifespan" autocomplete="off" />
-            <span class="years">(In yeras)</span>
+          <div fxLayout="row" >
+            <input class="inp_name" fxFlex="70" matInput type="text" formControlName="Lifespan" autocomplete="off" />
+            <span fxFlex="30" class="years">(In yeras)</span>
           </div>
         </mat-form-field>
         <div fxFlex="7"></div>
@@ -141,7 +157,9 @@
       </table>
     </div>
     <div fxFlex="5"></div>
-    <div fxFlex="8" fxLayout="row" class="footer" fxLayoutAlign="center center">
+
+  
+    <!-- <div fxFlex="8" fxLayout="row" class="footer" fxLayoutAlign="center center">
       <div fxFlex="7"></div>
       <div fxFlex="30" (click)="copyclick()" fxLayout="row" fxLayoutGap="5px">
         <img src="./assets/copy.svg">
@@ -152,6 +170,22 @@
       <div fxFlex="5"></div>
       <div class="update" fxFlex="17">Update</div>
       <div fxFlex="3"></div>
-    </div>
+    </div> -->
   </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayout="row">
+    <div fxFlex="7"></div>
+    <div fxFlex="30" fxLayoutAlign="start center" (click)="copyclick()" fxLayout="row" fxLayoutGap="5px">
+      <img src="./assets/copy.svg">
+      <span class="copy">Copy</span>
+    </div>
+    <div fxFlex="23"></div>
+      <div fxFlex="5"></div>
+      <span class="deletetxt" fxFlex="15">Delete</span>
+      <span class="savetxt" fxFlex="17">Update</span>
+      <div fxFlex="3"></div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

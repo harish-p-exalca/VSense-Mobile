@@ -23,14 +23,17 @@
             <div fxFlex="65">
               <span class="user">User Name</span>
               <form [formGroup]="loginFormGroup">
-                <mat-form-field class="input" appearance="outline">
+                <mat-form-field class="input1" appearance="outline">
+                  <div fxLayout="row" fxLayoutAlign="space-between center">
+
                   <input placeholder="Enter User Name" matInput type="text" formControlName="UserName"
                     autocomplete="off" />
+                    </div>
                 </mat-form-field>
               </form>
               <span class="user">Password</span>
               <form [formGroup]="loginFormGroup">
-                <mat-form-field class="input" appearance="outline">
+                <mat-form-field class="input1" appearance="outline">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <input placeholder="Enter Password" matInput [type]="hide ? 'password' : 'text'"
                       formControlName="Password" autocomplete="off" />
