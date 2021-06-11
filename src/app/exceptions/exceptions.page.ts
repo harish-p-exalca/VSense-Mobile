@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface List {
   ExcepID: string;
@@ -53,7 +54,7 @@ export class ExceptionsPage implements OnInit {
   dataSource:MatTableDataSource<any>=new MatTableDataSource(LIST_DATA);
   hide = true;
 
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnInit() {
   }
@@ -62,5 +63,8 @@ export class ExceptionsPage implements OnInit {
   }
   close(){
     this.a=1;
+  }
+  back(){
+    this._router.navigate(['dashboard']);
   }
 }

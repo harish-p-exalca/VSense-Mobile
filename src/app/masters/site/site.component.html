@@ -91,8 +91,8 @@
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
     <div fxLayoutAlign="end center" fxLayoutGap="24px">
-      <span class="deletetxt">Delete</span>
-      <span class="savetxt">Update</span>
+      <span class="deletetxt" (click)=deleteclick()>Delete</span>
+      <span class="savetxt"(click)=updateclick() >Update</span>
     </div>
   </ion-toolbar>
 </ion-footer>

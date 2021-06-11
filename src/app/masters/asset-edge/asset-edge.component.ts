@@ -42,6 +42,20 @@ const LIST_DATA: List[] = [
   Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
   { ParamID:'CRNT12',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
   Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT6',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT7',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT8',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT9',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT10',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT11',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
+  { ParamID:'CRNT12',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
+  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
 
  
 ];
@@ -80,12 +94,16 @@ dataSource = new MatTableDataSource<List>(this.data);
     localStorage.removeItem("YesValue")
     
       const dialogRef = this.dialog.open(DialogComponent, {
-  
-        position: { top: '45%', left: '10%' },
+        disableClose: true ,
+        position: { top: '90%', left: '10%' },
         height: '120px',
         width: '300px',
         hasBackdrop: false,
       });
+      dialogRef.backdropClick().subscribe(() => {
+        // Close the dialog
+        dialogRef.close();
+      })
       this.yes_value= localStorage.getItem("YesValue")
       this.no_value= localStorage.getItem("NoValue")
       console.log(this.yes_value);

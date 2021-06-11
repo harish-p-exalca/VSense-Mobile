@@ -15,10 +15,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'device-list',
-    loadChildren: () => import('./device-list/device-list.module').then( m => m.DeviceListPageModule)
-  },
+  // {
+  //   path: 'device-list',
+  //   loadChildren: () => import('./device-list/device-list.module').then( m => m.DeviceListPageModule)
+  // },
   {
     path: 'exceptions',
     loadChildren: () => import('./exceptions/exceptions.module').then( m => m.ExceptionsPageModule)
