@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolbar">
-    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+    <div *ngIf="!IsSearch" fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
       <div fxLayoutAlign="start center" (click)="BackClicked()">
         <img class="backbtn" src="assets/Group 20.svg">
       </div>
@@ -8,14 +8,20 @@
         <span class="title">Masters</span>
       </div>
       <div fxFlex></div>
-      <img src="assets/Group 8233.svg">
+      <img src="assets/Group 8233.svg" (click)="ToggleSearch()">
       <img src="assets/iconfinder_Filter_4737438 (4).svg">
+    </div>
+    <div *ngIf="IsSearch" class="search-container" fxLayout="row">
+      <input [(ngModel)]="SearchKey" class="search" placeholder="Search to - do" autocomplete="off" fxFlex=100>
+      <div mat-ripple class="searchbtn" fxLayoutAlign="center">
+        <img class="close" (click)="ToggleSearch()" src="./assets/Close.svg">
+      </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <mat-tab-group scrollToCenter [(selectedIndex)]="selectedIndex" class="tab-group">
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <mat-tab-group #matTab scrollToCenter [(selectedIndex)]="selectedIndex" class="tab-group" [ngClass]="{'tab-header':IsVisible}">
     <mat-tab label="Site">
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
@@ -169,7 +175,7 @@
     </mat-tab>
     <mat-tab label="Rule"></mat-tab>
   </mat-tab-group>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab [@toggle]="!IsVisible?'visible':'hidden'" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="fab-btn" (click)="AddClicked()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
