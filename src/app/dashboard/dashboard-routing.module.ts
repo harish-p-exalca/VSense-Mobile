@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ControlCenterComponent } from './control-center/control-center.component';
+import { ControlcenterLivefeedComponent } from './controlcenter-livefeed/controlcenter-livefeed.component';
 
 import { DashboardPage } from './dashboard.page';
+import { DeviceListPage } from './device-list/device-list.page';
 
 const routes: Routes = [
   {
@@ -12,7 +14,15 @@ const routes: Routes = [
   {
     path:'control-center',
     component:ControlCenterComponent
-  }
+  },
+  {
+    path:'controlcenter-livefeed',
+    component:ControlcenterLivefeedComponent
+  },
+  {
+    path:'device-list',
+    component:DeviceListPage
+  },
 ];
 
 @NgModule({

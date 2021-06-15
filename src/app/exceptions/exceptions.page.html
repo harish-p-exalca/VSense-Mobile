@@ -1,21 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <div *ngIf="a==1" fxLayout="row" fxLayoutGap="25px">
-      <div fxFlex="3"></div>
-      <img src="./assets/Group 20.svg">
-      <span class="title">Exceptions</span>
+  <ion-toolbar class="toolbar">
+    <div  *ngIf="a==1" fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="back()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Exceptions</span>
+      </div>
+      <!-- <div fxFlex></div> -->
       <span class="flex"></span>
       <img (click)="search()" src="./assets/Group 8233.svg">
       <img src="./assets/iconfinder_Filter_4737438 (4).svg">
       <div fxFlex="3"></div>
+    </div>
+    <div *ngIf="a==2" class="search-container" fxLayout="row">
+      <input class="search" placeholder="Search to - do" (keyup)="applyFilter($event)" #input autocomplete="off"
+        fxFlex=100>
+      <div mat-ripple class="searchbtn pointer" fxLayoutAlign="center">
+        <img class="close" (click)="close()" src="./assets/Close.svg">
       </div>
-      <div *ngIf="a==2" class="search-container" fxLayout="row">
-        <input class="search" placeholder="Search to - do" (keyup)="applyFilter($event)" #input autocomplete="off"
-          fxFlex=100>
-        <div mat-ripple class="searchbtn pointer" fxLayoutAlign="center">
-          <img class="close" (click)="close()" src="./assets/Close.svg">
-        </div>
-      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>

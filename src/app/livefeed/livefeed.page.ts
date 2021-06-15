@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 export interface List {
   // photos: string;
   LogID: string;
@@ -87,7 +88,7 @@ export class LivefeedPage implements OnInit {
   // dataSource = LIST_DATA;
   data = Object.assign(LIST_DATA);
 dataSource = new MatTableDataSource<List>(this.data);
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnInit() {
   }
@@ -96,5 +97,8 @@ dataSource = new MatTableDataSource<List>(this.data);
   }
   close(){
     this.a=1;
+  }
+  back(){
+    this._router.navigate(['dashboard']);
   }
 }

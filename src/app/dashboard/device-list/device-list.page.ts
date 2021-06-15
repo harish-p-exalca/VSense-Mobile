@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 export interface List {
   Site: string;
   Space: string;
@@ -66,7 +67,7 @@ value:any;
   valuee: number;
   a:any=1;
 
-  constructor() { }
+  constructor(private _router:Router) { }
   ngOnInit() {
   }
 all(){
@@ -89,5 +90,8 @@ search(){
 }
 close(){
   this.a=1;
+}
+back(){
+  this._router.navigate(['dashboard']);
 }
 }

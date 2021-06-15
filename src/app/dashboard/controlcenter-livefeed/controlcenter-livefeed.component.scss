@@ -1,0 +1,108 @@
+.flex{
+    flex: 1 1 auto;
+}
+.title{
+    color: #394256;
+    font-family: 'poppins-semi' !important;
+
+}
+.subtitle{
+    font-family: 'poppins-med' !important;
+}
+.maindiv{
+    width: 100%;
+    height: 100%;
+
+}
+.mat-table{
+    font-family: 'poppins-semi' !important;
+}
+.tabledivision{
+    overflow: scroll;
+    height: 27rem;
+    width: 1450px;
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  .tabledivision::-webkit-scrollbar{
+      display: none;
+      width: 0; 
+      background: transparent;
+  }
+  .trrr{
+      width: 10%;
+  }
+  table {
+    width: 100%;
+    th {
+      color: #ffffff;
+      background-color: #3131ff;
+      padding-left: 25px;
+      border-bottom: 10px solid white;
+    }
+    td {
+      font-size: 12px;
+      width: 40px;
+      color: #a6aeaf; 
+      padding-left: 30px;
+      text-align:center
+    }
+    td.mat-cell{
+        border-bottom-color: transparent;
+        text-align:center
+    }
+    tr {
+      height: 52px;
+    }
+    th.mat-header-cell {
+         text-align:center
+    }
+    th.mat-header-cell:first-child {
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+      }
+      th.mat-header-cell:last-child {
+          border-top-right-radius: 4px !important;
+          border-bottom-right-radius: 4px !important;
+      }
+}
+.icon{
+    width: 30%;
+    font-size: 60px;
+}
+.search-container{
+    border-radius: 4px;
+    border: solid 1px #3131ff;
+    height: 30%;
+    width: 95%;
+    background-color: #ffffff;
+    margin-left:10px;
+  }
+  .search{
+    font-family: 'poppins-semi' !important;
+    font-size: 12px;
+    color: #3131ff;
+    border: none;
+    margin-left: 1rem;
+  }
+  .search::-webkit-input-placeholder {
+    color: #3131ff;
+    font-size: 12px;
+    font-family: 'poppins-bold' !important;
+  }
+  .search:focus{
+    outline: none;
+  }
+  .searchbtn{
+   height: 34px;
+    width: 60px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: #3131ff;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  .close{
+    width:24px;
+  }

@@ -89,7 +89,8 @@ export class EdgeDeviceComponent implements OnInit {
   data = Object.assign(LIST_DATA);
 dataSource = new MatTableDataSource<List>(this.data);
   edgedeviceFormGroup: FormGroup;
-  constructor(private fb: FormBuilder,public dialog: MatDialog,public snackBar: MatSnackBar,private _router:Router) {}
+  constructor(private fb: FormBuilder,public dialog: MatDialog, public snackBar: MatSnackBar,private _router:Router) {
+  }
   async openSnackBar1(message: string, action: string) {
     this.snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
@@ -103,17 +104,20 @@ dataSource = new MatTableDataSource<List>(this.data);
     localStorage.removeItem("YesValue")
     
       const dialogRef = this.dialog.open(DialogComponent, {
-  
-        position: { top: '107%', left: '10%' },
+        disableClose: true ,
+        position: { top: '110%', left: '10%' },
         height: '120px',
         width: '300px',
         hasBackdrop: false,
       });
+      dialogRef.backdropClick().subscribe(() => {
+        dialogRef.close();
+      })
       this.yes_value= localStorage.getItem("YesValue")
       this.no_value= localStorage.getItem("NoValue")
       console.log(this.yes_value);
 console.log(this.no_value);
-     
+
          
             dialogRef.afterClosed().subscribe(result => {
               console.log(`Dialog result: ${result}`);
@@ -125,6 +129,7 @@ console.log(this.no_value);
               }
             
             });
+           
         
           
       
@@ -161,5 +166,12 @@ console.log(this.no_value);
   copyclick(){
     this.openSnackBar1('Copied!', '');
   }
+  deleteclick(){
+    this.openSnackBar1('Deleted!', '');
+  }
+  updateclick(){
+    this.openSnackBar1('Updated!', '');
+  }
+  
  
 }

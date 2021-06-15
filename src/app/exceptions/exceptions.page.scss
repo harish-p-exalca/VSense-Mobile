@@ -80,7 +80,7 @@
   height: 30%;
   width: 95%;
   background-color: #ffffff;
-  margin-left:10px;
+  // margin-left:10px;
 }
 .search{
   font-family: 'poppins-bold' !important;
@@ -119,7 +119,24 @@
   right: 30% !important;
   top: 2% !important;
 }
-
+.toolbar{
+  --background:#ffffff;
+  --min-height:56px;
+  box-shadow: 0 2px 3px 0 rgba(31, 0, 158, 0.08);
+  --border-width:0 !important;
+  --padding-start:24px;
+  --padding-end:10px;
+  .title{
+      font-size: 12px;
+      font-family: 'poppins-semi' !important;
+      color: #394256;
+     
+  }
+  .backbtn{
+      width: 16px;
+      height: 16px;
+  }
+}
 
 
 
