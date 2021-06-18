@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://rd.exalca.com:5501',
+  baseAddress: 'http://rd.exalca.com:7050',
+
+  // apiUrl: 'http://localhost:5501',
+  // baseAddress: 'http://localhost:5000'
+
+  clientId: 'ngAuthApp'
 };
 
 /*

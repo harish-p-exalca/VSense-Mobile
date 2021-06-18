@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexTooltip, ApexDataLabels, ApexFill, ApexGrid, ChartComponent } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexTooltip, ApexDataLabels, ApexFill, ApexGrid, ChartComponent, ApexMarkers } from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -11,6 +11,7 @@ export type ChartOptions = {
   dataLabels: ApexDataLabels;
   fill: ApexFill;
   grid:ApexGrid;
+  markers:ApexMarkers;
 };
 
 @Component({
@@ -59,6 +60,14 @@ export class DashboardPage implements OnInit {
           stops: [0, 50, 100]
         }
       },
+      markers:{
+        size:[5],
+        colors:["#7d95ff"],
+        hover: {
+          size: undefined,
+          sizeOffset: 3
+        }
+      },
       xaxis: {
         type: "datetime",
         categories: [
@@ -97,6 +106,6 @@ export class DashboardPage implements OnInit {
     this._router.navigate(['exceptions']);
   }
   DeviceListClicked(){
-    this._router.navigate(['device-list']);
+    this._router.navigate(['dashboard/device-list']);
   }
 }

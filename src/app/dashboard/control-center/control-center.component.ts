@@ -34,10 +34,10 @@ export class ControlCenterComponent implements OnInit {
   ngOnInit() { }
 
   BackClicked() {
-    this._router.navigate(['device-list']);
+    this._router.navigate(['dashboard/device-list']);
   }
   LiveFeedClicked() {
-    this._router.navigate(['livefeed']);
+    this._router.navigate(['dashboard/controlcenter-livefeed']);
   }
   ToggleSignal() {
     this.SignalIsOpen = !this.SignalIsOpen;

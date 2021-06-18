@@ -35,8 +35,7 @@
           <input matInput placeholder="Enter Title" type="text" formControlName="Title" autocomplete="off" />
         </mat-form-field> -->
         <mat-form-field class="formfield" floatLabel="never" fxFlex="48" >
-          <mat-label class="name">Enter Title</mat-label>
-          <input matInput type="text" formControlName="Title" autocomplete="off"/>
+          <input matInput type="text" placeholder="Enter Title" formControlName="Title" autocomplete="off"/>
          
         </mat-form-field>
         <div fxFlex="9"></div>
@@ -46,8 +45,7 @@
         <span fxFlex="30" class="title">Geo Location</span>
         <div fxFlex="4"></div>
         <mat-form-field  floatLabel="never" class="formfield"  fxFlex="48">
-          <mat-label class="name">Enter Purpose</mat-label>
-          <input matInput  type="text" formControlName="Geolocation" autocomplete="off" />
+          <input matInput  type="text" placeholder="Enter Geo Location" formControlName="Geolocation" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -56,8 +54,7 @@
         <span fxFlex="30" class="title">Plant</span>
         <div fxFlex="4"></div>
         <mat-form-field floatLabel="never"  class="formfield" fxFlex="48">
-          <mat-label class="name">Enter Plant Name</mat-label>
-          <input  matInput type="text" formControlName="Plant" autocomplete="off" />
+          <input  matInput type="text" placeholder="Enter Plant" formControlName="Plant" autocomplete="off" />
         </mat-form-field>
         <div fxFlex="9"></div>
       </div>
@@ -66,8 +63,7 @@
         <span fxFlex="30" class="title">Date</span>
         <div fxFlex="4"></div>
         <mat-form-field floatLabel="never"  class="formfield" fxFlex="48" >
-          <mat-label class="name">Enter Date</mat-label>
-          <input matInput type="text" formControlName="Date"  [matDatepicker]="picker"
+          <input matInput placeholder="Enter Date" type="text" formControlName="Date"  [matDatepicker]="picker"
           autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <img src="../../../assets/iconfinder_Calendar_728916.svg">
