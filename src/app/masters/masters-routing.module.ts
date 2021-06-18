@@ -9,6 +9,8 @@ import { EdgeGroupComponent } from './edge-group/edge-group.component';
 import { MastersPage } from './masters.page';
 import { SiteComponent } from './site/site.component';
 import { SpaceComponent } from './space/space.component';
+import { GatewayComponent } from './gateway/gateway.component';
+import { RuleComponent } from './rule/rule.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'asset',
     component: AssetComponent
+  },
+  {
+    path: 'gateway',
+    component: GatewayComponent
+  },
+  {
+    path: 'rule',
+    component: RuleComponent
   }
 ];
 

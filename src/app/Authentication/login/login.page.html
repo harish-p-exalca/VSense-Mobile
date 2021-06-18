@@ -22,30 +22,30 @@
             </div>
             <div fxFlex="65">
               <span class="user">User Name</span>
-              <form [formGroup]="loginFormGroup">
+              <form [formGroup]="loginFormGroup" autocomplete="off" >
                 <mat-form-field class="input1" appearance="outline">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
 
-                  <input placeholder="Enter User Name" matInput type="text" formControlName="UserName"
-                    autocomplete="off" />
-                    </div>
+                    <input placeholder="Enter User Name" matInput type="text" formControlName="UserName"/>
+                  </div>
                 </mat-form-field>
-              </form>
-              <span class="user">Password</span>
-              <form [formGroup]="loginFormGroup">
+
+                <span class="user">Password</span>
+
                 <mat-form-field class="input1" appearance="outline">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <input placeholder="Enter Password" matInput [type]="hide ? 'password' : 'text'"
-                      formControlName="Password" autocomplete="off" />
-                    <img class="show" (click)="hide = !hide"
-                      [src]="hide  ?  './assets/38488.svg' : './assets/38488.svg'" />
+                    <input placeholder="Enter Password" matInput [type]="PWVisible ? 'password' : 'text'"
+                      formControlName="Password"/>
+                    <img class="show" (click)="ToggleVisible()"
+                      [src]="PWVisible  ?  './assets/38488.svg' : './assets/38488.svg'" />
+                      <!-- <mat-icon (click)="ToggleVisible()">{{PWVisible ? 'visibility_off':'visibility'}}</mat-icon> -->
                   </div>
                 </mat-form-field>
               </form>
               <span class="forgot" fxLayoutAlign="end center">Forgot Password?</span>
             </div>
             <div fxFlex="15" fxLayoutAlign="center center">
-              <button class="btn" fxLayoutAlign="center center" type="button" mat-raised-button>
+              <button (click)="loginClicked()" class="btn" fxLayoutAlign="center center" type="button" mat-raised-button>
                 Log in
               </button>
             </div>

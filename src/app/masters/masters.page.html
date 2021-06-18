@@ -102,7 +102,30 @@
         </mat-selection-list>
       </div>
     </mat-tab>
-    <mat-tab label="Gateway"></mat-tab>
+    <mat-tab label="Gateway">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Gateway Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" style="height: 55px;" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">Gateway</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
     <mat-tab label="Edge Device">
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
@@ -173,7 +196,34 @@
         </mat-selection-list>
       </div>
     </mat-tab>
-    <mat-tab label="Rule"></mat-tab>
+    <mat-tab label="Rule">
+      <div class="tab-masters" fxLayoutGap="16px">
+        <div fxLayout="row" fxLayoutGap="4px">
+          <span class="count-label">Rule Total Count :</span>
+          <span class="count">20</span>
+        </div>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+            <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/dotnot.svg" width="6px">
+                  <span class="titletxt">RuleID</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <img class="img" src="assets/images/calendar.svg" width="14px">
+                  <span class="titletxt">Date</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <img class="img" src="assets/images/dotnot.svg" width="6px">
+                <span class="titletxt">Site</span>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-tab>
   </mat-tab-group>
   <ion-fab [@toggle]="!IsVisible?'visible':'hidden'" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="fab-btn" (click)="AddClicked()">

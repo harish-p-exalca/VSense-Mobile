@@ -68,6 +68,6 @@ dataSource = new MatTableDataSource<List>(this.data);
     this.a=1;
   }
   back(){
-    this._router.navigate(['dashboard']);
+    this._router.navigate(['dashboard/control-center']);
   }
 }

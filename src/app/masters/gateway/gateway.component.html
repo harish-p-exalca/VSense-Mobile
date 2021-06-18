@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="BackClicked()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Masters :</span>
+        <span class="title">Create Gateway</span>
+      </div>
+      <div fxFlex></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="GatewayFormGroup" autocomplete="off">
+    <div fxLayout="column" class="form-wrapper">
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Gateway Title</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Title" matInput autocomplete="off" placeholder="Enter Gateway Title">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Edge Group</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="EdgeGroup" placeholder="Choose EdgeGroup" class="matselect">
+            <mat-option class="matoption" value="1">group-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Put To Use</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex matInput formControlName="PutToUse" placeholder="Enter Date" [matDatepicker]="picker" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">VCC</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Vcc" matInput autocomplete="off" placeholder="Enter Vcc" type="number">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Software Version</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="SoftwareVersion" matInput autocomplete="off" placeholder="Enter Software Version">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Life Span</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input type="number" fxFlex formControlName="LifeSpan" matInput autocomplete="off" placeholder="Life Span (In Years)">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayoutAlign="end center" fxLayoutGap="24px">
+      <span class="deletetxt">Delete</span>
+      <span class="savetxt">Update</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button class="fab-btn" (click)="AddParamClicked()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->

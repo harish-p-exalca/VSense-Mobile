@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div fxLayoutAlign="start center" (click)="BackClicked()">
+        <img class="backbtn" src="assets/Group 20.svg">
+      </div>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <span class="title">Masters :</span>
+        <span class="title">Create Gateway</span>
+      </div>
+      <div fxFlex></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="RuleFormGroup" autocomplete="off">
+    <div fxLayout="column" class="form-wrapper">
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Rule</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Title" matInput autocomplete="off" placeholder="Enter Rule">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Site</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="SiteID" placeholder="Choose Site" class="matselect">
+            <mat-option class="matoption" value="1">Site-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Space</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="SpaceID" placeholder="Choose Space" class="matselect">
+            <mat-option class="matoption" value="1">Space-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Asset</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="AssetID" placeholder="Choose Asset" class="matselect">
+            <mat-option class="matoption" value="1">Asset-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Threshold</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Threshold" matInput autocomplete="off" placeholder="Enter Threshold" type="number">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">SLA</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="SLA" matInput autocomplete="off" placeholder="Enter SLA in days" type="number">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Level1</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="Level1" placeholder="Choose User" class="matselect">
+            <mat-option class="matoption" value="1">User-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Level2</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="Level2" placeholder="Choose User" class="matselect">
+            <mat-option class="matoption" value="1">User-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Level3</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select fxFlex formControlName="Level3" placeholder="Choose User" class="matselect">
+            <mat-option class="matoption" value="1">User-1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Notification1</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Notify1" matInput autocomplete="off" placeholder="Enter Notification">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Notification1</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="Notify2" matInput autocomplete="off" placeholder="Enter Notification">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Mail Template</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input fxFlex formControlName="MailTemplate" matInput autocomplete="off" placeholder="Enter Mail Template">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <div fxLayoutAlign="end center" fxLayoutGap="24px">
+      <span class="deletetxt">Delete</span>
+      <span class="savetxt">Update</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button class="fab-btn" (click)="AddParamClicked()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->

@@ -29,7 +29,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatIconModule
-    
   ],
   declarations: [LoginPage]
 })

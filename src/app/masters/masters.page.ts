@@ -63,11 +63,17 @@ export class MastersPage implements OnInit,AfterViewInit {
     else if(this.selectedIndex==2){
       this._router.navigate(['masters/edge-group']);
     }
+    else if(this.selectedIndex==3){
+      this._router.navigate(['masters/gateway']);
+    }
     else if(this.selectedIndex==4){
       this._router.navigate(['masters/edge-device']);
     }
     else if(this.selectedIndex==5){
       this._router.navigate(['masters/asset']);
+    }
+    else if(this.selectedIndex==6){
+      this._router.navigate(['masters/rule']);
     }
   }
 

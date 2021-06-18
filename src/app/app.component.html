@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" menuId="side-panel" contentId="main-content">
+  <ion-menu side="start" menuId="side-panel" contentId="main-content" [disabled]="IsLogin">
     <ion-header>
       <ion-toolbar class="toolbar">
         <div fxLayout="row" fxLayoutAlign="end center">
@@ -10,8 +10,8 @@
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" class="user-container">
           <img src="assets/images/user.png">
           <div fxLayout="column">
-            <span class="usertxt">Name</span>
-            <span class="roletxt">Role</span>
+            <span class="usertxt">{{currentUser?.UserName}}</span>
+            <span class="roletxt">{{currentUser?.UserRole}}</span>
           </div>
           <div fxFlex></div>
           <img src="assets/images/user_status.svg">
@@ -24,10 +24,12 @@
           <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
         </mat-nav-list>
       </div>
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" class="logout">
-				<img src="assets/images/logout.svg">
-				<span class="logouttxt">Logout</span>
-			</div>
+      <ion-menu-toggle>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" class="logout" (click)="logout()">
+          <img src="assets/images/logout.svg">
+          <span class="logouttxt">Logout</span>
+        </div>
+      </ion-menu-toggle>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main-content"></ion-router-outlet>

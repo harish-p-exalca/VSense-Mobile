@@ -30,6 +30,8 @@ import { AssetComponent } from './asset/asset.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { GatewayComponent } from './gateway/gateway.component';
+import { RuleComponent } from './rule/rule.component';
 
 @NgModule({
   imports: [
@@ -62,7 +64,9 @@ import { MatSelectModule } from '@angular/material/select';
     AssetComponent,
     EdgeDeviceComponent,
     DialogComponent,
-    AssetEdgeComponent
+    AssetEdgeComponent,
+    GatewayComponent,
+    RuleComponent
   ]
 })
 export class MastersPageModule {}
