@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://rd.exalca.com:5501',
+  apiUrl: 'http://rd.exalca.com:7051',
   baseAddress: 'http://rd.exalca.com:7050',
 
   // apiUrl: 'http://localhost:5501',

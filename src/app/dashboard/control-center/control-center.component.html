@@ -17,151 +17,153 @@
     <div fxLayout="column" fxLayoutGap="8px">
       <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
         <img src="assets\images\Component 37 – 1.svg">
-        <span class="header-txt">CBE002</span>
+        <span class="header-txt">{{Assignment.Edge}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
         <img src="assets\images\Component 38 – 1.svg">
-        <span class="header-txt">Coimbatore</span>
+        <span class="header-txt">{{Assignment.Asset}}</span>
       </div>
     </div>
     <div fxLayout="column" fxLayoutGap="8px">
       <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
         <img src="assets\images\Component 39 – 1.svg">
-        <span class="header-txt">Server-CBE</span>
+        <span class="header-txt">{{Assignment.Space}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
         <img src="assets\images\Component 40 – 1.svg">
-        <span class="header-txt">Exalca server cbe</span>
+        <span class="header-txt">{{Assignment.Site}}</span>
       </div>
     </div>
   </div>
   <div class="gauge-container" fxLayout="row" fxLayoutGap="16px">
-    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
-      <div class="title-container1" fxLayoutAlign="center center">
-        <span class="title">Current</span>
-        <img src="assets/images/Group 8239.svg" class="design-pos">
+    <div *ngFor="let data of LastLogData;index as i;" class="gauge-container-item">
+      <div *ngIf="i%4==0" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <div class="title-container1" fxLayoutAlign="center center">
+          <span class="title">{{data.ActivityGraphTitle?data.ActivityGraphTitle:data.Title}}</span>
+          <img src="assets/images/Group 8239.svg" class="design-pos">
+        </div>
+        <div class="gauge-wrapper">
+          <div class="gauge">
+            <mwl-gauge class="gauge-style-1" [dialStartAngle]="-90" [min]="data.Min" [max]="data.Max" [dialEndAngle]="-90.001"
+              [value]="data.Value" [showValue]="false" [animated]="true" [animationDuration]="1">
+            </mwl-gauge>
+          </div>
+          <div class="border_circle" fxLayout="column" fxLayoutAlign="center center">
+            <span class="gaugevalue">{{data.Value}}</span>
+            <span class="unittxt">{{data.Unit}}</span>
+          </div>
+          <div class="dash_border"></div>
+        </div>
+        <div fxLayout="column" class="gauge-params">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="minavgmax">Min</span>
+            <span class="minavgmax">Avg</span>
+            <span class="minavgmax">Max</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="min">{{data.MinValue}}</span>
+            <span class="avg">{{data.AvgValue}}</span>
+            <span class="max">{{data.MaxValue}}</span>
+          </div>
+        </div>
       </div>
-      <div class="gauge-wrapper">
-        <div class="gauge">
-          <mwl-gauge class="gauge-style-1" [dialStartAngle]="-90" [min]="0" [max]="60" [dialEndAngle]="-90.001"
-            [value]="32" [showValue]="false" [animated]="true" [animationDuration]="1">
+      <div *ngIf="i%4==1" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <div class="title-container2" fxLayoutAlign="center center">
+          <span class="title">{{data.ActivityGraphTitle?data.ActivityGraphTitle:data.Title}}</span>
+          <img src="assets/images/Group 8239.svg" class="design-pos">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+          <mwl-gauge class="gauge-style-2" [value]="data.Value" [animated]="true" [showValue]="false" [animationDuration]="1"
+            [min]="data.Min" [max]="data.Max">
           </mwl-gauge>
-        </div>
-        <div class="border_circle" fxLayout="column" fxLayoutAlign="center center">
-          <span class="gaugevalue">32</span>
-          <span class="unittxt">&#8451;</span>
-        </div>
-        <div class="dash_border"></div>
-      </div>
-      <div fxLayout="column" class="gauge-params">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="minavgmax">Min</span>
-          <span class="minavgmax">Avg</span>
-          <span class="minavgmax">Max</span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="min">0</span>
-          <span class="avg">30</span>
-          <span class="max">60</span>
-        </div>
-      </div>
-    </div>
-    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
-      <div class="title-container2" fxLayoutAlign="center center">
-        <span class="title">Current</span>
-        <img src="assets/images/Group 8239.svg" class="design-pos">
-      </div>
-      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="gauge-style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
-          [min]="0" [max]="30">
-        </mwl-gauge>
-        <div class="border_circle_2">
-          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
-            <span class="gaugevalue">10</span>
-            <span class="unittxt">mA</span>
+          <div class="border_circle_2">
+            <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+              <span class="gaugevalue">{{data.Value}}</span>
+              <span class="unittxt">{{data.Unit}}</span>
+            </div>
+            <div class="smalltxt">0</div>
+            <div class="smalltxt" style="top: -2px;">40</div>
+            <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+            <div class="smalltxt" style="right: -2px;">100</div>
           </div>
-          <div class="smalltxt">0</div>
-          <div class="smalltxt" style="top: -2px;">40</div>
-          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
-          <div class="smalltxt" style="right: -2px;">100</div>
         </div>
-      </div>
-      <div fxLayout="column" class="gauge-params">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="minavgmax">Min</span>
-          <span class="minavgmax">Avg</span>
-          <span class="minavgmax">Max</span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="min">0</span>
-          <span class="avg">30</span>
-          <span class="max">60</span>
-        </div>
-      </div>
-    </div>
-    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
-      <div class="title-container1" fxLayoutAlign="center center">
-        <span class="title">Current</span>
-        <img src="assets/images/Group 8239.svg" class="design-pos">
-      </div>
-      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="gauge-style-3" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
-          [min]="0" [max]="30">
-        </mwl-gauge>
-        <div class="border_circle_2">
-          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
-            <span class="gaugevalue">10</span>
-            <span class="unittxt">mA</span>
+        <div fxLayout="column" class="gauge-params">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="minavgmax">Min</span>
+            <span class="minavgmax">Avg</span>
+            <span class="minavgmax">Max</span>
           </div>
-          <div class="smalltxt">0</div>
-          <div class="smalltxt" style="top: -2px;">40</div>
-          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
-          <div class="smalltxt" style="right: -2px;">100</div>
-        </div>
-      </div>
-      <div fxLayout="column" class="gauge-params">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="minavgmax">Min</span>
-          <span class="minavgmax">Avg</span>
-          <span class="minavgmax">Max</span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="min">0</span>
-          <span class="avg">30</span>
-          <span class="max">60</span>
-        </div>
-      </div>
-    </div>
-    <div class="gauge-container-item" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
-      <div class="title-container2" fxLayoutAlign="center center">
-        <span class="title">Current</span>
-        <img src="assets/images/Group 8239.svg" class="design-pos">
-      </div>
-      <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
-        <mwl-gauge class="gauge-style-2" [value]="10" [animated]="true" [showValue]="false" [animationDuration]="1"
-          [min]="0" [max]="30">
-        </mwl-gauge>
-        <div class="border_circle_2">
-          <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
-            <span class="gaugevalue">10</span>
-            <span class="unittxt">mA</span>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="min">{{data.MinValue}}</span>
+            <span class="avg">{{data.AvgValue}}</span>
+            <span class="max">{{data.MaxValue}}</span>
           </div>
-          <div class="smalltxt">0</div>
-          <div class="smalltxt" style="top: -2px;">40</div>
-          <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
-          <div class="smalltxt" style="right: -2px;">100</div>
         </div>
       </div>
-      <div fxLayout="column" class="gauge-params">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="minavgmax">Min</span>
-          <span class="minavgmax">Avg</span>
-          <span class="minavgmax">Max</span>
+      <div *ngIf="i%4==2" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <div class="title-container1" fxLayoutAlign="center center">
+          <span class="title">{{data.ActivityGraphTitle?data.ActivityGraphTitle:data.Title}}</span>
+          <img src="assets/images/Group 8239.svg" class="design-pos">
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <span class="min">0</span>
-          <span class="avg">30</span>
-          <span class="max">60</span>
+        <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+          <mwl-gauge class="gauge-style-3" [value]="data.Value" [animated]="true" [showValue]="false" [animationDuration]="1"
+            [min]="data.Min" [max]="data.Max">
+          </mwl-gauge>
+          <div class="border_circle_2">
+            <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+              <span class="gaugevalue">{{data.Value}}</span>
+              <span class="unittxt">{{data.Unit}}</span>
+            </div>
+            <div class="smalltxt">0</div>
+            <div class="smalltxt" style="top: -2px;">40</div>
+            <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+            <div class="smalltxt" style="right: -2px;">100</div>
+          </div>
+        </div>
+        <div fxLayout="column" class="gauge-params">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="minavgmax">Min</span>
+            <span class="minavgmax">Avg</span>
+            <span class="minavgmax">Max</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="min">{{data.MinValue}}</span>
+            <span class="avg">{{data.AvgValue}}</span>
+            <span class="max">{{data.MaxValue}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="i%4==3" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+        <div class="title-container2" fxLayoutAlign="center center">
+          <span class="title">{{data.ActivityGraphTitle?data.ActivityGraphTitle:data.Title}}</span>
+          <img src="assets/images/Group 8239.svg" class="design-pos">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center" class="gauge-1-wrapper">
+          <mwl-gauge class="gauge-style-2" [value]="data.Value" [animated]="true" [showValue]="false" [animationDuration]="1"
+            [min]="data.Min" [max]="data.Max">
+          </mwl-gauge>
+          <div class="border_circle_2">
+            <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 8px;">
+              <span class="gaugevalue">{{data.Value}}</span>
+              <span class="unittxt">{{data.Unit}}</span>
+            </div>
+            <div class="smalltxt">0</div>
+            <div class="smalltxt" style="top: -2px;">40</div>
+            <div class="smalltxt" style="top: -2px;right: -2px;">60</div>
+            <div class="smalltxt" style="right: -2px;">100</div>
+          </div>
+        </div>
+        <div fxLayout="column" class="gauge-params">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="minavgmax">Min</span>
+            <span class="minavgmax">Avg</span>
+            <span class="minavgmax">Max</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <span class="min">{{data.MinValue}}</span>
+            <span class="avg">{{data.AvgValue}}</span>
+            <span class="max">{{data.MaxValue}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -171,7 +173,7 @@
     <img src="assets/images/live-feed-icon.svg">
     <span class="live-feed-txt">Live Feeds</span>
     <div fxFlex></div>
-    <span class="feed-count">48</span>
+    <span class="feed-count">{{ControlCenterFeeds.length}}</span>
     <img src="assets/images/black-next.svg">
   </div>
   <div class="signal-wrapper" fxLayout="row">
@@ -181,7 +183,7 @@
       <div class="signal-spacer"></div>
       <div class="signal-counter">
         <span class="signal-txt">Signals</span>
-        <span class="signal-count">07</span>
+        <span class="signal-count">{{Signals.length}}</span>
       </div>
       <div class="signal-icon">
         <img src="assets/images/signal-icon.svg" width="26px">
@@ -192,9 +194,11 @@
         <span class="signal-txt">PramID</span>
         <span class="signal-txt">Signal Time</span>
       </div>
-      <div fxLayoutAlign="space-between center" class="signal-row">
-        <span class="value-txt">TEMP</span>
-        <span class="value-txt">Just now</span>
+      <div *ngFor="let signal of Signals">
+        <div fxLayoutAlign="space-between center" class="signal-row">
+          <span class="value-txt">{{signal.PramID}}</span>
+          <span class="value-txt">{{GetTimeDiff(signal.DateTime)}}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -207,11 +211,11 @@
       <div fxLayout="column" fxLayoutAlign="start start">
         <span class="sub-header">Software Version</span>
         <div class="value-container style-1">
-          <span>V1.0</span>
+          <span>{{EdgeDevice.SoftwareVersion}}</span>
         </div>
         <span class="sub-header">VCC</span>
         <div class="value-container style-1">
-          <span>5V</span>
+          <span>{{EdgeDevice.Vcc}}V</span>
         </div>
         <span class="sub-header">Battery Status</span>
         <div class="value-container style-2">
@@ -235,14 +239,14 @@
           </mwl-gauge>
         </div>
         <div class="scale_container">
-          <mwl-gauge class="gauge-style-5" [max]="100" [value]="100" [animated]="true" [animationDuration]="1"
+          <mwl-gauge class="gauge-style-5" [max]="100" [value]="EdgeDevice.Battery" [animated]="true" [animationDuration]="1"
             [dialStartAngle]="-120" [dialEndAngle]="120">
           </mwl-gauge>
         </div>
         <div class="btry-status">
           <div fxLayout="column" fxLayoutGap="12px">
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4px">
-              <span class="status-value">100</span>
+              <span class="status-value">{{EdgeDevice.Battery}}</span>
               <span class="status-txt">%</span>
             </div>
             <div fxLayout="row" fxLayoutGap="8px">
@@ -258,7 +262,7 @@
     <div class="lastpull-img" fxLayoutAlign="center center">
       <img src="assets/images/last-pull.svg">
     </div>
-    <span class="lastpull-time">12:10:09</span>
+    <span class="lastpull-time">{{LastPull | date:'hh:mm:ss'}}</span>
     <span class="lastpull-txt">Last Pull</span>
   </div>
 </ion-content>

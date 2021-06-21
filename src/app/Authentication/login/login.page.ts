@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
         .subscribe(
           (data) => {
             const dat = data as AuthenticationDetails;
-            console.log(data);
+            // console.log(data);
             this.saveUserDetails(dat);
             this.loader.hideLoader();
           },

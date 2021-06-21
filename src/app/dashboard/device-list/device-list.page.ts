@@ -1,45 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-export interface List {
-  Site: string;
-  Space: string;
-  Asset: string;
-  Edge:string;
-  Lastfeed:string;
-  Status:string;
-}
-const LIST_DATA: List[] = [
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
- { Site:'Site',Space:'Spacelorem',Asset: 'Asset lorem',Edge:'Edge',Lastfeed:'Lastfeed',Status:'Status'},
-];
+import { MonitorTableView } from 'src/app/models/monitor';
+import { LoaderService } from 'src/app/services/loader.service';
+import { VsenseapiService } from 'src/app/services/vsenseapi.service';
+
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.page.html',
@@ -47,51 +12,91 @@ const LIST_DATA: List[] = [
 
 })
 export class DeviceListPage implements OnInit {
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  displayedColumns: string[] = [
-    'Site',
-		'Space',
-		'Asset',
-    'Edge',
-    'Lastfeed',
-    'Status',
-    'Action'
-  ];
-  data = Object.assign(LIST_DATA);
-dataSource = new MatTableDataSource<List>(this.data);
-valu:any=1 ;
-value:any;
-  valuee: number;
-  a:any=1;
 
-  constructor(private _router:Router) { }
+  IsSearch: boolean = false;
+  selectedIndex: number = 0;
+  AllDevices: any[] = [];
+  ActiveDevices: any[] = [];
+  InactiveDevices: any[] = [];
+  DeviceDataSource: MatTableDataSource<any> = new MatTableDataSource([]);
+  DevicedisplayedColumns: string[] = ['Site', 'Space', 'Asset', 'Edge', 'LastFeed', 'Status', 'Action'];
+  SearchKey: string;
+
+  constructor(
+    private _router: Router,
+    private loader: LoaderService,
+    private service: VsenseapiService,
+    private router: Router
+  ) { }
+
   ngOnInit() {
+    this.GetMonitorData();
+    localStorage.removeItem('assignment');
   }
-all(){
-  this.valu=1
-  this.value = 2;
-  this.valuee=2
-}
-active(){
-  this.valu=2
-  this.value = 1;
-  this.valuee=2
-}
-inactive(){
-  this.valu=2
-  this.value = 2;
-  this.valuee=1;
-}
-search(){
-  this.a=2;
-}
-close(){
-  this.a=1;
-}
-back(){
-  this._router.navigate(['dashboard']);
-}
+
+  GetMonitorData() {
+    this.loader.showLoader();
+    this.service.GetMonitorTable().subscribe((data: any[]) => {
+      this.AllDevices = <MonitorTableView[]>data;
+      this.ActiveDevices = this.AllDevices.filter(x => x.Status == true);
+      this.InactiveDevices = this.AllDevices.filter(x => x.Status == false);
+      if (this.selectedIndex == 1) {
+        this.LoadTableSource(this.ActiveDevices);
+      }
+      else if (this.selectedIndex == 2) {
+        this.LoadTableSource(this.InactiveDevices);
+      }
+      else {
+        this.LoadTableSource(this.AllDevices);
+      }
+      this.loader.hideLoader();
+    },
+      err => {
+        console.log(err)
+        this.loader.hideLoader();
+      });
+  }
+
+  ViewDetails(Data) {
+    localStorage.setItem('assignment', JSON.stringify(Data));
+    this.router.navigate(['dashboard/control-center']);
+  }
+
+  ChangeDevice() {
+    if (this.selectedIndex==1) {
+      this.LoadTableSource(this.ActiveDevices);
+    }
+    else if (this.selectedIndex==2) {
+      this.LoadTableSource(this.InactiveDevices);
+    }
+    else {
+      this.LoadTableSource(this.AllDevices);
+    }
+  }
+
+  LoadTableSource(DataArray: any[]) {
+    this.DeviceDataSource = new MatTableDataSource(DataArray);
+  }
+
+  applyFilter() {
+    this.DeviceDataSource.filter = this.SearchKey.trim().toLowerCase();
+  }
+
+  ToggleDeviceStatus(EdgeID: number) {
+    this.service.ToggleDeviceStatus(EdgeID).subscribe(res => {
+      this.GetMonitorData();
+    },
+      err => {
+        console.log(err);
+      });
+  }
+
+  back() {
+    this._router.navigate(['dashboard']);
+  }
+
+  ToggleSearch() {
+    this.IsSearch = !this.IsSearch;
+  }
+
 }

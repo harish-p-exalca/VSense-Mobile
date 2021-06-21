@@ -1,61 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-export interface List {
-  // photos: string;
-  LogID: string;
-  Site: string;
-  Space: string;
-  Asset: string;
-  EdgeID: string;
-  RefID: string;
-  DateTime: string;
-  PramTitle: string;
-  Value: string;
-  MinValue: string;
-  MaxValue: string;
-  AvgValue: string;
-  Threshold: string;
-}
-const LIST_DATA: List[] = [
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'},
- { LogID:'12345',Site:'site',Space:'space',Asset: 'asset',EdgeID:'EdgeID',RefID:'RefID',DateTime: '01/06/2021',
- PramTitle:'PramTitle',Value: 'Value',MinValue:'MinValue',MaxValue:'MaxValue',AvgValue: 'AvgValue',Threshold: 'Threshold'}
- 
-];
+import { LoaderService } from '../services/loader.service';
+import { VsenseapiService } from '../services/vsenseapi.service';
 
 @Component({
   selector: 'app-livefeed',
@@ -63,42 +10,59 @@ const LIST_DATA: List[] = [
   styleUrls: ['./livefeed.page.scss'],
 })
 export class LivefeedPage implements OnInit {
-  a:any=1;
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  displayedColumns: string[] = [
-  
+
+  IsSearch:boolean=false;
+  LiveFeeds:any[]=[];
+  LiveFeedDisplayedColumns: string[] = [
     'LogID',
     'Site',
 		'Space',
 		'Asset',
 		'EdgeID',
 		'RefID',
-		'dateTime',
+		'DateTime',
 		'PramTitle',
-		'value',
-		'minValue',
-		'maxValue',
-		'avgValue',
+		'Value',
+		'MinValue',
+		'MaxValue',
+		'AvgValue',
 		'Threshold',
-    
   ];
-  // dataSource = LIST_DATA;
-  data = Object.assign(LIST_DATA);
-dataSource = new MatTableDataSource<List>(this.data);
-  constructor(private _router:Router) { }
+  LiveFeedDataSource:MatTableDataSource<any>;
+  SearchKey:any;
+
+  constructor(
+    private _router:Router,
+    private loader:LoaderService,
+    private service:VsenseapiService
+    ) { }
 
   ngOnInit() {
+    this.GetLivFeeds();
   }
-  search(){
-    this.a=2;
+
+  GetLivFeeds(){
+    this.loader.showLoader();
+    this.service.GetLivFeeds().subscribe(res=>{
+      this.LiveFeeds=res;
+      this.LiveFeedDataSource=new MatTableDataSource(this.LiveFeeds);
+      this.loader.hideLoader();
+    },
+    err=>{
+      this.loader.hideLoader();
+      console.log(err);
+    });
   }
-  close(){
-    this.a=1;
+
+  applyFilter() {
+    this.LiveFeedDataSource.filter = this.SearchKey.trim().toLowerCase();
   }
+
   back(){
     this._router.navigate(['dashboard']);
+  }
+
+  ToggleSearch(){
+    this.IsSearch=!this.IsSearch;
   }
 }
