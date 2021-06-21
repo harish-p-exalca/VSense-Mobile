@@ -1,70 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { LoaderService } from '../services/loader.service';
+import { VsenseapiService } from '../services/vsenseapi.service';
 
-export interface List {
-  ExcepID: string;
-  Space:string;
-  Site:string;
-  Class: string;
-  Asset:string;
-  Value:string;
-  Status:string;
-  PramID:string;
-  DateTime:string;
-  Assignedto:string;
-  Threshold:string;
-  SLAStart:string;
-  Resolve:string;
-}
-const LIST_DATA: List[] = [
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-  { ExcepID:'EXC1244',Site: 'Site', Space: 'Space',Asset: 'Asset',Class: 'Class',PramID:'PramID', Value: 'Value', Status : 'Status',DateTime: '23/07/2020' ,Assignedto:'Assignedto',Threshold:'Threshold',SLAStart:'SLAStart',Resolve:''},
-
-];
 @Component({
   selector: 'app-exceptions',
   templateUrl: './exceptions.page.html',
   styleUrls: ['./exceptions.page.scss'],
 })
 export class ExceptionsPage implements OnInit {
-  a:any=1;
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  displayedColumns:string[]=["Excep I’D","Site","Space","Asset","Class","PramID","Value","Date/Time",
-  "Assigned To","Threshold","SLA Start","Status","Resolve"];
-  dataSource:MatTableDataSource<any>=new MatTableDataSource(LIST_DATA);
-  hide = true;
 
-  constructor(private _router:Router) { }
+  IsSearch: boolean = false;
+  ExceptionDisplayedColumns: string[] = ["ExcepID", "Site", "Space", "Asset", "Class", "PramID", "Value", "DateTime",
+    "AssignedTo", "Threshold", "SLAStart", "Status", "Resolve"];
+  ExceptionDataSource: MatTableDataSource<any>;
+  Exceptions: any[] = [];
+  SearchKey: any;
 
-  ngOnInit() {
+  constructor(
+    private _router: Router,
+    private loader: LoaderService,
+    private service: VsenseapiService
+  ) { }
+
+  ngOnInit(): void {
+    this.GetExceptions();
   }
-  search(){
-    this.a=2;
+
+  GetExceptions() {
+    this.loader.showLoader();
+    this.service.GetExceptions().subscribe(res => {
+      this.Exceptions = res;
+      this.ExceptionDataSource = new MatTableDataSource(this.Exceptions);
+      this.loader.hideLoader();
+    },
+      err => {
+        this.loader.hideLoader();
+        console.log(err);
+      });
   }
-  close(){
-    this.a=1;
+
+  applyFilter() {
+    this.ExceptionDataSource.filter = this.SearchKey.trim().toLowerCase();
   }
-  back(){
+
+  back() {
     this._router.navigate(['dashboard']);
+  }
+
+  ToggleSearch() {
+    this.IsSearch = !this.IsSearch;
   }
 }

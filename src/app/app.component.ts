@@ -95,7 +95,7 @@ export class AppComponent {
   }
 
   logout() {
-    this.loader.showLoader("Signing in...");
+    this.loader.showLoader("Signing out...");
     this.authservice.SignOut(this.currentUser.UserID).subscribe(
       (data) => {
         localStorage.clear();

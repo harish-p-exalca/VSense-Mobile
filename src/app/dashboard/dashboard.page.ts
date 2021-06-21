@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexTooltip, ApexDataLabels, ApexFill, ApexGrid, ChartComponent, ApexMarkers } from 'ng-apexcharts';
+import { MonitorTableView } from '../models/monitor';
+import { LoaderService } from '../services/loader.service';
+import { ToastService } from '../services/toast.service';
+import { VsenseapiService } from '../services/vsenseapi.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -23,9 +27,16 @@ export class DashboardPage implements OnInit {
 
   @ViewChild("splinechart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  AllDevices:MonitorTableView[]=[];
+  AllDevicesCount:number=0;
+  ActiveDevicesCount:number=0;
+  InactiveDevicesCount:number=0;
 
   constructor(
-    private _router:Router
+    private _router:Router,
+    private loader:LoaderService,
+    private toast:ToastService,
+    private service:VsenseapiService
   ) { 
     this.chartOptions = {
       series: [
@@ -92,6 +103,35 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
+    this.GetMonitorData();
+  }
+
+  GetMonitorData() {
+    this.loader.showLoader();
+    this.service.GetMonitorTable().subscribe((data: any[]) => {
+      this.AllDevices=<MonitorTableView[]>data;
+      this.AllDevicesCount=this.AllDevices.length;
+      this.ActiveDevicesCount = this.AllDevices.filter(x=>x.Status==true).length;
+      this.InactiveDevicesCount=this.AllDevices.filter(x=>x.Status==false).length;
+      this.service.GetEdgeStatusChartData().subscribe(data => {
+        // console.log(data);
+        const deviceStatus = data;
+        this.chartOptions.series=[{
+          name:"Active devices",
+          data:deviceStatus
+        }];
+        this.loader.hideLoader();
+      },
+      err=>{
+        this.loader.hideLoader();
+        console.log(err);
+      });
+      this.loader.hideLoader();
+    },
+      err => {
+        console.log(err)
+        this.loader.hideLoader();
+      });
   }
 
   MastersClicked(index:number){
