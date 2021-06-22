@@ -1,108 +1,63 @@
 <ion-header>
   <ion-toolbar class="toolbar">
     <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
-      <div fxLayoutAlign="start center" (click)="back()">
+      <div fxLayoutAlign="start center" (click)="BackClicked()">
         <img class="backbtn" src="assets/Group 20.svg">
       </div>
       <div fxLayoutAlign="center center" fxLayoutGap="8px">
         <span class="title">Masters :</span>
-        <span class="title">Create Space</span>
+        <span class="title"><span>{{SelectedSpace.SpaceID?'Edit':'Create'}}</span> Space</span>
       </div>
       <div fxFlex></div>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div fxLayout="column" class="maindiv">
-    <div fxFlex="3"></div>
-    <div [formGroup]="spaceFormGroup" fxFlex="40" fxLayout="column">
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-        <span fxFlex="30" class="title">Title</span>
-        <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48">
-          <mat-label class="name">Enter Title</mat-label>
-          <input  matInput type="text" formControlName="Title" autocomplete="off" />
+  <form [formGroup]="SpaceFormGroup" autocomplete="off">
+    <div fxLayout="column" class="form-wrapper">
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Title</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input matInput placeholder="Enter Title" formControlName="Title" fxFlex>
+          <mat-error *ngIf="SpaceFormGroup.get('Title').hasError('required')">
+            Title is required
+          </mat-error>
         </mat-form-field>
-        <div fxFlex="9"></div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-        <span fxFlex="30" class="title">Work Center</span>
-        <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
-          <mat-label class="name">Enter Work center</mat-label>
-          <input  matInput type="text" formControlName="Workcenter" autocomplete="off" />
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Geo</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <input matInput placeholder="Enter WorkCenter" formControlName="WorkCenter" fxFlex>
+          <mat-error *ngIf="SpaceFormGroup.get('WorkCenter').hasError('required')">
+            Work Center is required
+          </mat-error>
         </mat-form-field>
-        <div fxFlex="9"></div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-        <span fxFlex="30" class="title">Parent Space I'D</span>
-        <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never"  class="input" class="inputfield" fxFlex="48">
-          <mat-label class="name">Enter Parent Space I'D</mat-label>
-          <input  matInput type="text" formControlName="ParentspaceID"
-            autocomplete="off" />
+      <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
+        <span class="subtitle">Plant</span>
+        <mat-form-field appearance="standard" class="formfield">
+          <mat-select placeholder="Choose Site" class="matselect" formControlName="Site">
+            <mat-option class="matoption" *ngFor="let site of MSites" [value]="site.SiteID">{{site.Title}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="SpaceFormGroup.get('Site').hasError('required')">
+            Site is required
+          </mat-error>
         </mat-form-field>
-        <div fxFlex="9"></div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-        <span fxFlex="30" class="title">Site I'D</span>
-        <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
-          <mat-label class="name">Enter Site I'D</mat-label>
-          <input  matInput type="text" formControlName="SiteID" autocomplete="off" />
-        </mat-form-field>
-        <div fxFlex="9"></div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="9"></div>
-        <span fxFlex="30" class="title">Date</span>
-        <div fxFlex="4"></div>
-        <mat-form-field floatLabel="never" class="input" class="inputfield" fxFlex="48">
-          <mat-label class="name">Enter Date</mat-label>
-          <input matInput type="text" formControlName="Date" [matDatepicker]="datepicker"
-            autocomplete="off">
-          <mat-datepicker-toggle matSuffix [for]="datepicker">
-            <img src="../../../assets/iconfinder_Calendar_728916.svg">
-          </mat-datepicker-toggle>
-          <mat-datepicker #datepicker></mat-datepicker>
-        </mat-form-field>
-        <div fxFlex="9"></div>
       </div>
     </div>
-    <div fxFlex="15"></div>
-    <div fxFlex="34" fxLayoutAlign="center center">
-      <img class="man" src="./assets/Man.svg">
-    </div>
-    <!-- <div fxFlex="2"></div> -->
-   
+  </form>
+  <div fxLayoutAlign="center center">
+    <img fxFlex=70 src="./assets/Man.svg">
   </div>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
     <div fxLayoutAlign="end center" fxLayoutGap="24px">
-      <span class="deletetxt" (click)="deleteclick()">Delete</span>
-      <span class="savetxt" (click)="updateclick()">Update</span>
+      <span class="deletetxt" *ngIf="!SelectedSpace.SpaceID" (click)=ResetControl()>Clear</span>
+      <span class="deletetxt" *ngIf="SelectedSpace.SpaceID" (click)=DeleteSpaceClicked()>Delete</span>
+      <span class="savetxt" (click)=SaveSpaceClicked()>{{SelectedSpace.SpaceID?'Update':'Create'}}</span>
     </div>
   </ion-toolbar>
 </ion-footer>
-
-
-
-<!-- <div fxFlex="7" fxLayout="row" class="footer" fxLayoutAlign="center center">
-  <div fxFlex="58"></div>
-  
-  <div class="delete" fxFlex="15">Delete</div>
-  <div fxFlex="5"></div>
-  <div class="update" fxFlex="17">Update</div>
-  <div fxFlex="5"></div>
-</div> -->
-<!-- <div fxFlex="30" fxLayout="row" fxLayoutGap="5px">
-    <img src="./assets/copy.svg">
-    <span class="copy">Copy</span>
-  </div> -->
-  <!-- <div fxFlex="23"></div> -->

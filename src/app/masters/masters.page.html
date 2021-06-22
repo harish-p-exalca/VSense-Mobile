@@ -21,29 +21,30 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
-  <mat-tab-group #matTab scrollToCenter [(selectedIndex)]="selectedIndex" class="tab-group" [ngClass]="{'tab-header':IsVisible}">
+  <mat-tab-group #matTab scrollToCenter [(selectedIndex)]="selectedIndex" class="tab-group" [ngClass]="{'tab-header':IsVisible}"
+  (selectedTabChange)="onTabChanged($event);">
     <mat-tab label="Site">
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Site Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{MSites.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;" (click)="LoadSelected(site)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">Title</span>
+                  <span class="titletxt">{{site.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{site.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
               <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <img class="img" src="assets/images/dotnot.svg" width="6px">
-                <span class="titletxt">Plant</span>
+                <span class="titletxt">{{site.Plant}}</span>
               </div>
             </div>
           </mat-list-option>
@@ -54,24 +55,24 @@
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Space Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{MSpaces.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" *ngFor="let space of MSpaces | filter:SearchKey;" (click)="LoadSelected(space)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">Title</span>
+                  <span class="titletxt">{{space.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{space.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
               <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <img class="img" src="assets/images/dotnot.svg" width="6px">
-                <span class="titletxt">Workcenter</span>
+                <span class="titletxt">{{space.WorkCenter}}</span>
               </div>
             </div>
           </mat-list-option>
@@ -82,19 +83,19 @@
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Edge Group Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{MGroups.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" style="height: 55px;" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" style="height: 55px;" *ngFor="let group of MGroups | filter:SearchKey;" (click)="LoadSelected(group)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 55px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">Title</span>
+                  <span class="titletxt">{{group.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{group.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
             </div>
@@ -106,19 +107,19 @@
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Gateway Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{Gateways.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" style="height: 55px;" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" style="height: 55px;" *ngFor="let gateway of Gateways | filter:SearchKey;" (click)="LoadSelected(gateway)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">Gateway</span>
+                  <span class="titletxt">{{gateway.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{gateway.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
             </div>
@@ -130,24 +131,24 @@
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Edge Device Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{MEdges.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" *ngFor="let edge of MEdges | filter:SearchKey;" (click)="LoadSelected(edge)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">DeviceID</span>
+                  <span class="titletxt">{{edge.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{edge.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
               <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <img class="img" src="assets/images/dotnot.svg" width="6px">
-                <span class="titletxt">Device Name</span>
+                <span class="titletxt">{{edge.EdgeID}}</span>
               </div>
             </div>
           </mat-list-option>
@@ -158,7 +159,7 @@
       <div class="tab-masters" fxLayout="column" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="8px">
           <span class="count-label">Assets :</span>
-          <span class="count">20</span>
+          <span class="count">{{AssetViews.length}}</span>
           <div fxFlex></div>
           <div class="category">
             <img src="assets\images\Ellipse 837.svg" width="6px">
@@ -174,23 +175,23 @@
           </div>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;index as i;"
+          <mat-list-option class="cards" *ngFor="let asset of AssetViews | filter:SearchKey;index as i;" (click)="LoadSelected(asset)" selected="true"
           [ngClass]="{'left-border-color1':i%3==0,'left-border-color2':i%3==1,'left-border-color3':i%3==2}">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">Asset</span>
+                  <span class="titletxt">{{asset.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{asset.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
-              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <!-- <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <img class="img" src="assets/images/dotnot.svg" width="6px">
-                <span class="titletxt">Asset ID</span>
-              </div>
+                <span class="titletxt">{{asset.CreatedOn}}</span>
+              </div> -->
             </div>
           </mat-list-option>
         </mat-selection-list>
@@ -200,25 +201,25 @@
       <div class="tab-masters" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="4px">
           <span class="count-label">Rule Total Count :</span>
-          <span class="count">20</span>
+          <span class="count">{{Rules.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let site of MSites | filter:SearchKey;">
+          <mat-list-option class="cards" *ngFor="let rule of Rules | filter:SearchKey;" (click)="LoadSelected(rule)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/dotnot.svg" width="6px">
-                  <span class="titletxt">RuleID</span>
+                  <span class="titletxt">{{rule.Title}}</span>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <img class="img" src="assets/images/calendar.svg" width="14px">
-                  <span class="titletxt">Date</span>
+                  <span class="titletxt">{{rule.CreatedOn | date:'dd/MM/yyyy'}}</span>
                 </div>
               </div>
-              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <!-- <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <img class="img" src="assets/images/dotnot.svg" width="6px">
-                <span class="titletxt">Site</span>
-              </div>
+                <span class="titletxt">{{GetSite(rule.SiteID)}}</span>
+              </div> -->
             </div>
           </mat-list-option>
         </mat-selection-list>
@@ -226,7 +227,7 @@
     </mat-tab>
   </mat-tab-group>
   <ion-fab [@toggle]="!IsVisible?'visible':'hidden'" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button class="fab-btn" (click)="AddClicked()">
+    <ion-fab-button class="fab-btn" (click)="LoadSelected()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

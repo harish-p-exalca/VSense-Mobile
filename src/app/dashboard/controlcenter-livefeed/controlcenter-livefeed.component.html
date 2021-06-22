@@ -1,14 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <div *ngIf="!IsSearch" fxLayout="row" fxLayoutGap="20px">
-      <div fxFlex="3"></div>
       <img (click)="back()" src="./assets/Group 20.svg">
       <span class="title">Control Center:</span>
       <span class="subtitle">Live Feeds</span>
       <span class="flex"></span>
       <img (click)="ToggleSearch()" src="./assets/Group 8233.svg">
       <img src="./assets/iconfinder_Filter_4737438 (4).svg">
-      <div fxFlex="3"></div>
     </div>
     <div *ngIf="IsSearch" class="search-container" fxLayout="row">
       <input class="search" placeholder="Search to - do" [(ngModel)]="SearchKey" (keyup)="applyFilter($event)" #input

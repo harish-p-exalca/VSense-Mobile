@@ -12,6 +12,24 @@
     color: #394256;
     font-family: 'poppins-med' !important;
 }
+.toolbar{
+  --background:#ffffff;
+  --min-height:56px;
+  box-shadow: 0 2px 3px 0 rgba(31, 0, 158, 0.08);
+  --border-width:0 !important;
+  --padding-start:24px;
+  --padding-end:24px;
+  .title{
+      font-size: 12px;
+      font-family: 'poppins-semi' !important;
+      color: #394256;
+     
+  }
+  .backbtn{
+      width: 16px;
+      height: 16px;
+  }
+}
 .maindiv{
     width: 100%;
     height: 100%;

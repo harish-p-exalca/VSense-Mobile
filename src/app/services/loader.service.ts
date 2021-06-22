@@ -12,7 +12,8 @@ export class LoaderService {
 
   showLoader(msg: string = "Please wait...") {
     this.loadingController.create({
-      message: msg
+      message: msg,
+      backdropDismiss:true
     }).then((res) => {
       res.present();
     });
