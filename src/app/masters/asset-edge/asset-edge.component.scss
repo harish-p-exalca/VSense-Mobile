@@ -1,8 +1,13 @@
-// .header{
-//     color: #394256;
-//     font-size: 12px;
-//     font-family: 'poppins-semi' !important;
-// }
+:host{
+    --ion-safe-area-right: 14px;
+    .fab-vertical-top {
+        top: 28px;
+    }
+}
+.fab-btn{
+    --background:#3131ff;
+    --background-activated:#3131ff;
+}
 .title{
     color: #394256;
     font-size: 12px;

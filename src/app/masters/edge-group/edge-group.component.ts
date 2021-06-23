@@ -2,7 +2,12 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { MEdgeGroupView } from 'src/app/Models/site';
 import { MEdgeGroupParam } from 'src/app/models/vsense';
+import { LoaderService } from 'src/app/services/loader.service';
+import { ToastColors } from 'src/app/services/toast-colors';
+import { ToastService } from 'src/app/services/toast.service';
+import { VsenseapiService } from 'src/app/services/vsenseapi.service';
 
 @Component({
   selector: 'app-edge-group',
@@ -11,6 +16,7 @@ import { MEdgeGroupParam } from 'src/app/models/vsense';
 })
 export class EdgeGroupComponent implements OnInit,AfterViewInit {
 
+  SelectedGroup:MEdgeGroupView=new MEdgeGroupView();
   GroupFormGroup:FormGroup;
   GroupParamDisplayedColumns:string[]=["ParamID","Title","Unit","LongText","Min","Max","Icon","IsPercentage","Color","Action"];
   GroupParamDataSource:any=new BehaviorSubject<AbstractControl[]>([]);
@@ -39,11 +45,20 @@ export class EdgeGroupComponent implements OnInit,AfterViewInit {
 
   constructor(
     private _router:Router,
-    private _fb:FormBuilder
+    private _fb:FormBuilder,
+    private loader:LoaderService,
+    private toast:ToastService,
+    private service:VsenseapiService
   ) { }
 
   ngOnInit() {
     this.InitializeFormGroup();
+  }
+  ionViewWillEnter(){
+    if(localStorage.getItem('selected')!="undefined"){
+      this.SelectedGroup=JSON.parse(localStorage.getItem('selected'));
+    }
+    this.LoadSelectedGroup(this.SelectedGroup);
   }
   ngAfterViewInit(){
     this.TableHeight=window.innerHeight-220;
@@ -56,6 +71,14 @@ export class EdgeGroupComponent implements OnInit,AfterViewInit {
     this.GroupFormGroup=this._fb.group({
       Title:['',Validators.required],
       GroupParams:this.GroupParamFormArray
+    });
+  }
+
+  LoadSelectedGroup(mGroup:MEdgeGroupView){
+    this.GroupFormGroup.get('Title').setValue(mGroup.Title);
+    this.GroupParamFormArray.clear();
+    mGroup.EdgeParams.forEach(param => {
+      this.AddRow(param);
     });
   }
 
@@ -93,6 +116,71 @@ export class EdgeGroupComponent implements OnInit,AfterViewInit {
   DeleteRow(index: any) {
     this.GroupParamFormArray.removeAt(index);
     this.GroupParamDataSource.next(this.GroupParamFormArray.controls);
+  }
+
+  ResetControl(): void {
+    this.SelectedGroup = new MEdgeGroupView();
+    this.GroupFormGroup.reset();
+    Object.keys(this.GroupFormGroup.controls).forEach(key => {
+      this.GroupFormGroup.get(key).markAsUntouched();
+    });
+    this.GroupParamFormArray.clear();
+    this.GroupParamDataSource.next(this.GroupParamFormArray.controls);
+  }
+
+  SaveGroupClicked() {
+    if (this.GroupFormGroup.valid) {
+      this.loader.showLoader();
+      this.GetGroupValues();
+      this.service.SaveMEdgeGroup(this.SelectedGroup).subscribe(res => {
+        this.loader.hideLoader();
+        if(this.SelectedGroup.EdgeGroup){
+          this.toast.showToast("Edge group saved successfully", ToastColors.success);
+        }
+        else{
+          this.toast.showToast("Edge group created successfully", ToastColors.success);
+          this.ResetControl();
+        }
+      },
+        err => {
+          console.log(err);
+          this.loader.hideLoader();
+        });
+    }
+    else {
+      this.ShowValidationErrors(this.GroupFormGroup);
+    }
+  }
+  GetGroupValues() {
+    this.SelectedGroup.Title = this.GroupFormGroup.get('Title').value;
+    const Params = this.GroupFormGroup.get('GroupParams') as FormArray;
+      this.SelectedGroup.EdgeParams=[];
+      Params.controls.forEach((x) => {
+        var param=new MEdgeGroupParam();
+        param.ParamID=x.get('ParamID').value;
+        param.Title=x.get('Title').value;
+        param.Unit=x.get('Unit').value;
+        param.LongText=x.get('LongText').value;
+        param.Min=x.get('Min').value;
+        param.Max=x.get('Max').value;
+        param.Icon=x.get('Icon').value;
+        param.IsPercentage=x.get('IsPercentage').value;
+        param.Color=x.get('Color').value;
+        this.SelectedGroup.EdgeParams.push(param);
+      });
+  }
+  DeleteGroupClicked() {
+    this.loader.showLoader();
+    this.service.DeleteMEdgeGroup(this.SelectedGroup.EdgeGroup).subscribe(res => {
+      this.loader.hideLoader();
+      this.toast.showToast("Edge group deleted successfully", ToastColors.success);
+      this.ResetControl();
+      this.BackClicked();
+    },
+      err => {
+        console.log(err);
+        this.loader.hideLoader();
+      });
   }
 
   ShowValidationErrors(formGroup: FormGroup): void {

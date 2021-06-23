@@ -123,6 +123,6 @@ console.log(this.no_value);
           }
   ngOnInit() {}
   back(){
-    this._router.navigate(['masters']);
+    this._router.navigate(['masters/asset']);
   }
 }

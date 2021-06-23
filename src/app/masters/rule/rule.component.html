@@ -6,7 +6,7 @@
       </div>
       <div fxLayoutAlign="center center" fxLayoutGap="8px">
         <span class="title">Masters :</span>
-        <span class="title">Create Rule</span>
+        <span class="title"><span>{{SelectedRule.RuleID?'Edit':'Create'}}</span> Rule</span>
       </div>
       <div fxFlex></div>
     </div>
@@ -26,7 +26,8 @@
         <span class="subtitle">Site</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="SiteID" placeholder="Choose Site" class="matselect">
-            <mat-option class="matoption" value="1">Site-1</mat-option>
+            <mat-option class="matoption" *ngFor="let site of Sites" [value]="site.SiteID">{{site.Title}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -34,7 +35,8 @@
         <span class="subtitle">Space</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="SpaceID" placeholder="Choose Space" class="matselect">
-            <mat-option class="matoption" value="1">Space-1</mat-option>
+            <mat-option class="matoption" *ngFor="let space of Spaces" [value]="space.SpaceID">{{space.Title}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -42,14 +44,16 @@
         <span class="subtitle">Asset</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="AssetID" placeholder="Choose Asset" class="matselect">
-            <mat-option class="matoption" value="1">Asset-1</mat-option>
+            <mat-option class="matoption" *ngFor="let asset of Assets" [value]="asset.AssetID">{{asset.Title}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
         <span class="subtitle">Threshold</span>
         <mat-form-field appearance="standard" class="formfield">
-          <input fxFlex formControlName="Threshold" matInput autocomplete="off" placeholder="Enter Threshold" type="number">
+          <input fxFlex formControlName="Threshold" matInput autocomplete="off" placeholder="Enter Threshold"
+            type="number">
         </mat-form-field>
       </div>
       <div fxLayout="row" fxFlex=100 fxLayoutAlign="space-between center">
@@ -62,7 +66,9 @@
         <span class="subtitle">Level1</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="Level1" placeholder="Choose User" class="matselect">
-            <mat-option class="matoption" value="1">User-1</mat-option>
+            <mat-option class="matoption" value="001">User1</mat-option>
+            <mat-option class="matoption" value="002">User2</mat-option>
+            <mat-option class="matoption" value="003">User3</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -70,7 +76,9 @@
         <span class="subtitle">Level2</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="Level2" placeholder="Choose User" class="matselect">
-            <mat-option class="matoption" value="1">User-1</mat-option>
+            <mat-option class="matoption" value="001">User1</mat-option>
+            <mat-option class="matoption" value="002">User2</mat-option>
+            <mat-option class="matoption" value="003">User3</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -78,7 +86,9 @@
         <span class="subtitle">Level3</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="Level3" placeholder="Choose User" class="matselect">
-            <mat-option class="matoption" value="1">User-1</mat-option>
+            <mat-option class="matoption" value="001">User1</mat-option>
+            <mat-option class="matoption" value="002">User2</mat-option>
+            <mat-option class="matoption" value="003">User3</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -107,8 +117,9 @@
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
     <div fxLayoutAlign="end center" fxLayoutGap="24px">
-      <span class="deletetxt">Delete</span>
-      <span class="savetxt">Update</span>
+      <span class="deletetxt" *ngIf="!SelectedRule.RuleID" (click)=ResetControl()>Clear</span>
+      <span class="deletetxt" *ngIf="SelectedRule.RuleID" (click)=DeleteRuleClicked()>Delete</span>
+      <span class="savetxt" (click)=SaveRuleClicked()>{{SelectedRule.RuleID?'Update':'Create'}}</span>
     </div>
   </ion-toolbar>
 </ion-footer>

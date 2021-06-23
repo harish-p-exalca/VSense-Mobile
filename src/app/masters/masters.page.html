@@ -204,7 +204,7 @@
           <span class="count">{{Rules.length}}</span>
         </div>
         <mat-selection-list [multiple]="false">
-          <mat-list-option class="cards" *ngFor="let rule of Rules | filter:SearchKey;" (click)="LoadSelected(rule)" selected="true">
+          <mat-list-option class="cards" style="height: 55px;" *ngFor="let rule of Rules | filter:SearchKey;" (click)="LoadSelected(rule)" selected="true">
             <div fxLayout="column" fxLayoutAlign="space-evenly start" style="height: 60px;padding-left: 1rem;">
               <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
