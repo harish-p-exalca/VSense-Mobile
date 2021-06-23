@@ -1,177 +1,170 @@
-import { Component, OnInit,ViewEncapsulation} from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { MatTableDataSource } from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-  MatSnackBarConfig,
-} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MEdge, MEdgeGroupView, MEdgeGroupParam } from 'src/app/Models/site';
+import { LoaderService } from 'src/app/services/loader.service';
+import { ToastColors } from 'src/app/services/toast-colors';
+import { ToastService } from 'src/app/services/toast.service';
+import { VsenseapiService } from 'src/app/services/vsenseapi.service';
 
-export interface List {
-  ParamID: string;
-  Title: string;
-  Unit: string;
-  Longtext:string;
-  Max:string;
-  Min:string;
-  Icon:string;
-  isPercentage:string;
-  Color:string;
-  Action:string;
-
-}
-const LIST_DATA: List[] = [
-  { ParamID:'CRNT1',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT2',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT3',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT4',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT5',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT6',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT7',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT8',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT9',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT10',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT11',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-  { ParamID:'CRNT12',Title:'Title',Unit: 'Unit',Longtext:'Longtext',Max:'Max',Min:'Min',
-  Icon:'Icon',isPercentage:'isPercentage',Color:'Color',Action:''},
-
- 
-];
 @Component({
   selector: 'app-edge-device',
   templateUrl: './edge-device.component.html',
-  styleUrls: ['./edge-device.component.scss'],
-  // encapsulation:ViewEncapsulation.None
+  styleUrls: ['./edge-device.component.scss']
 
 })
 export class EdgeDeviceComponent implements OnInit {
-  configSuccess: MatSnackBarConfig = {
-    panelClass: ['style-success'],
-  };
-  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  a:number=1;
-  yes_value:any;
-  no_value:any;
-
-  index:any;
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  displayedColumns: string[] = [
-    'ParamID',
-		'Title',
-		'Unit',
-    'Longtext',
-    'Max',
-    'Min',
-    'Icon',
-    'isPercentage',
-    'Color',
-    'Action',
-  ];
-  data = Object.assign(LIST_DATA);
-dataSource = new MatTableDataSource<List>(this.data);
-  edgedeviceFormGroup: FormGroup;
-  constructor(private fb: FormBuilder,public dialog: MatDialog, public snackBar: MatSnackBar,private _router:Router) {
-  }
-  async openSnackBar1(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: 500,
-      panelClass: ['custom-style1'],
-    });
-  }
-  opendialog(index: number) {
-    localStorage.removeItem("NoValue")
-    localStorage.removeItem("YesValue")
-    
-      const dialogRef = this.dialog.open(DialogComponent, {
-        disableClose: true ,
-        position: { top: '110%', left: '10%' },
-        height: '120px',
-        width: '300px',
-        hasBackdrop: false,
-      });
-      dialogRef.backdropClick().subscribe(() => {
-        dialogRef.close();
-      })
-      this.yes_value= localStorage.getItem("YesValue")
-      this.no_value= localStorage.getItem("NoValue")
-      console.log(this.yes_value);
-console.log(this.no_value);
-
-         
-            dialogRef.afterClosed().subscribe(result => {
-              console.log(`Dialog result: ${result}`);
-              this.yes_value= localStorage.getItem("YesValue")
-              this.no_value= localStorage.getItem("NoValue")
-              if(this.yes_value==1){
-                this.dataSource.data.splice(index, 1);
-                this.dataSource.filter = '';
-              }
-            
-            });
-           
-        
-          
-      
-    }
-  ngOnInit() {
-    this.edgedeviceFormGroup = this.fb.group({
-      Name: [""],
-      Purpose: [""],
-      Put: [""],
-      Lifespan: [""],
-    });
-    
-    // localStorage.clear();
-  
    
+  SelectedEdge:MEdge=new MEdge();
+  EdgeFormGroup:FormGroup;
+  MEdges:MEdge[]=[];
+  Gateways:MEdge[]=[];
+  MEdgeGroups:MEdgeGroupView[]=[];
+  ParamDataSource:MatTableDataSource<MEdgeGroupParam>=new MatTableDataSource([]);
+  ParamdisplayedColumns: string[] = ["ParamID", "Title", "Unit", "LongText", "Min", "Max"];
+  Statuses=[{display:"Assigned",value:"10"},{display:"Open",value:"20"},{display:"Non-Usable",value:"90"},{display:"Missed",value:"91"},{display:"Sold",value:"92"},{display:"Scraped",value:"93"}]
 
+  constructor(
+    private fb:FormBuilder,
+    private service:VsenseapiService,
+    private loader:LoaderService,
+    private toast:ToastService,
+    private router:Router
+    ) {}
 
-
-    // console.log(this.button_value);
-    
-    // delete(button_value: number) {
-    //   if(this.button_value==1){
-    //     this.dataSource.data.splice(button_value, 1);
-    //     this.dataSource.filter = '';
-    //     console.log(this.a);
-        
-    //   }
-     
-    // }
+  ngOnInit(): void {
+    this.InitializeFormGroup();
   }
-  back(){
-    this._router.navigate(['masters']);
+  ionViewWillEnter(){
+    if(localStorage.getItem('selected')!="undefined"){
+      this.SelectedEdge=JSON.parse(localStorage.getItem('selected'));
+    }
+    this.GetAllEdges();
   }
-  copyclick(){
-    this.openSnackBar1('Copied!', '');
+  InitializeFormGroup(){
+    this.EdgeFormGroup=this.fb.group({
+      Title:['',Validators.required],
+      PutToUse:['',Validators.required],
+      SoftwareVersion:['',Validators.required],
+      Vcc:[null,Validators.required],
+      EdgeGroup:[null,Validators.required],
+      Status:[''],
+      ParantEdgeID:[null,Validators.required],
+      LifeSpan:[null,Validators.required]
+    });
   }
-  deleteclick(){
-    this.openSnackBar1('Deleted!', '');
+  GetAllEdges(){
+    this.loader.showLoader();
+    this.service.GetMEdges().subscribe(res=>{
+      this.MEdges=<MEdge[]>res;
+      this.Gateways=this.MEdges.filter(x=>x.ParantEdgeID==null);
+      this.service.GetMEdgeGroups().subscribe(res=>{
+        this.MEdgeGroups=<MEdgeGroupView[]>res;
+        this.LoadSelectedEdge(this.SelectedEdge);
+        this.loader.hideLoader();
+      },
+      err=>{
+        console.log(err);
+        this.loader.hideLoader();
+      });
+      this.loader.hideLoader();
+    },
+    err=>{
+      console.log(err);
+      this.loader.hideLoader();
+    });
   }
-  updateclick(){
-    this.openSnackBar1('Updated!', '');
+  LoadSelectedEdge(mEdge:MEdge){
+    this.SelectedEdge=mEdge;
+    this.EdgeFormGroup.get('Title').setValue(mEdge.Title);
+    this.EdgeFormGroup.get('PutToUse').setValue(mEdge.PuttoUse);
+    this.EdgeFormGroup.get('SoftwareVersion').setValue(mEdge.SoftwareVersion);
+    this.EdgeFormGroup.get('Vcc').setValue(mEdge.Vcc);
+    this.EdgeFormGroup.get('EdgeGroup').setValue(mEdge.EdgeGroup);
+    this.EdgeFormGroup.get('Status').setValue(mEdge.Status);
+    this.EdgeFormGroup.get('ParantEdgeID').setValue(mEdge.ParantEdgeID);
+    this.EdgeFormGroup.get('LifeSpan').setValue(mEdge.Lifespan);
+    if(mEdge.EdgeGroup){
+      var group=this.MEdgeGroups.find(x=>x.EdgeGroup==mEdge.EdgeGroup);
+      if(group!=undefined){
+        this.SetParamTable(group.EdgeParams);
+      }
+      if(mEdge.Status=="10"){
+        this.EdgeFormGroup.get('EdgeGroup').disable();
+      }
+      else{
+        this.EdgeFormGroup.get('EdgeGroup').enable();
+      }
+    }
   }
-  
- 
+  showLoaderValidationErrors(formGroup: FormGroup): void {
+    Object.keys(formGroup.controls).forEach(key => {
+      formGroup.get(key).markAsTouched();
+      formGroup.get(key).markAsDirty();
+    });
+  }
+  ResetControl(): void {
+    this.SelectedEdge = new MEdge();
+    this.EdgeFormGroup.reset();
+    Object.keys(this.EdgeFormGroup.controls).forEach(key => {
+      this.EdgeFormGroup.get(key).markAsUntouched();
+    });
+    this.ParamDataSource=new MatTableDataSource([]);
+  }
+  SaveEdgeClicked() {
+    if (this.EdgeFormGroup.valid) {
+      this.loader.showLoader();
+      this.GetEdgeValues();
+      this.service.SaveMEdge(this.SelectedEdge).subscribe(res => {
+        this.loader.hideLoader();
+        if(this.SelectedEdge.EdgeID){
+          this.toast.showToast("Edge device saved successfully", ToastColors.success);
+        }
+        else{
+          this.toast.showToast("Edge device created successfully", ToastColors.success);
+          this.ResetControl();
+        }
+      },
+        err => {
+          console.log(err);
+          this.loader.hideLoader();
+        });
+    }
+    else {
+      this.showLoaderValidationErrors(this.EdgeFormGroup);
+    }
+  }
+  GetEdgeValues() {
+    this.SelectedEdge.Title = this.EdgeFormGroup.get('Title').value;
+    this.SelectedEdge.PuttoUse = this.EdgeFormGroup.get('PutToUse').value;
+    this.SelectedEdge.SoftwareVersion = this.EdgeFormGroup.get('SoftwareVersion').value;
+    this.SelectedEdge.Vcc = this.EdgeFormGroup.get('Vcc').value;
+    this.SelectedEdge.EdgeGroup = this.EdgeFormGroup.get('EdgeGroup').value;
+    this.SelectedEdge.Status = this.EdgeFormGroup.get('Status').value;
+    this.SelectedEdge.ParantEdgeID = this.EdgeFormGroup.get('ParantEdgeID').value;
+    this.SelectedEdge.Lifespan = this.EdgeFormGroup.get('LifeSpan').value;
+  }
+  DeleteEdgeClicked() {
+    this.loader.showLoader();
+    this.service.DeleteMEdge(this.SelectedEdge.EdgeID).subscribe(res => {
+      this.loader.hideLoader();
+      this.toast.showToast("Edge device deleted successfully", ToastColors.success);
+      this.ResetControl();
+      this.BackClicked();
+    },
+      err => {
+        console.log(err);
+        this.loader.hideLoader();
+      });
+  }
+  GetStatus(value:string):string{
+    return this.Statuses.find(x=>x.value==value).display;
+  }
+  SetParamTable(params:MEdgeGroupParam[]){
+    this.ParamDataSource=new MatTableDataSource(params);
+  }
+  BackClicked(){
+    this.router.navigate(['/masters']);
+  }
 }

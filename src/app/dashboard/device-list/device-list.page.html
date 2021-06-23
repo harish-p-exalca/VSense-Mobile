@@ -92,7 +92,7 @@
       <ng-container matColumnDef="LastFeed">
         <th style="margin-left: 1px" *matHeaderCellDef>Last feed</th>
         <td mat-cell *matCellDef="let element" class="rowfix">
-          {{element.Lastfeed}}
+          {{element.LastFeed | date:'dd/MM/yyyy, HH:mm'}}
         </td>
       </ng-container>
       <ng-container matColumnDef="Status">

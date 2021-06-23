@@ -64,11 +64,11 @@
   </form>
   <div fxLayoutAlign="start center" fxLayoutGap="8px" class="add-edge">
     <span class="add-edge-txt">Edge</span>
-    <ion-button size="small" class="add-btn">Add</ion-button>
+    <ion-button size="small" class="add-btn" (click)="opendialog()">Add</ion-button>
   </div>
   <div class="device-list-wrapper">
     <mat-selection-list [multiple]="false" class="device-list">
-      <mat-list-option class="Rectangle-7734-2" *ngFor="let device of Devices">
+      <mat-list-option class="Rectangle-7734-2" *ngFor="let device of Devices" (click)="DeviceClicked()">
         <div fxLayout="column" fxLayoutGap="8px" class="m-device">
           <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
             <span class="rectanglespan1scroll">

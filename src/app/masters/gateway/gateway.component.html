@@ -6,7 +6,7 @@
       </div>
       <div fxLayoutAlign="center center" fxLayoutGap="8px">
         <span class="title">Masters :</span>
-        <span class="title">Create Gateway</span>
+        <span class="title"><span>{{SelectedGateway.EdgeID?'Edit':'Create'}}</span> Gateway</span>
       </div>
       <div fxFlex></div>
     </div>
@@ -26,7 +26,8 @@
         <span class="subtitle">Edge Group</span>
         <mat-form-field appearance="standard" class="formfield">
           <mat-select fxFlex formControlName="EdgeGroup" placeholder="Choose EdgeGroup" class="matselect">
-            <mat-option class="matoption" value="1">group-1</mat-option>
+            <mat-option class="matoption" *ngFor="let group of MEdgeGroups" [value]="group.EdgeGroup" (click)="SetParamTable(group.EdgeParams)">{{group.Title}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -63,8 +64,9 @@
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
     <div fxLayoutAlign="end center" fxLayoutGap="24px">
-      <span class="deletetxt">Delete</span>
-      <span class="savetxt">Update</span>
+      <span class="deletetxt" *ngIf="!SelectedGateway.EdgeID" (click)=ResetControl()>Clear</span>
+      <span class="deletetxt" *ngIf="SelectedGateway.EdgeID" (click)=DeleteGatewayClicked()>Delete</span>
+      <span class="savetxt" (click)=SaveGatewayClicked()>{{SelectedGateway.EdgeID?'Update':'Create'}}</span>
     </div>
   </ion-toolbar>
 </ion-footer>

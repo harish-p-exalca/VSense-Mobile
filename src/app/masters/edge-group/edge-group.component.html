@@ -6,7 +6,7 @@
       </div>
       <div fxLayoutAlign="center center" fxLayoutGap="8px">
         <span class="title">Masters :</span>
-        <span class="title">Create Edge Group</span>
+        <span class="title"><span>{{SelectedGroup.EdgeGroup?'Edit':'Create'}}</span> Edge Group</span>
       </div>
       <div fxFlex></div>
     </div>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="tabledivision" *ngIf="GroupParamFormArray.length>0" [ngStyle]="{'height.px':TableHeight}">
+    <div class="tabledivision tableFixHead" *ngIf="GroupParamFormArray.length>0" [ngStyle]="{'height.px':TableHeight}">
       <table mat-table [dataSource]="GroupParamDataSource" formArrayName="GroupParams">
 
         <ng-container matColumnDef="ParamID">
@@ -135,8 +135,9 @@
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
     <div fxLayoutAlign="end center" fxLayoutGap="24px">
-      <span class="deletetxt">Delete</span>
-      <span class="savetxt">Update</span>
+      <span class="deletetxt" *ngIf="!SelectedGroup.EdgeGroup" (click)=ResetControl()>Clear</span>
+      <span class="deletetxt" *ngIf="SelectedGroup.EdgeGroup" (click)=DeleteGroupClicked()>Delete</span>
+      <span class="savetxt" (click)=SaveGroupClicked()>{{SelectedGroup.EdgeGroup?'Update':'Create'}}</span>
     </div>
   </ion-toolbar>
 </ion-footer>
