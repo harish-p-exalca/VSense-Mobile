@@ -32,6 +32,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { GatewayComponent } from './gateway/gateway.component';
 import { RuleComponent } from './rule/rule.component';
+import { AddEdgeDialogComponent } from './asset/add-edge-dialog/add-edge-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -53,7 +55,8 @@ import { RuleComponent } from './rule/rule.component';
     MatDialogModule,
     MatSnackBarModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   declarations: [
     MastersPage,
@@ -66,7 +69,8 @@ import { RuleComponent } from './rule/rule.component';
     DialogComponent,
     AssetEdgeComponent,
     GatewayComponent,
-    RuleComponent
+    RuleComponent,
+    AddEdgeDialogComponent
   ]
 })
 export class MastersPageModule {}
