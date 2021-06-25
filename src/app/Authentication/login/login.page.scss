@@ -1,102 +1,95 @@
-.maindiv{
-    height: 100%;
-    width: 100%;
+.content{
     background-image: url("/assets/Group 8439.png");
-}
-.title{
-    text-align: center;
-    font-size: 18px;
-    font-family: 'poppins-semi' !important;
-    color:#ffffff;
-}
-.card{
-    background-color: #ffffff;
-    border-radius: 4px;
-}
-.mat-card{
-    padding: 0px;
-    font-family: 'poppins-semi' !important;
-}
-.signin{
-    color: #3131ff;
-    font-size: 18px;
-}
-.signinto{
-    font-size: 12px;
-    color: #394256;  
-}
-.user{
-    font-size: 12px;
-    color: #394256;  
-}
-::placeholder{
-    color: #2b3540;
-    opacity: 40%;
-    font-size: 12px;
-    font-family: 'poppins-semi' !important;
-}
-.forgot{
-    color: #3131ff;
-    font-size: 12px;
-}
-button{
-    width: 210px;
-    height: 42px;
-    background-color: #3131ff;
-    color: #ffffff;
-    font-size: 12px;
-}
-img{
-    width: 40%;
-}
-.footer{
-    color: #c4c4c4;
-    font-size: 12px;
-}
-.show{
-    width: 7%;
-}
- @media only screen and (max-width: 1400px) {
-        .input1 {
-           width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    --background: none;
+    .poppins{
+        font-family: 'poppins-semi';
+        font-weight: 600;
+    }
+    .content-wrapper{
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        width: 100%;
+        .title-container{
+            padding: 0 0 32px;
+            .title{
+                font-size: 18px;
+                @extend .poppins;
+                color:#ffffff;
+            }
+        }
+        .card{
+            background-color: #ffffff;
+            border-radius: 4px;
+            margin: 0 24px;
+            padding: 32px 24px 24px 24px;
+            .logo-container{
+                @extend .poppins;
+                .signin{
+                    color: #3131ff;
+                    font-size: 18px;
+                }
+                .signinto{
+                    font-size: 12px;
+                    color: #394256;  
+                }
+            }
+            .form-wrapper{
+                @extend .poppins;
+                font-size: 12px;
+                .label{
+                    color: #394256;
+                    padding: 8px 0;
+                }
+                .formfield{
+                    height: 56px;
+                    .mat-form-field-flex {
+                        background-color: #f4f4f4;
+                        border-radius: 4px;
+                    }
+                    .mat-form-field-infix {
+                        padding: 6px 0 12px 0;
+                    }
+                    .mat-form-field-outline {
+                        color: #f4f4f4;
+                    }
+                    input{
+                        height: 14px;
+                        @extend .poppins;
+                        color: #394256 !important;
+                    }
+                }
+                .forgot{
+                    color: #3131ff;
+                }
+                .loginbtn{
+                    background-color: #3131ff;
+                    color: #ffffff;
+                    font-size: 12px;
+                    width: 196px;
+                }
+            }
+        }
+        ::placeholder{
+            color: #2b3540;
+            opacity: 40%;
+            font-size: 12px;
+            @extend .poppins;
         }
     }
-    @media only screen and (max-width: 360px) {
-        .btn {
-           margin-bottom: 10px;
+    .poweredby{
+        position: absolute;
+        bottom: 24px;
+        left: 16px;
+        color: #c4c4c4;
+        font-size: 10px;
+        @extend .poppins;
+        .logo{
+            width: 144px;
         }
     }
-.vsense{
-    width: 13%;
-    margin-bottom: 34px;
 }
 
-//mat-form-field
-::ng-deep .input1.mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
-::ng-deep .input1.mat-form-field-label-wrapper { top: -1.5em !important; }
-::ng-deep .input1.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-    transform: translateY(-1.1em) scale(.75) !important;
-    width: 133.33333% !important;
-}
-::ng-deep .input1.mat-form-field-appearance-outline .mat-form-field-flex {
-    background-color: #f4f4fb !important;
-  }
-::ng-deep .input1 input.mat-input-element {
-    margin-top: -0.425em !important;
-    font-size: 12px !important;
-    font-family: 'poppins-semi' !important;
-}
-::ng-deep .input1.mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: #f6f6f6 !important;
-}
-::ng-deep .input1.mat-form-field-appearance-legacy .mat-form-field-wrapper {
-    padding-bottom: 0.5em !important;
-}
-::ng-deep .input1.mat-form-field-infix {
-    display: block;
-    position: relative;
-    flex: auto;
-    min-width: 0;
-    width: 180px !important;
-    height: 50px !important;
-  }

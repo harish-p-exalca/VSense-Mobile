@@ -55,7 +55,10 @@ export class MastersPage implements OnInit,AfterViewInit {
       this.GetMaster(this.selectedIndex);
     });
   }
-
+  ionViewWillEnter(){
+    localStorage.removeItem('selected');
+    localStorage.removeItem('dassignment');
+  }
   ngAfterViewInit(){
     const HeaderWidth=window.innerWidth-32+'px';
     this.MatTab._elementRef.nativeElement.style.setProperty('--header-width',HeaderWidth);

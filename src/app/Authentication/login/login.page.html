@@ -1,66 +1,41 @@
-<ion-content>
-  <div class="maindiv" fxLayout="row">
-    <div fxFlex="6" class="div1"></div>
-    <div fxFlex="88" class="centerdiv" fxLayout="column">
-      <div fxFlex="10"></div>
-      <div fxLayout="column" fxFlex="5" class="title">
-        <span>Welcome To</span>
-        <span>VSense</span>
-      </div>
-      <div fxFlex="8"></div>
-      <mat-card fxLayout="row" class="card" fxFlex="67">
-        <div fxFlex="6" style="height: 5px;"></div>
-        <div fxFlex="88" fxLayout="column">
-          <div fxFlex="6" style="height: 5px;color: white;"></div>
-          <div fxFlex="88" fxLayout="column" fxLayoutGap="20px">
-            <div fxFlex="20" fxLayout="row" fxLayoutAlign="space-between center">
-              <div fxLayout="column" fxLayoutGap="10px">
-                <span class="signin">Sign In</span>
-                <span class="signinto">Sign In to Continue</span>
-              </div>
-              <img class="vsense" src="./assets/Group 8221.svg">
-            </div>
-            <div fxFlex="65">
-              <span class="user">User Name</span>
-              <form [formGroup]="loginFormGroup" autocomplete="off" >
-                <mat-form-field class="input1" appearance="outline">
-                  <div fxLayout="row" fxLayoutAlign="space-between center">
-
-                    <input placeholder="Enter User Name" matInput type="text" formControlName="UserName"/>
-                  </div>
-                </mat-form-field>
-
-                <span class="user">Password</span>
-
-                <mat-form-field class="input1" appearance="outline">
-                  <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <input placeholder="Enter Password" matInput [type]="PWVisible ? 'password' : 'text'"
-                      formControlName="Password"/>
-                    <img class="show" (click)="ToggleVisible()"
-                      [src]="PWVisible  ?  './assets/38488.svg' : './assets/38488.svg'" />
-                      <!-- <mat-icon (click)="ToggleVisible()">{{PWVisible ? 'visibility_off':'visibility'}}</mat-icon> -->
-                  </div>
-                </mat-form-field>
-              </form>
-              <span class="forgot" fxLayoutAlign="end center">Forgot Password?</span>
-            </div>
-            <div fxFlex="15" fxLayoutAlign="center center">
-              <button (click)="loginClicked()" class="btn" fxLayoutAlign="center center" type="button" mat-raised-button>
-                Log in
-              </button>
+<ion-content class="content">
+  <div class="content-wrapper">
+    <div fxLayout="column" class="title-container" fxLayoutAlign="start center">
+      <span class="title">Welcome To</span>
+      <span class="title">VSense</span>
+    </div>
+    <mat-card class="card">
+      <div fxLayout="column" fxLayoutGap="24px">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="logo-container">
+          <div fxLayout="column" fxLayoutGap="10px">
+            <span class="signin">Sign In</span>
+            <span class="signinto">Sign In to Continue</span>
+          </div>
+          <img src="./assets/Group 8221.svg" width="52px">
+        </div>
+        <form [formGroup]="loginFormGroup" autocomplete="off" (ngSubmit)="loginClicked()">
+          <div fxLayout="column" class="form-wrapper">
+            <span class="label">User Name</span>
+            <mat-form-field class="formfield" appearance="outline">
+              <input placeholder="Enter User Name" matInput type="text" formControlName="UserName" />
+            </mat-form-field>
+            <span class="label">Password</span>
+            <mat-form-field class="formfield" appearance="outline">
+              <input placeholder="Enter Password" matInput [type]="PWVisible ? 'password' : 'text'"
+                formControlName="Password" />
+              <mat-icon matSuffix (click)="ToggleVisible()">{{PWVisible ? 'visibility_off':'visibility'}}</mat-icon>
+            </mat-form-field>
+            <span class="forgot" fxLayoutAlign="end center">Forgot Password?</span>
+            <div fxLayoutAlign="center center" style="padding: 24px 0 0;">
+              <button class="loginbtn" type="submit" mat-raised-button>Log in</button>
             </div>
           </div>
-          <div fxFlex="6" style="height: 5px;color: white;">.</div>
-        </div>
-        <div fxFlex="6" style="height: 5px"></div>
-      </mat-card>
-      <div fxFlex="8"></div>
-      <div fxLayout="column" fxFlex="5">
-        <span class="footer">Powered By</span>
-        <img src="./assets/exalca_whitelogo.svg">
+        </form>
       </div>
-      <div fxFlex="7"></div>
-    </div>
-    <div fxFlex="6" class="div1"></div>
+    </mat-card>
+  </div>
+  <div fxLayout="column" class="poweredby">
+    <span>Powered By</span>
+    <img src="./assets/exalca_whitelogo.svg" class="logo">
   </div>
 </ion-content>

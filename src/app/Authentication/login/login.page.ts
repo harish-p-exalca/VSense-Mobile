@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { Router } from '@angular/router';
 import { AuthenticationDetails } from 'src/app/Models/master';
@@ -11,6 +11,7 @@ import { ToastService } from 'src/app/services/toast.service';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class LoginPage implements OnInit {
 
