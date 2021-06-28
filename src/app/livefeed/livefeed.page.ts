@@ -38,6 +38,9 @@ export class LivefeedPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    // this.GetLivFeeds();
+  }
+  ionViewWillEnter(){
     this.GetLivFeeds();
   }
 

@@ -48,17 +48,16 @@ export class LoginPage implements OnInit {
         .subscribe(
           (data) => {
             const dat = data as AuthenticationDetails;
-            // console.log(data);
             this.saveUserDetails(dat);
             this.loader.hideLoader();
           },
           (err) => {
-            this.loader.hideLoader();
             this.toast.showToast(
               err instanceof Object
                 ? "Something went wrong"
                 : err,ToastColors.danger
             );
+            this.loader.hideLoader();
             console.error(err);
           }
         );

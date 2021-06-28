@@ -115,6 +115,7 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetMaster(index:number){
+    this.loader.showLoader();
     if(index==0){
       this.GetAllSites();
     }
@@ -139,7 +140,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllSites(){
-    this.loader.showLoader();
     this.service.GetMSites().subscribe(res=>{
       this.MSites=<MSite[]>res;
       this.loader.hideLoader();
@@ -151,7 +151,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllSpaces(){
-    this.loader.showLoader();
     this.service.GetMSpaces().subscribe(res=>{
       this.MSpaces=<MSpace[]>res;
       this.loader.hideLoader();
@@ -163,7 +162,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllGroups(){
-    this.loader.showLoader();
     this.service.GetMEdgeGroups().subscribe(res=>{
       this.MGroups=<MEdgeGroupView[]>res;
       this.loader.hideLoader();
@@ -175,7 +173,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllEdges(){
-    this.loader.showLoader();
     this.service.GetMEdges().subscribe(res=>{
       this.MEdges=<MEdge[]>res;
       this.Gateways=this.MEdges.filter(x=>x.ParantEdgeID==null);
@@ -189,7 +186,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllAssets() {
-    this.loader.showLoader();
     this.service.GetMAssets().subscribe(res => {
       this.AssetViews = <AssetView[]>res;
       this.loader.hideLoader();
@@ -201,7 +197,6 @@ export class MastersPage implements OnInit,AfterViewInit {
   }
 
   GetAllRules() {
-    this.loader.showLoader();
     this.service.GetRules().subscribe(res => {
       this.Rules = <Rule[]>res;
       this.loader.hideLoader();

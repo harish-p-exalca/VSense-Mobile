@@ -30,6 +30,10 @@ export class DeviceListPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    //device list
+  }
+  
+  ionViewWillEnter(){
     this.GetMonitorData();
     localStorage.removeItem('assignment');
   }

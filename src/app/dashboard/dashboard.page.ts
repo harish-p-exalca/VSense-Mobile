@@ -38,6 +38,59 @@ export class DashboardPage implements OnInit {
     private toast:ToastService,
     private service:VsenseapiService
   ) { 
+  }
+
+  ngOnInit() {
+    this.RenderChart();
+  }
+  
+  ionViewWillEnter(){
+    this.GetMonitorData();
+  }
+
+  GetMonitorData() {
+    this.loader.showLoader();
+    this.service.GetMonitorTable().subscribe((data: any[]) => {
+      this.AllDevices=<MonitorTableView[]>data;
+      this.AllDevicesCount=this.AllDevices.length;
+      this.ActiveDevicesCount = this.AllDevices.filter(x=>x.Status==true).length;
+      this.InactiveDevicesCount=this.AllDevices.filter(x=>x.Status==false).length;
+      this.service.GetEdgeStatusChartData().subscribe(data => {
+        // console.log(data);
+        const deviceStatus = data;
+        this.chartOptions.series=[{
+          name:"Active devices",
+          data:deviceStatus
+        }];
+        this.loader.hideLoader();
+      },
+      err=>{
+        this.loader.hideLoader();
+        console.log(err);
+      });
+      this.loader.hideLoader();
+    },
+      err => {
+        console.log(err)
+        this.loader.hideLoader();
+      });
+  }
+
+  MastersClicked(index:number){
+    this._router.navigate(['masters'],{
+      queryParams: { id: index },
+    });
+  }
+  LiveFeedsClicked(){
+    this._router.navigate(['livefeed']);
+  }
+  ExceptionsClicked(){
+    this._router.navigate(['exceptions']);
+  }
+  DeviceListClicked(){
+    this._router.navigate(['dashboard/device-list']);
+  }
+  RenderChart(){
     this.chartOptions = {
       series: [
         {
@@ -100,52 +153,5 @@ export class DashboardPage implements OnInit {
         show:false
       }
     };
-  }
-
-  ngOnInit() {
-    this.GetMonitorData();
-  }
-
-  GetMonitorData() {
-    this.loader.showLoader();
-    this.service.GetMonitorTable().subscribe((data: any[]) => {
-      this.AllDevices=<MonitorTableView[]>data;
-      this.AllDevicesCount=this.AllDevices.length;
-      this.ActiveDevicesCount = this.AllDevices.filter(x=>x.Status==true).length;
-      this.InactiveDevicesCount=this.AllDevices.filter(x=>x.Status==false).length;
-      this.service.GetEdgeStatusChartData().subscribe(data => {
-        // console.log(data);
-        const deviceStatus = data;
-        this.chartOptions.series=[{
-          name:"Active devices",
-          data:deviceStatus
-        }];
-        this.loader.hideLoader();
-      },
-      err=>{
-        this.loader.hideLoader();
-        console.log(err);
-      });
-      this.loader.hideLoader();
-    },
-      err => {
-        console.log(err)
-        this.loader.hideLoader();
-      });
-  }
-
-  MastersClicked(index:number){
-    this._router.navigate(['masters'],{
-      queryParams: { id: index },
-    });
-  }
-  LiveFeedsClicked(){
-    this._router.navigate(['livefeed']);
-  }
-  ExceptionsClicked(){
-    this._router.navigate(['exceptions']);
-  }
-  DeviceListClicked(){
-    this._router.navigate(['dashboard/device-list']);
   }
 }
