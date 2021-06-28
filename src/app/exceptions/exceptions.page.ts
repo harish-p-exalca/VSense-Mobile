@@ -25,6 +25,10 @@ export class ExceptionsPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // this.GetExceptions();
+  }
+
+  ionViewWillEnter(){
     this.GetExceptions();
   }
 
